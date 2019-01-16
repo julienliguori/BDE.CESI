@@ -1,0 +1,81 @@
+Différente types de connexions: -Membre du BDE
+                                 - Etudiant
+                                  - Personel de l'école
+
+
+1 site pour chaque BDE mais un serveur centralisé
+Chaque BDE veut connaitre le prix total de l'hebergement de son site
+
+Le site internet doit être:
+- RESPONSIVE
+- Visible sur Google (mot commum "BDE CESI Saint Nazaire" "BDE Rouen")
+
+NAVIGATION
+
+ETUDIANT:
+INSCRIPTION (connexion a la base de données)
+Etudiant : Nom, Prénom, Centre, mail, mot de passe
+Proposer une idée d'activité (visible par tous le monde) dans la boite a idée
+M'inscrire a une activité proposé par le BDE
+Acceder au evenement passé (liker, commenter, ajouter des photo)
+
+Membre BDE:
+Poster un evenement (image, date, description) "evenement du mois" indiqué si payant ou non
+Acceder à la boite a idée et avoir un droit dessus.
+Notamment le droit de faire passer une idée dans la boite a idée en temps qu'evenement dans "evenement du mois"
+Notifier l'etudiant qui a poster l'idée qu'on a retenue son idée.
+Acceder a la liste des inscris et en télécharger une liste .pdf
+Modifiaction des photos et des commentaires (droit de supprimer si inaproprié).
+
+
+SALARIE CESI:
+Prévenir les membre du BDE qu'une publication ou une photo est inaproprier (Tag a coté de chaque event ou photo) -> envoi d'un formulaire au membre avec indication de la photo signalé et une description)
+Naviguer dans les mêmes zones que les etudiants 
+Telecharger l'ensemble des photos et des video (soit par event, soit la total)
+
+
+
+
+BOUTIQUE
+Il faut un onglet BOUTIQUE
+Barre de recher avec autocomplétion
+Filtre par prix/ catégorie
+Les trois articles les plus commander devront être afficher (sous forme d'un carroussel?)
+
+BDE: 
+Seul les membres du BDE peuvent ajouter de nouveaux produits (nom, description, image, prix, catégorie)
+Chaque objet apartient a une catégorie
+On pourra donc afficher les objets correspondant a une catégorie.
+En cas de commande d'un étudiant, les membres recoivent un notifiaction avec les listes des produits commander.
+
+ETUDIANT: 
+Peut commander x produit par l'intermediaire d'un panier qui est sauvegarder si pas commander.
+
+BONUS : Utilisation PAYPAL
+
+
+
+
+CONTRAINTE
+
+MEMBRE BDE
+Le site internet doit être:
+- RESPONSIVE
+- Visible sur Google (mot commum "BDE CESI Saint Nazaire" "BDE Rouen")
+Donc amélioration du référencement
+- Le BDE veut connaitre cout annuel (hebergement, nom de domaine) pas cher pas cher
+
+INTERNE 
+Réalisation d’une maquette visuelle en amont de la conception : zoning, wireframes, mockups, à vous de choisir le degré de complexité.
+Pour la partie administration, utilisation de tableaux remplis en AJAX incluant filtrage et pagination (voir ressources).
+Les formulaires doivent être validés en Javascript.
+Chaque page générée doit être valide W3C (HTML et CSS).
+Pas d’utilisation de CMS.
+Les données relatives aux utilisateurs sont stockées sur un autre serveur.
+
+TECHNIQUE 
+- on peut utiliser LESS ou Sass pour le CSS
+- On peut utiliser JQUERY Javascript
+- Vous utiliserez une base de données sous MySQL. Pour les utilisateurs il faut savoir que cette base de données sera commune à tous les BDE des école d’ingénieurs CESI. Concernant les manifestations elles peuvent au choix être stockées dans une autre base de données en local ou dans la base de données nationale. Vous serez capable de justifier votre choix. 
+La gestion des API REST se fera via un serveur Node.js.
+La sécurité est essentielle : toutes les requêtes issues des formulaires devront être filtrées et validées en utilisant les fonctionnalités PHP. Idem pour l’accès aux API REST qui devront utiliser un mécanisme d’authentification tel que les tokens.
