@@ -14,7 +14,7 @@ var myRouter = express.Router();
  
 myRouter.route('/boutique')
 .get(function(req,res){
-      res.json({action : "Vous avez ajouté un article.", methode : req.method});
+      res.json({action : "Vous avez ouvert la boutique.", methode : req.method});
 })
 .post(function(req,res){
       res.json({action : "Vous avez mit cet article dans le panier.", methode : req.method});
