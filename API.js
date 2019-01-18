@@ -12,25 +12,13 @@ var app = express();
 //C'est à partir de cet objet myRouter, que nous allons implémenter les méthodes. 
 var myRouter = express.Router(); 
  
-// Je vous rappelle notre route (/piscines).  
-myRouter.route('/piscines')
-// J'implémente les méthodes GET, PUT, UPDATE et DELETE
-// GET
-.get(function(req,res){ 
-	  res.json({message : "Liste toutes les piscines de Lille Métropole", methode : req.method});
+myRouter.route('/boutique')
+.get(function(req,res){
+      res.json({message : "Il y a des articles !", methode : req.method});
 })
-//POST
 .post(function(req,res){
-      res.json({message : "Ajoute une nouvelle piscine à la liste", methode : req.method});
+      res.json({message : "Vous mettez un article.", method : req.method});
 })
-//PUT
-.put(function(req,res){ 
-      res.json({message : "Mise à jour des informations d'une piscine dans la liste", methode : req.method});
-})
-//DELETE
-.delete(function(req,res){ 
-res.json({message : "Suppression d'une piscine dans la liste", methode : req.method});  
-}); 
  
 // Nous demandons à l'application d'utiliser notre routeur
 app.use(myRouter);  
