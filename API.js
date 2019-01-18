@@ -14,10 +14,10 @@ var myRouter = express.Router();
  
 myRouter.route('/boutique')
 .get(function(req,res){
-      res.json({message : "Il y a des articles !", methode : req.method});
+      res.json({action : "Vous avez ajouté un article.", methode : req.method});
 })
 .post(function(req,res){
-      res.json({message : "Vous mettez un article.", method : req.method});
+      res.json({action : "Vous avez mit cet article dans le panier.", methode : req.method});
 })
  
 // Nous demandons à l'application d'utiliser notre routeur
