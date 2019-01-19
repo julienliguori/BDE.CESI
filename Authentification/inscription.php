@@ -19,13 +19,13 @@ if(isset($_POST['forminscription'])) {
       if($pseudolength <= 255) {
          if($mail == $mail2) {
             $mailAuth = explode('@', $mail);
-                  if ($mailAuth == "viacesi.fr" || $mailAuth == "cesi.fr") {
+                  if ($mailAuth[1] == "viacesi.fr" || $mailAuth[1] == "cesi.fr") {
                      $status = "Etudiant";
-
-                     if ($mailAuth == "cesi.fr"){
-                           $status = "salarier";
+                        
+                     if ($mailAuth[1] == "cesi.fr"){
+                           $status = "Salarier";
                      
-                     }else $erreur = "Votre adresse mail n'est pas valide !";
+                     }
                   
                      if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                         $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
@@ -46,7 +46,7 @@ if(isset($_POST['forminscription'])) {
                      } else {
                         $erreur = "Votre adresse mail n'est pas valide !";
                      }
-            }else $erreur = "Votre adresse mail n'est pas valide !";
+            } else { $erreur = "Votre adresse mail n'est pas valide 2 !";}
          } else {
             $erreur = "Vos adresses mail ne correspondent pas !";
          }
@@ -147,10 +147,22 @@ if(isset($_POST['forminscription'])) {
                         </SELECT>
                   </td>
                </tr>
+            <!-- <br>
                <tr>
-                  <td></td>
-                  <td align="center">
-                     <br />
+                  <td align="center">                    
+                     <br/>
+                     <input type="checkbox" id="scales" name="scales" checked></td>
+                     </td>
+                     <td>
+                     <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation ainsi que la Politique de confidentialité </a></label>
+                  </td>
+               </tr>
+            <br> -->
+               <tr>
+                  <td>
+                  </td>
+                  <td>
+                  <br />
                      <input type="submit" name="forminscription" value="Je m'inscris" />
                   </td>
                </tr>
