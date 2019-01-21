@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php include('src/site/dependances.php'); ?>
+
+    <?php   
+        include_once('../connexioncookie.php');
+        include('src/site/dependances.php'); 
+    ?>
     <title>Skeleton</title>
 </head>
 <body>
