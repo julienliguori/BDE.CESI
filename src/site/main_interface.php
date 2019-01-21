@@ -1,0 +1,1 @@
+<div class="black-left-fill-rectangle">&nbsp;</div>
