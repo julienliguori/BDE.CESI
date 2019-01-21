@@ -2,55 +2,33 @@
 <html lang='fr'>
 
 <head>
-<?php
-include('../site/dependances.php');
-?>
+    <?php include('http://BDE.CESI/site/dependances.php') ?>
+
     <title>vitrineTest</title>
 
     </head>
 
     <body>
         <header>
-            <?php
-            include('../site/header_interface.php');
-            ?>
+            <?php include('http://BDE.CESI/site/header_interface.php') ?>
         </header>
 
         <main>
-             <?php
-            include('../site/main_interface.php');
-            ?>
+            <?php include('http://BDE.CESI/site/main_interface.php') ?>
 
-            
-<?php
-
-$bdd = new PDO('mysql:host=127.0.0.1;dbname=boutique;charset=utf8','root','');
-
-$article = $bdd->query('SELECT nom FROM article ORDER BY nom DESC');
-
-if(isset($_GET['q']) AND !empty($_GET['q']))
-{
-    $q= htmlspecialchars($_GET['q']);
-    $article = $bdd->query('SELECT nom FROM article WHERE nom LIKE "%'.$q.'%" ORDER BY nom DESC');
-}
-
-
-?>
-
-<form action="GET">
-    <input type="search" name= "q" placeholder="Recherche..." />
-    <input type="submit" value="Valider" />
-</form>
-
-<ul>
-<?php while($a = $article->fetch()) { ?>
-      <li><?= $a['nom'] ?></li>
-   <?php } ?>
-   </ul>
-
-
-
-
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                  <a href="#about">About</a>
+                  <a href="#base">Base</a>
+                  <a href="#blog">Blog</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#custom">Custom</a>
+                  <a href="#support">Support</a>
+                  <a href="#tools">Tools</a>
+                </div>
+              </div>
         </main>
 
         <footer>
