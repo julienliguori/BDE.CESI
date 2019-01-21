@@ -14,47 +14,52 @@ if(isset($_POST['forminscription'])) {
    $mdp2 = sha1($_POST['mdp2']);
    $centre = htmlspecialchars($_POST['centre']);
 
-   if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']) AND !empty($_POST['centre'])) {
-      $pseudolength = strlen($nom);
-      if($pseudolength <= 255) {
-         if($mail == $mail2) {
-            $mailAuth = explode('@', $mail);
-                  if ($mailAuth[1] == "viacesi.fr" || $mailAuth[1] == "cesi.fr") {
-                     $status = "Etudiant";
+
+   if(!empty($_POST['scales'])){
+      if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']) AND !empty($_POST['centre'])) {
+         $pseudolength = strlen($nom);
+         if($pseudolength <= 255) {
+            if($mail == $mail2) {
+               $mailAuth = explode('@', $mail);
+                     if ($mailAuth[1] == "viacesi.fr" || $mailAuth[1] == "cesi.fr") {
+                        $status = "Etudiant";
+                           
+                        if ($mailAuth[1] == "cesi.fr"){
+                              $status = "Salarier";
                         
-                     if ($mailAuth[1] == "cesi.fr"){
-                           $status = "Salarier";
+                        }
                      
-                     }
-                  
-                     if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                        $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
-                        $reqmail->execute(array($mail));
-                        $mailexist = $reqmail->rowCount();
-                        if($mailexist == 0) {
-                           if($mdp == $mdp2) {
-                              $insertmbr = $bdd->prepare("INSERT INTO membres(Nom, Prenom, Mail, MDP, Centre, Status) VALUES(?, ?, ?, ?, ?, ?)");
-                              $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $centre, $status));
-                              $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
-                              //header('Location: index.php');
+                        if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+                           $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
+                           $reqmail->execute(array($mail));
+                           $mailexist = $reqmail->rowCount();
+                           if($mailexist == 0) {
+                              if($mdp == $mdp2) {
+                                 $insertmbr = $bdd->prepare("INSERT INTO membres(Nom, Prenom, Mail, MDP, Centre, Status) VALUES(?, ?, ?, ?, ?, ?)");
+                                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $centre, $status));
+                                 $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
+                                 header('Location: connexion.php');
+                              } else {
+                                 $erreur = "Vos mots de passes ne correspondent pas !";
+                              }
                            } else {
-                              $erreur = "Vos mots de passes ne correspondent pas !";
+                              $erreur = "Adresse mail déjà utilisée !";
                            }
                         } else {
-                           $erreur = "Adresse mail déjà utilisée !";
+                           $erreur = "Votre adresse mail n'est pas valide !";
                         }
-                     } else {
-                        $erreur = "Votre adresse mail n'est pas valide !";
-                     }
-            } else { $erreur = "Votre adresse mail n'est pas valide 2 !";}
+               } else { $erreur = "Votre adresse mail n'est pas valide 2 !";}
+            } else {
+               $erreur = "Vos adresses mail ne correspondent pas !";
+            }
          } else {
-            $erreur = "Vos adresses mail ne correspondent pas !";
+            $erreur = "Votre nom ne doit pas dépasser 255 caractères !";
          }
       } else {
-         $erreur = "Votre nom ne doit pas dépasser 255 caractères !";
+         $erreur = "Tous les champs doivent être complétés !";
       }
    } else {
-      $erreur = "Tous les champs doivent être complétés !";
+      $erreur = "Vous devez accepté les CGU !";
    }
 }
 ?>
@@ -126,7 +131,7 @@ if(isset($_POST['forminscription'])) {
                         <SELECT name="centre" size="1 value="<?php if(isset($centre)) { echo $centre; } ?>"">
                            <OPTION>Arras
                            <OPTION>Aix-en-Provence
-                           <OPTION>Angoulême
+                           <OPTION>Angouleme
                            <OPTION>Brest
                            <OPTION>Bordeaux
                            <OPTION>Caen
@@ -147,17 +152,17 @@ if(isset($_POST['forminscription'])) {
                         </SELECT>
                   </td>
                </tr>
-            <!-- <br>
+            <br/>
                <tr>
                   <td align="center">                    
                      <br/>
-                     <input type="checkbox" id="scales" name="scales" checked></td>
+                     <input type="checkbox" id="scales" name="scales" unchecked></td>
                      </td>
                      <td>
-                     <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation ainsi que la Politique de confidentialité </a></label>
+                     <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation</a> ainsi que la <a href="/PdC"> Politique de confidentialité </a></label>
                   </td>
                </tr>
-            <br> -->
+            <br/>
                <tr>
                   <td>
                   </td>
