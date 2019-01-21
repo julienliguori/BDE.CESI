@@ -6,3 +6,4 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" media="screen and (min-width: 900px)" href="http://BDE.CESI/widescreen.css">
 <link rel="stylesheet" media="screen and (max-width: 600px)" href="http://BDE.CESI/small.css">
+<link rel="icon" type="image/png" href="./img/logo/bde.png" />
