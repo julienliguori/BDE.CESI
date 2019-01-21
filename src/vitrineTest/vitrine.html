@@ -7,26 +7,43 @@
     <meta name="description" content="Site Web pour le BDE du CESI.">
     <meta name="author" content="Antoine Casenove, Hugo Le Boennec, Julien Liguori, Lorenzo Nouteau, Antonin Pretet">
     <link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
-    <!--<link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="largeScreen.css">
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="SmallScreen.css">
 
-    <title>test BDE</title>
+    <title>vitrineTest</title>
 
-</head>
+    </head>
 
-<body>
-    <header>
-    </header>
+    <body>
+        <header>
+            <div class="black-top-fill-rectangle">&nbsp;</div>
+            <div class="black-rotated-fill-rectangle">&nbsp;</div>
+        </header>
 
-    <main>
-        
-    </main>
+        <main>
+            <div class="black-left-fill-rectangle">&nbsp;</div>
 
-    <footer>
-        <div id="copyright" class="copyright"></div>
-    </footer>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                  <a href="#about">About</a>
+                  <a href="#base">Base</a>
+                  <a href="#blog">Blog</a>
+                  <a href="#contact">Contact</a>
+                  <a href="#custom">Custom</a>
+                  <a href="#support">Support</a>
+                  <a href="#tools">Tools</a>
+                </div>
+              </div>
+        </main>
 
-    <script src="./assets/vendors/jquery/jquery-3.3.1.min.js"></script>
-    <script src="./assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
+        <footer>
+            <div id="copyright" class="copyright"></div>
+        </footer>
+
+        <script src="./assets/vendors/jquery/jquery-3.3.1.min.js"></script>
+        <script src="./assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </body>
 
 </html>
