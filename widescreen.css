@@ -1,29 +1,31 @@
+.black-top-fill-rectangle{
+  min-width: 100vh;
+  height: 40px;
+  background:black;
+}
+
+.events-top-fill-rectangle{
+  min-width: 100vh;
+  height: 26px;
+  background:grey;
+}
+
 .black-left-fill-rectangle{
-  width:180px;
+  width:144px;
   min-height: 100vh;
-  margin-top: -20px;
-  position: fixed;
+  margin-top: -26px;
+  margin-left: -246px;
+  float: left;
   background:black;
 }
 
 .black-rotated-fill-rectangle{
   transform: rotate(140deg);
   float: left;
-  margin-top: -33px;
+  margin-top: -42px;
   margin-left: 96px;
   width: 150px;
-  height: 75px;
+  height: 43px;
   background:black;
 }
 
-.events-top-fill-rectangle{
-  min-width: 100vh;
-  height: 15px;
-  background:grey;
-}
-
-.black-top-fill-rectangle{
-  min-width: 100vh;
-  height: 50px;
-  background:black;
-}
