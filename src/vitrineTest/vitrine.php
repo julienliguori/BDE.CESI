@@ -2,7 +2,7 @@
 <html lang='fr'>
 
 <head>
-    <?php include('http://BDE.CESI/site/dependances.php') ?>
+    <?php include('../site/dependances.php') ?>
 
     <title>vitrineTest</title>
 
@@ -10,11 +10,11 @@
 
     <body>
         <header>
-            <?php include('http://BDE.CESI/site/header_interface.php') ?>
+            <?php include('../site/header_interface.php') ?>
         </header>
 
         <main>
-            <?php include('http://BDE.CESI/site/main_interface.php') ?>
+            <?php include('../site/main_interface.php') ?>
 
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Dropdown</button>

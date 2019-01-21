@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include('src/site/dependances.php'); ?>
+    <title>Skeleton</title>
+</head>
+<body>
+    <header><?php include('src/site/header_interface.php'); ?></header>
+    <main><?php include('src/site/main_interface.php'); ?></main>
+</body>
+</html>
