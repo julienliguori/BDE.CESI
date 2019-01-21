@@ -1,5 +1,5 @@
 .black-left-fill-rectangle{
-  width:200px;
+  width:180px;
   min-height: 100vh;
   position: fixed;
   background:black;
@@ -9,7 +9,7 @@
   transform: rotate(140deg);
   float: left;
   margin-top: -12px;
-  margin-left: 149px;
+  margin-left: 129px;
   width: 150px;
   height: 50px;
   background:black;
@@ -17,6 +17,6 @@
 
 .black-top-fill-rectangle{
   min-width: 100vh;
-  height: 100px;
+  height: 90px;
   background:black;
 }
