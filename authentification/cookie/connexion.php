@@ -14,11 +14,11 @@ if(isset($_POST['formconnexion'])) {
       if($userexist == 1) {
          $userinfo = $requser->fetch();
 
-         setcookie("id", $userinfo['ID'], time()+$time_c);
-         setcookie("nom", $userinfo['Nom'], time()+$time_c);
-         setcookie("prenom", $userinfo['Prenom'], time()+$time_c);
-         setcookie("mail", $userinfo['Mail'], time()+$time_c);
-         setcookie("status", $userinfo['Status'], time()+$time_c);
+         setcookie("id", $userinfo['ID'], time()+$time_c, null, null, false, true);
+         setcookie("nom", $userinfo['Nom'], time()+$time_c, null, null, false, true);
+         setcookie("prenom", $userinfo['Prenom'], time()+$time_c, null, null, false, true);
+         setcookie("mail", $userinfo['Mail'], time()+$time_c, null, null, false, true);
+         setcookie("status", $userinfo['Status'], time()+$time_c, null, null, false, true);
          // var_dump($_COOKIE);
          // die();
          header("Location: profil.php?id=".$_COOKIE['id']);
