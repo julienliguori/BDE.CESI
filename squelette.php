@@ -3,7 +3,7 @@
 <head>
 
     <?php   
-        include_once('../connexioncookie.php');
+        include_once('./authentification/connexioncookie.php');
         include('src/site/dependances.php'); 
     ?>
     <title>Skeleton</title>
