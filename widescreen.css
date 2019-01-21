@@ -1,6 +1,7 @@
 .black-left-fill-rectangle{
   width:180px;
   min-height: 100vh;
+  margin-top: -20px;
   position: fixed;
   background:black;
 }
