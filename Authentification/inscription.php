@@ -1,5 +1,5 @@
 <?php
-$bdd = new PDO('mysql:host=;dbname=espace_menbre', 'root', '');
+$bdd = new PDO('mysql:host=;dbname=espace_membre', 'root', '');
 
 if(isset($_POST['forminscription'])) {
 
@@ -143,7 +143,7 @@ if(isset($_POST['forminscription'])) {
                            <OPTION>Reims
                            <OPTION>Strasbourg
                            <OPTION>Saint-Nazaire
-                           <option>Toulouse
+                           <OPTION>Toulouse
                         </SELECT>
                   </td>
                </tr>
