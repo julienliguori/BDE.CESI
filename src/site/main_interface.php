@@ -1,0 +1,1 @@
+<div class="black-left-fill-rectangle" style="margin-top: -20px">&nbsp;</div>
