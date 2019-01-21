@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <?php include('src/site/dependances.php'); ?>
     <title>Skeleton</title>
