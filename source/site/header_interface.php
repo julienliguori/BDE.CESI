@@ -14,15 +14,18 @@
                 <a class="nav-item nav-link" href="../../pages/idees/idees.php">Boite à idées</a>
                 <a class="nav-item nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
                 <a class="nav-item nav-link" href="../../pages/squelette.php">Squelette</a>
-                <input class="" type="text" style="position: absolute; right:250px;" name="" placeholder="Recherche...">
-                <button class="" style="position: absolute; right:160px;"  type="submit">Rechercher</button>
+                
                 <?php 
                 /* var_dump(isset($_SESSION)); */
                 if(isset($_SESSION['id']))
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>';
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>
+                    <input class="" type="text" style="position: absolute; right:200px;" name="" placeholder="Recherche...">
+                    <button class="" style="position: absolute; right:110px;"  type="submit">Rechercher</button>';
                 else{
                     echo '<a class="nav-item nav-link" style="position: absolute; right: 80px;" href="../../source/authentification/connexion.php">Connexion</a>';
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';  
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>
+                    <input class="" type="text" style="position: absolute; right:250px;" name="" placeholder="Recherche...">
+                    <button class="" style="position: absolute; right:160px;"  type="submit">Rechercher</button>';  
                 }?>
                 </div>
         </div>
