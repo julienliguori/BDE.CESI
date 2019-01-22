@@ -76,7 +76,7 @@ if(isset($_POST['forminscription'])) {
       <?php include('.././site/main_interface.php'); ?></header>
 
       <main>
-         <div align="center" style="margin-left:50%">
+         <div align="center" style="margin-left:50% text-align:center;">
             <h2>Inscription</h2>
             <br /><br />
             <form method="POST" action="">
