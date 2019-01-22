@@ -76,7 +76,7 @@ if(isset($_POST['forminscription'])) {
       <?php include('.././site/main_interface.php'); ?></header>
 
       <main>
-         <div align="center">
+         <div align="center" style="margin-left:50%">
             <h2>Inscription</h2>
             <br /><br />
             <form method="POST" action="">
@@ -174,7 +174,7 @@ if(isset($_POST['forminscription'])) {
                      </td>
                      <td>
                      <br />
-                        <input type="submit" name="forminscription" value="Je m'inscris" />
+                        <input type="submit" class="btn btn-primary" name="forminscription" value="Je m'inscris" />
                      </td>
                   </tr>
                </table>
