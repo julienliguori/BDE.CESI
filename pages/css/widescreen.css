@@ -5,14 +5,14 @@
 
 
 .navbar-default.navbar-expand-sm.navbar-dark.bg-dark{
-  margin-left: 180px; 
-  padding: 4px 0px 10px 40px;
+  margin-left: 160px; 
+  padding: 8px 0px 5px 60px;
   font-family: 'Roboto', sans-serif;
 }
 
 .black-top-fill-rectangle{
   min-width: 100vh;
-  height: 40px;
+  height: 55px;
   background:black;
   font-family: 'Roboto', sans-serif;
 }
@@ -28,7 +28,7 @@
 .black-left-fill-rectangle{
   width:144px;
   min-height: 100vh;
-  margin-top: -26px;
+  margin-top: -45px;
   margin-left: -246px;
   float: left;
   background:black;
@@ -38,21 +38,10 @@
 .black-rotated-fill-rectangle{
   transform: rotate(140deg);
   float: left;
-  margin-top: -42px;
-  margin-left: 51px;
-  width: 195px;
-  height: 43px;
+  margin-top: -40px;
+  margin-left: -75px;
+  width: 320px;
+  height: 70px;
   background:black;
   
-}
-
-.dropdown
-{
-  background: black;
-}
-
-
-html
-{
-font-family: 'Roboto', sans-serif;
 }

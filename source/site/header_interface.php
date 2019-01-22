@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php 
+session_start();
+
+include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php');
+?>
 
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
 
@@ -8,11 +12,27 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="../../pages/index.php">Accueil</a>
-                <a class="nav-item nav-link" href="../../pages/evenement/events.php">Événements</a>
-                <a class="nav-item nav-link" href="../../pages/idees/idees.php">Boite à idées</a>
-                <a class="nav-item nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
-                <a class="nav-item nav-link" href="../../pages/squelette.php">Squelette</a>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle p-3 mb-2 bg-dark text-white border-0" type="button" data-toggle="dropdown">Evénements</button>
+                    <ul class="dropdown-menu">
+                     <li><a href="#">Consulter les événements</a></li>
+                     <li><a href="#">Evévements passés</a></li>
+                  </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle p-3 mb-2 bg-dark text-white border-0" type="button" data-toggle="dropdown">Boite à idée</button>
+                    <ul class="dropdown-menu">
+                     <li><a href="#">Consulter la boîte à idée</a></li>
+                     <li><a href="#">Ajouter une idée</a></li>
+                  </ul>
+            </div>
+            <div class="dropdown">
+            <a href="#" class="btn btn-secondary btn-lg active p-3 mb-2 bg-dark text-white border-0" role="button" aria-pressed="true">Boutique</a>
+            </div>
+                <?php 
+                    if(isset($_SESSION['id']))
+                    echo'<a class="nav-item nav-link" href="../../source/authentification/profil.php?id='.$_SESSION['id'].'">Profil</a>'
+                ?>
                 <?php 
                 /* var_dump(isset($_SESSION)); */
                 if(isset($_SESSION['id']))
@@ -24,9 +44,13 @@
                 </div>
         </div>
     </nav>
+    <nav class="dropdown">                                   
+        
+    </nav>
 
-&nbsp;</div>
+&nbsp;
+</div>
 <div class="events-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein d'events ici :3</p>&nbsp;</div>
 <div class="black-rotated-fill-rectangle">&nbsp;</div>
 
-<a href="../../pages/index.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -58px 0px 0px -237px"></a>
+<a href="../../pages/index.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
