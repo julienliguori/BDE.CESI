@@ -3,7 +3,6 @@
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
 
     <nav class="navbar-default navbar-expand-sm navbar-dark bg-dark">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,18 +13,13 @@
                 <a class="nav-item nav-link" href="../../pages/idees/idees.php">Boite à idées</a>
                 <a class="nav-item nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
                 <a class="nav-item nav-link" href="../../pages/squelette.php">Squelette</a>
-                
                 <?php 
                 /* var_dump(isset($_SESSION)); */
                 if(isset($_SESSION['id']))
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>
-                    <input class="" type="text" style="position: absolute; right:200px;" name="" placeholder="Recherche...">
-                    <button class="" style="position: absolute; right:110px;"  type="submit">Rechercher</button>';
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>';
                 else{
                     echo '<a class="nav-item nav-link" style="position: absolute; right: 80px;" href="../../source/authentification/connexion.php">Connexion</a>';
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>
-                    <input class="" type="text" style="position: absolute; right:250px;" name="" placeholder="Recherche...">
-                    <button class="" style="position: absolute; right:160px;"  type="submit">Rechercher</button>';  
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';
                 }?>
                 </div>
         </div>
