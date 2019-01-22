@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
 
     <nav class="navbar-default navbar-expand-sm navbar-dark bg-dark">
