@@ -66,118 +66,125 @@ if(isset($_POST['forminscription'])) {
 
 <html>
    <head>
+      <?php include('.././site/dependances.php'); ?>
+
       <title>Inscription</title>
       <meta charset="utf-8">
    </head>
    <body>
-      <div align="center">
-         <h2>Inscription</h2>
-         <br /><br />
-         <form method="POST" action="">
-            <table>
-               <tr>
-                  <td align="right">
-                     <label for="nom">Nom :</label>
-                  </td>
-                  <td>
-                     <input type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="prenom">Prenom :</label>
-                  </td>
-                  <td>
-                     <input type="text" placeholder="Votre prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="mail">Mail :</label>
-                  </td>
-                  <td>
-                     <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="mail2">Confirmation du mail :</label>
-                  </td>
-                  <td>
-                     <input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="mdp">Mot de passe :</label>
-                  </td>
-                  <td>
-                     <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="mdp2">Confirmation du mot de passe :</label>
-                  </td>
-                  <td>
-                     <input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
-                  </td>
-               </tr>
-               <tr>
-                  <td align="right">
-                     <label for="centre">Centre :</label>
-                  </td>
-                  <td  type="centre" placeholder="Choisisser un centre :" id="centre" name="centre">
-                        <SELECT name="centre" size="1 value="<?php if(isset($centre)) { echo $centre; } ?>"">
-                           <OPTION>Arras
-                           <OPTION>Aix-en-Provence
-                           <OPTION>Angouleme
-                           <OPTION>Brest
-                           <OPTION>Bordeaux
-                           <OPTION>Caen
-                           <OPTION>Dijon
-                           <OPTION>Pau
-                           <OPTION>Orleans
-                           <OPTION>Lyon
-                           <OPTION>Le Mans
-                           <OPTION>Lille
-                           <OPTION>Nancy
-                           <OPTION>Nanterre
-                           <OPTION>Montpellier
-                           <OPTION>Rouen
-                           <OPTION>Reims
-                           <OPTION>Strasbourg
-                           <OPTION>Saint-Nazaire
-                           <OPTION>Toulouse
-                        </SELECT>
-                  </td>
-               </tr>
-            <br/>
-               <tr>
-                  <td align="center">                    
-                     <br/>
-                     <input type="checkbox" id="scales" name="scales" unchecked></td>
+      <header><?php include('.././site/header_interface.php'); ?>
+      <?php include('.././site/main_interface.php'); ?></header>
+
+      <main>
+         <div align="center">
+            <h2>Inscription</h2>
+            <br /><br />
+            <form method="POST" action="">
+               <table>
+                  <tr>
+                     <td align="right">
+                        <label for="nom">Nom :</label>
                      </td>
                      <td>
-                     <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation</a> ainsi que la <a href="/PdC"> Politique de confidentialité </a></label>
-                  </td>
-               </tr>
-            <br/>
-               <tr>
-                  <td>
-                  </td>
-                  <td>
-                  <br />
-                     <input type="submit" name="forminscription" value="Je m'inscris" />
-                  </td>
-               </tr>
-            </table>
-         </form>
-         <?php
-         if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
-         }
-         ?>
-      </div>
+                        <input type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="prenom">Prenom :</label>
+                     </td>
+                     <td>
+                        <input type="text" placeholder="Votre prenom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="mail">Mail :</label>
+                     </td>
+                     <td>
+                        <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="mail2">Confirmation du mail :</label>
+                     </td>
+                     <td>
+                        <input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="mdp">Mot de passe :</label>
+                     </td>
+                     <td>
+                        <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="mdp2">Confirmation du mot de passe :</label>
+                     </td>
+                     <td>
+                        <input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="right">
+                        <label for="centre">Centre :</label>
+                     </td>
+                     <td  type="centre" placeholder="Choisisser un centre :" id="centre" name="centre">
+                           <SELECT name="centre" size="1 value="<?php if(isset($centre)) { echo $centre; } ?>"">
+                              <OPTION>Arras
+                              <OPTION>Aix-en-Provence
+                              <OPTION>Angouleme
+                              <OPTION>Brest
+                              <OPTION>Bordeaux
+                              <OPTION>Caen
+                              <OPTION>Dijon
+                              <OPTION>Pau
+                              <OPTION>Orleans
+                              <OPTION>Lyon
+                              <OPTION>Le Mans
+                              <OPTION>Lille
+                              <OPTION>Nancy
+                              <OPTION>Nanterre
+                              <OPTION>Montpellier
+                              <OPTION>Rouen
+                              <OPTION>Reims
+                              <OPTION>Strasbourg
+                              <OPTION>Saint-Nazaire
+                              <OPTION>Toulouse
+                           </SELECT>
+                     </td>
+                  </tr>
+               <br/>
+                  <tr>
+                     <td align="center">                    
+                        <br/>
+                        <input type="checkbox" id="scales" name="scales" unchecked></td>
+                        </td>
+                        <td>
+                        <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation</a> ainsi que la <a href="/PdC"> Politique de confidentialité </a></label>
+                     </td>
+                  </tr>
+               <br/>
+                  <tr>
+                     <td>
+                     </td>
+                     <td>
+                     <br />
+                        <input type="submit" name="forminscription" value="Je m'inscris" />
+                     </td>
+                  </tr>
+               </table>
+            </form>
+            <?php
+            if(isset($erreur)) {
+               echo '<font color="red">'.$erreur."</font>";
+            }
+            ?>
+         </div>
+      </main>
    </body>
 </html>
