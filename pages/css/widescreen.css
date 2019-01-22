@@ -1,3 +1,8 @@
+.navbar-default.navbar-expand-sm.navbar-dark.bg-dark{
+  margin-left: 180px; 
+  padding: 4px 0px 10px 40px;
+}
+
 .black-top-fill-rectangle{
   min-width: 100vh;
   height: 40px;
@@ -23,8 +28,8 @@
   transform: rotate(140deg);
   float: left;
   margin-top: -42px;
-  margin-left: 96px;
-  width: 150px;
+  margin-left: 51px;
+  width: 195px;
   height: 43px;
   background:black;
 }
