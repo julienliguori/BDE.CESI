@@ -1,4 +1,4 @@
-<div class="black-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein de boutons ici :3</p>
+<div class="black-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p>
 
 <!--     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Menu</a>
@@ -18,4 +18,4 @@
 <div class="events-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein d'events ici :3</p>&nbsp;</div>
 <div class="black-rotated-fill-rectangle">&nbsp;</div>
 
-<a href="http://BDE.CESI/pages/index.php"><img src="http://BDE.CESI/source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -58px 0px 0px -237px"></a>
+<a href="../pages/index.php"><img src="../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -58px 0px 0px -237px"></a>
