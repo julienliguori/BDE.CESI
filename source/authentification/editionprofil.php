@@ -65,8 +65,9 @@ if(isset($_SESSION['id'])) {
 ?>
 <html>
    <head>
+      <?php include('../../site/dependances.php'); ?>
       <title>Edition du profil</title>
-      <meta charset="utf-8">
+  
    </head>
    <body>
       <div align="center">
@@ -75,10 +76,10 @@ if(isset($_SESSION['id'])) {
                 <table>
                     <tr>
                         <td align="right">
-                           <label>Avatar :</label>
+                           <label class="custom-file-label">Avatar :</label>
                         </td>
                         <td> 
-                           <input type="file" name="avatar"/>
+                           <input type="file" name="avatar" class="custom-file-input"/>
                         </td>
                     </tr>
                     <tr>
