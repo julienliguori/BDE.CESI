@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
@@ -11,11 +10,16 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
 ?>
 <html>
    <head>
+   <?php include('.././site/dependances.php'); ?>
       <title><?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']); ?> - Profil</title>
-      <meta charset="utf-8">
    </head>
    <body>
-      <div align="center">
+      <header>
+         <?php include('.././site/header_interface.php'); ?>
+         <?php include('.././site/main_interface.php'); ?>
+      </header>
+
+      <div class="center">
          <h2>Profil de <?php echo ($userinfo['Nom'] . ' '. $userinfo['Prenom']); ?></h2>
          <br /><br />
          <?php 

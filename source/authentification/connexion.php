@@ -1,13 +1,11 @@
 <?php
-session_start();
-
 $time_c=365*24*3600;
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
-include_once('./connexioncookie.php');
-
 if(isset($_POST['formconnexion'])) {
+   session_start();
+   include_once('./connexioncookie.php');
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = sha1($_POST['mdpconnect']);
    if(!empty($mailconnect) AND !empty($mdpconnect)) {
@@ -48,12 +46,12 @@ if(isset($_POST['formconnexion'])) {
       <header><?php include('.././site/header_interface.php'); ?><?php include('.././site/main_interface.php'); ?></header>
 
       <main>
-         <div style="position:absolute; top:25%; left:50%">
-            <h2>Connexion</h2>
+         <div style="position:absolute; top:25%; left:48%">
+            <h2 class="center" style="margin-bottom: -30px">Connexion</h2>
             <br /><br />
             <form method="POST" action="" class="center" style="float:left;">
-               <input class="form-control" style="margin-left:-18px" type="email" name="mailconnect" placeholder="Mail" />
-               <input class="form-control" style="margin-left:-18px" type="password" name="mdpconnect" placeholder="Mot de passe" />
+               <input class="form-control" type="email" name="mailconnect" placeholder="Mail" />
+               <input class="form-control" type="password" name="mdpconnect" placeholder="Mot de passe" />
                <br /><br />
                <input class="form-check-label" type="checkbox" name="rememberme" id="remembercheckbox" /><label for="remembercheckbox">Se souvenir de moi</label>
                <br /><br />

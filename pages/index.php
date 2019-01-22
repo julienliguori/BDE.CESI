@@ -1,8 +1,11 @@
 <!doctype html>
 <html lang='fr'>
 
-    <head>
-        <?php include('../source/site/dependances.php'); ?>
+    <head> 
+        <?php 
+            include_once('../source/authentification/connexioncookie.php');
+            include('../source/site/dependances.php'); 
+        ?>
         <title>BDE.CESI</title>
     </head>
 
