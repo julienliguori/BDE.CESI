@@ -47,6 +47,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          }
          ?>
       </div>
+      <footer><?php include('../../source/site/footer_interface.php');?></footer>
    </body>
 </html>
 <?php   

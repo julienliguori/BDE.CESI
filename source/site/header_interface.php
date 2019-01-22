@@ -15,19 +15,19 @@ include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle p-3 mb-2 bg-dark text-white border-0" type="button" data-toggle="dropdown">Evénements</button>
                     <ul class="dropdown-menu">
-                     <li><a href="#">Consulter les événements</a></li>
-                     <li><a href="#">Evévements passés</a></li>
+                     <li><a href="../../pages/evenement/events.php">Consulter les événements</a></li>
+                     <li><a href="../../pages/evenement/past.events.php">Evévements passés</a></li>
                   </ul>
             </div>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle p-3 mb-2 bg-dark text-white border-0" type="button" data-toggle="dropdown">Boite à idée</button>
                     <ul class="dropdown-menu">
-                     <li><a href="#">Consulter la boîte à idée</a></li>
-                     <li><a href="#">Ajouter une idée</a></li>
+                     <li><a href="../../pages/idees/idees.php">Consulter la boîte à idée</a></li>
+                     <li><a href="../../pages/idees/proposition.idee.php">Ajouter une idée</a></li>
                   </ul>
             </div>
             <div class="dropdown">
-            <a href="#" class="btn btn-secondary btn-lg active p-3 mb-2 bg-dark text-white border-0" role="button" aria-pressed="true">Boutique</a>
+            <a href="../../pages/boutique/boutique.php" class="btn btn-secondary btn-lg p-3 mb-2 bg-dark text-white border-0" style="font-size:14px" role="button" aria-pressed="true">Boutique</a>
             </div>
                 <?php 
                     if(isset($_SESSION['id']))

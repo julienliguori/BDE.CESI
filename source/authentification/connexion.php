@@ -64,5 +64,6 @@ if(isset($_POST['formconnexion'])) {
             ?>
          </div>
       </main>
+      <footer><?php include('../../source/site/footer_interface.php');?></footer>
    </body>
 </html>
