@@ -6,4 +6,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" media="screen and (min-width: 900px)" href="../../pages/css/widescreen.css">
 <link rel="stylesheet" media="screen and (max-width: 600px)" href="../../pages/css/smallscreen.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="icon" type="image/png" href="../../source/img/logo/bde.png" />
