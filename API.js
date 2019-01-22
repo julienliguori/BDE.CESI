@@ -1,9 +1,11 @@
 //L'application requiert l'utilisation du module Express.
 //La variable express nous permettra d'utiliser les fonctionnalités du module Express.  
 var express = require('express');
+
 // Nous définissons ici les paramètres du serveur.
 var hostname = 'localhost';
 var port = 3000;
+<<<<<<< HEAD
  
 var sql = require('mssql'); // MS Sql Server client
 
@@ -14,6 +16,8 @@ var sqlConfig = {
     server: 'localhost',
     database: 'bde_cesi'
 }
+=======
+>>>>>>> ac59736cf18da3ca0457254060c8c157721a9216
 
 // Nous créons un objet de type Express. 
 var app = express();
@@ -30,6 +34,7 @@ myRouter.route('/boutique')
       res.json({action : "Vous avez mit cet article dans le panier.", methode : req.method});
 })
 myRouter.route('/')
+
 // all permet de prendre en charge toutes les méthodes. 
 .all(function(req,res){ 
       res.json({message : "Bienvenue sur l'api de notre boutique ", methode : req.method});
