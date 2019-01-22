@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php 
+session_start();
+
+include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php');
+?>
 
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
 
@@ -13,6 +17,10 @@
                 <a class="nav-item nav-link" href="../../pages/evenement/events.php">Événements</a>
                 <a class="nav-item nav-link" href="../../pages/idees/idees.php">Boite à idées</a>
                 <a class="nav-item nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
+                <?php 
+                    if(isset($_SESSION['id']))
+                    echo'<a class="nav-item nav-link" href="../../source/authentification/profil.php?id='.$_SESSION['id'].'">Profil</a>'
+                ?>
                 <a class="nav-item nav-link" href="../../pages/squelette.php">Squelette</a>
                 
                 <?php 
