@@ -72,8 +72,10 @@ if(isset($_POST['forminscription'])) {
       <meta charset="utf-8">
    </head>
    <body>
-      <header><?php include('.././site/header_interface.php'); ?>
-      <?php include('.././site/main_interface.php'); ?></header>
+      <header>
+         <?php include('.././site/header_interface.php'); ?>
+         <?php include('.././site/main_interface.php'); ?>
+      </header>
 
       <main>
          <div align="center">

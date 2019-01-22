@@ -1,18 +1,28 @@
+.center
+{
+  text-align: center;
+}
+
+
 .navbar-default.navbar-expand-sm.navbar-dark.bg-dark{
   margin-left: 180px; 
   padding: 4px 0px 10px 40px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .black-top-fill-rectangle{
   min-width: 100vh;
   height: 40px;
   background:black;
+  font-family: 'Roboto', sans-serif;
 }
 
 .events-top-fill-rectangle{
   min-width: 100vh;
   height: 26px;
   background:grey;
+  font-family: 'Roboto', sans-serif;
+  
 }
 
 .black-left-fill-rectangle{
@@ -22,6 +32,7 @@
   margin-left: -246px;
   float: left;
   background:black;
+  font-family: 'Roboto', sans-serif;
 }
 
 .black-rotated-fill-rectangle{
@@ -32,5 +43,16 @@
   width: 195px;
   height: 43px;
   background:black;
+  
 }
 
+.dropdown
+{
+  background: black;
+}
+
+
+html
+{
+font-family: 'Roboto', sans-serif;
+}
