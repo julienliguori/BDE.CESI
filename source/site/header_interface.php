@@ -1,7 +1,12 @@
+<?php 
+session_start();
+
+include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php');
+?>
+
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
 
     <nav class="navbar-default navbar-expand-sm navbar-dark bg-dark">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,12 +30,16 @@
             <a href="#" class="btn btn-secondary btn-lg active p-3 mb-2 bg-dark text-white border-0" role="button" aria-pressed="true">Boutique</a>
             </div>
                 <?php 
+                    if(isset($_SESSION['id']))
+                    echo'<a class="nav-item nav-link" href="../../source/authentification/profil.php?id='.$_SESSION['id'].'">Profil</a>'
+                ?>
+                <?php 
                 /* var_dump(isset($_SESSION)); */
                 if(isset($_SESSION['id']))
                     echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>';
                 else{
                     echo '<a class="nav-item nav-link" style="position: absolute; right: 80px;" href="../../source/authentification/connexion.php">Connexion</a>';
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';  
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';
                 }?>
                 </div>
         </div>
