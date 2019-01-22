@@ -39,9 +39,7 @@ if(isset($_POST['formconnexion'])) {
 ?>
 <html>
    <head>
-      <?php   
-         include('.././site/dependances.php'); 
-      ?>
+      <?php include('.././site/dependances.php');?>
       <title>Connexion</title>
       <meta charset="utf-8">
    </head>
