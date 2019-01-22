@@ -65,7 +65,7 @@ if(isset($_SESSION['id'])) {
 ?>
 <html>
    <head>
-      <?php include('../../site/dependances.php'); ?>
+      <?php include('.././site/dependances.php'); ?>
       <title>Edition du profil</title>
   
    </head>

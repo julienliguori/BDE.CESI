@@ -48,16 +48,16 @@ if(isset($_POST['formconnexion'])) {
       <header><?php include('.././site/header_interface.php'); ?><?php include('.././site/main_interface.php'); ?></header>
 
       <main>
-         <div align="center">
+         <div style="position:absolute; top:25%; left:50%">
             <h2>Connexion</h2>
             <br /><br />
-            <form method="POST" action="">
-               <input type="email" name="mailconnect" placeholder="Mail" />
-               <input type="password" name="mdpconnect" placeholder="Mot de passe" />
+            <form method="POST" action="" class="center" style="float:left;">
+               <input class="form-control" style="margin-left:-18px" type="email" name="mailconnect" placeholder="Mail" />
+               <input class="form-control" style="margin-left:-18px" type="password" name="mdpconnect" placeholder="Mot de passe" />
                <br /><br />
-               <input type="checkbox" name="rememberme" id="remembercheckbox" /><label for="remembercheckbox">Se souvenir de moi</label>
+               <input class="form-check-label" type="checkbox" name="rememberme" id="remembercheckbox" /><label for="remembercheckbox">Se souvenir de moi</label>
                <br /><br />
-               <input type="submit" name="formconnexion" value="Se connecter !" />
+               <input class="btn btn-primary" type="submit" name="formconnexion" value="Se connecter !" />
             </form>
             <?php
             if(isset($erreur)) {
