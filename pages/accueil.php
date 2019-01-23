@@ -17,7 +17,7 @@
     <main><?php include('../source/site/main_interface.php'); ?></main>
     
 
-
+        <?php include('../source/site/footer_interface.php'); ?>
 </body>
 </html>
 
