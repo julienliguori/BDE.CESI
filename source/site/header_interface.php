@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php');
+include_once('C:\wamp64\www\BDE.CESI\source\authentification\connexioncookie.php');
 ?>
 
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
