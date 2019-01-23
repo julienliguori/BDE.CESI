@@ -9,7 +9,7 @@
         else if($_SERVER['PHP_SELF'] == '/pages/evenement/events.php'|| $_SERVER['PHP_SELF'] == '/pages/idees/idees.php'){
             echo 'Calendrier';
         }
-        else if($_SERVER['PHP_SELF'] == '/pages/index.php'){
+        else if($_SERVER['PHP_SELF'] == '/pages/home.php'){
             echo 'Acceuil';
         }
         else{

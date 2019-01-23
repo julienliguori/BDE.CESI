@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php');
+include_once('C:/wamp64/www/projet 2 A2/git/BDE.CESI/source/authentification/connexioncookie.php');
 ?>
 
 <div class="black-top-fill-rectangle"><!-- <p style = "margin-left: 240px; color: white">Je taffe dessus @Antoine</p> -->
@@ -53,4 +53,4 @@ include_once('C:/wamp64/www/BDE.CESI/source/authentification/connexioncookie.php
 <div class="events-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein d'events ici :3</p>&nbsp;</div>
 <div class="black-rotated-fill-rectangle">&nbsp;</div>
 
-<a href="../../pages/index.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
+<a href="../../pages/home.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
