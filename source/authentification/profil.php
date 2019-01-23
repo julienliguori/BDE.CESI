@@ -20,13 +20,13 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
       </header>
 
       <div class="center">
-         <h2>Profil de <?php echo ($userinfo['Nom'] . ' '. $userinfo['Prenom']); ?></h2>
+         <h2>Profil de <?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']);?></h2>
          <br /><br />
          <?php 
          if(!empty($userinfo['avatar']))
          { 
          ?>
-         <img src="../img/Avatar/<?php echo $userinfo['avatar']; ?>" width="150">
+         <img src="../img/Avatar/<?php echo $userinfo['avatar']; ?>" width="150" style="margin-top: -40px">
          <?php 
          }
          ?>
@@ -47,6 +47,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          }
          ?>
       </div>
+      <footer><?php include('../../source/site/footer_interface.php');?></footer>
    </body>
 </html>
 <?php   
