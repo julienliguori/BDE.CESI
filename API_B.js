@@ -2,6 +2,11 @@ var express = require('express'); // Web Framework
 var app = express();
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var colonne;
+var valeur;
+
+
+
 
 // Connection string parameters.
 var con = mysql.createConnection({
@@ -38,17 +43,19 @@ app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
 app.post('/:site/:table/:filtre/:signe/:condition/', function (req, res){
 
 
-  console.log(req.body)
 
-    res.send("hello");
- // support encoded bodies
-    // var sql ="INSERT INTO " + req.params.table + " ("req.parser.", prix, quantite) VALUES (edouart, 20, 10)";
-    // con.query(sql, function (err, result) {
-    //   if (err) throw err;
-    //   //console.log("Result: ", result);
-    //   res.json(result);
-    //});
-  //});
+console.log(req.body)
+console.log(req.body.prix)
+
+//concatent
+
+    var sql ="INSERT INTO " + req.params.table + " (" + colonne +"  VALUES ("+ valeur +")";
+  //   con.query(sql, function (err, result) {
+  //   //   if (err) throw err;
+  //   //   //console.log("Result: ", result);
+  //     res.send("Executer");
+  //   // });
+  // });
 });
 
 app.put('/:site/:table/:filtre/:condition/', function (req, res){
