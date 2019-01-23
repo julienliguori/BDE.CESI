@@ -26,7 +26,7 @@ session_start();
                   </ul>
             </div>
             <div class="dropdown">
-            <a href="../../pages/boutique/boutique.php" class="btn btn-secondary btn-lg p-3 mb-2 bg-dark text-white border-0" style="font-size:14px" role="button" aria-pressed="true">Boutique</a>
+            <a href="../../pages/boutique/boutique.php" class="btn btn-secondary p-3 mb-2 bg-dark text-white border-0" role="button" aria-pressed="true">Boutique</a>
             </div>
                 <?php 
                     if(isset($_SESSION['id']))
@@ -37,8 +37,8 @@ session_start();
                 if(isset($_SESSION['id']))
                     echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/deconnexion.php">Déconnexion</a>';
                 else{
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 80px;" href="../../source/authentification/connexion.php">Connexion</a>';
-                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 80px; top: 10px;" href="../../source/authentification/connexion.php">Connexion</a>';
+                    echo '<a class="nav-item nav-link" style="position: absolute; right: 10px; top: 10px;" href="../../source/authentification/inscription.php">Inscription</a>';
                 }?>
                 </div>
         </div>
@@ -52,4 +52,7 @@ session_start();
 <div class="events-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein d'events ici :3</p>&nbsp;</div>
 <div class="black-rotated-fill-rectangle">&nbsp;</div>
 
-<a href="../../pages/home.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
+<!--<a href="../../pages/home.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
+-->
+
+<a href="../../pages/home.php"><img src="../../source/img/logo/rectangle_blanc.png" alt="Logo BDE" style="float: left; position:absolute; margin: -81px 0px 0px -245px"></a>
