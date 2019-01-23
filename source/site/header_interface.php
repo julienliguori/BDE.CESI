@@ -44,7 +44,7 @@ include_once('C:/wamp64/www/projet 2 A2/git/BDE.CESI/source/authentification/con
                 </div>
         </div>
     </nav>
-    <nav class="dropdown">                                   
+                                       
         
     </nav>
 
