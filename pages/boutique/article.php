@@ -13,10 +13,7 @@
     <main><?php include('../../source/site/main_interface.php'); ?></main>
     <footer><?php include('../../source/site/footer_interface.php');?></footer>
     <?php
-    $json = '{"data": [{"nom":"Tigre","prix":"12","quantite":"5","taille":"Little / Big","type":"truc","photo":"Tigre.jpg"},{"nom":"Pull","prix":"21","quantite":"2","taille":"1 / 2 / 3","type":"DES","photo":"Stylo.jpg"}]}';//json_encode($prejson);
-        echo($json);
-        var_dump(json_decode($json));
-
+    $json = '{"data":' . $_GET[$_SERVER['PHP_SELF']] . '}';//'{"data": [{"nom":"Tigre","prix":"12","quantite":"5","taille":"Little / Big","type":"truc","photo":"Tigre.jpg"},{"nom":"Pull","prix":"21","quantite":"2","taille":"1 / 2 / 3","type":"DES","photo":"Stylo.jpg"}]}';
         $parsed_json = json_decode($json,true);
 
         foreach ($parsed_json['data'] as $v) {
