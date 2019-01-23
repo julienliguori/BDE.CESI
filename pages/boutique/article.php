@@ -12,27 +12,24 @@
     <header><?php include('../../source/site/header_interface.php'); ?></header>
     <main><?php include('../../source/site/main_interface.php'); ?></main>
     <footer><?php include('../../source/site/footer_interface.php');?></footer>
-    $json = ['nom'=>'Alexandre', 'prix'=>'12', 'quantité'=>'5', 'taille'=>'2', 'type'=>'truc', 'photo'=>'test'];
-
+    <?php
+    $json = '{"data": [{"nom":"Tigre","prix":"12","quantite":"5","taille":"Little / Big","type":"truc","photo":"Tigre.jpg"},{"nom":"Pull","prix":"21","quantite":"2","taille":"1 / 2 / 3","type":"DES","photo":"Stylo.jpg"}]}';//json_encode($prejson);
+        echo($json);
         var_dump(json_decode($json));
 
-        $parsed_json = json_decode($json);
+        $parsed_json = json_decode($json,true);
 
-        $nom = $parsed_json->{'nom'}[0];
-        $prix = $parsed_json->{'prix'[0]};
-        $quantité = $parsed_json->{'quantité'}[0];
-        $taille = $parsed_json->{'taille'}[0];
-        $type = $parsed_json->{'type'}[0];
-        $photo = $parsed_json->{'photo'}[0];
+        foreach ($parsed_json['data'] as $v) {
+            ?>
+            <div>
+            <img src="..\..\source\img\boutique\ImgMemeFormat\<?php echo $v['photo']; ?>"/>
+                <div> <?php echo $v['nom']; ?> </div>
+                <div> Prix : <?php echo $v['prix']; ?> € </div>
+                <div> Il en reste <?php echo $v['quantite']; ?> </div>
+                <div> Taille disponible : <?php echo $v['taille']; ?> </div>
+                <div> catégorie : <?php echo $v['quantite']; ?> </div>
 
-        echo "<div class='displayprod'>
-        <img src='$photo'/>
-            <div class='price'> $prix € </div>
-            <div class='description'> 
-            " . $donnees['description'] . "
-            </div>
-        </div>";
+         <?php } ?>
+
 </body>
-</html><?php
-        
-?>
+</html>
