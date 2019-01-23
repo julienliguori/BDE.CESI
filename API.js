@@ -5,7 +5,6 @@ var express = require('express');
 // Nous définissons ici les paramètres du serveur.
 var hostname = 'localhost';
 var port = 3000;
-<<<<<<< HEAD
  
 var sql = require('mssql'); // MS Sql Server client
 
@@ -16,9 +15,6 @@ var sqlConfig = {
     server: 'localhost',
     database: 'bde_cesi'
 }
-=======
->>>>>>> ac59736cf18da3ca0457254060c8c157721a9216
-
 // Nous créons un objet de type Express. 
 var app = express();
 //Afin de faciliter le routage (les URL que nous souhaitons prendre en charge dans notre API), nous créons un objet Router.

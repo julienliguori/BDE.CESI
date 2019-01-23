@@ -18,11 +18,25 @@ var server = app.listen(8081, function () {
 });
 
 
-app.get('/boutique', function (req, res) {
+app.get('/:site/:table/:filtre/:condition/', function (req, res) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql ="SELECT * FROM article WHERE idArticle ='3'";
+    var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + " = '" + req.params.condition + " '";
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      //console.log("Result: ", result);
+      res.json(result);
+      //res.json("58"+ req.path +"25")
+    });
+  });
+});
+
+app.post('/:site/:table/:filtre/:condition/', function (req, res){
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql ="INSERT INTO " + req.params.table + " (nom, prix, quantite) VALUES (edouart, 20, 10)";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Result: ", result);
@@ -31,10 +45,18 @@ app.get('/boutique', function (req, res) {
   });
 });
 
-app.post();
-
-app.put();
-
+app.put('/:site/:table/:filtre/:condition/', function (req, res){
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql ="UPDATE " + req.params.table + " SET " +  + "WHERE" +  req.params.filtre + " = '" + req.params.condition + " '";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: ", result);
+    res.json(result);
+  });
+});
+});
 
 
   // app.get('/boutique', function (req, res) {
