@@ -1,6 +1,5 @@
 <div class="black-left-fill-rectangle">
-    <p style = "margin-top: 100px; margin-left: 10px; color: white">^^ TU PEUX CLIQUER DESSUS ^^</p>
-    <p style = "margin-top: 240px; margin-left: 40px; color: white">Devines..</p>&nbsp;
+    
     <?php 
         /* var_dump(isset($_SESSION)); */
         if($_SERVER['PHP_SELF'] == '/pages/boutique/boutique.php'){
@@ -17,4 +16,3 @@
         }
     ?>
 </div>
-<div class="black-left-fill-rectangle"><p style = "margin-top: 150px; margin-left: 10px; color: white">^^ TU PEUX CLIQUER DESSUS ^^</p><p style = "margin-top: 240px; margin-left: 40px; color: white">Devines..</p>&nbsp;</div>
