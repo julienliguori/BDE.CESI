@@ -20,7 +20,10 @@ var server = app.listen(8081, function () {
 
 app.use(bodyParser.json()); // support json encoded bodies
 
-app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {;
+app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
+
+
+
     var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
     con.query(sql, function (err, result) {
       if (err) throw err;
@@ -34,7 +37,9 @@ app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {;
 
 app.post('/:site/:table/:filtre/:signe/:condition/', function (req, res){
 
-    console.log(req);
+
+  console.log(req.body)
+
     res.send("hello");
  // support encoded bodies
     // var sql ="INSERT INTO " + req.params.table + " ("req.parser.", prix, quantite) VALUES (edouart, 20, 10)";
