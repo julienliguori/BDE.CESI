@@ -23,6 +23,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
+        "body-parser": "^1.18.3",
         "express": "^4.16.4",
         "mssql": "^3.3.0",
         "mysql": "^2.16.0",
