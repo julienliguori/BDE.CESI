@@ -1,6 +1,7 @@
 var express = require('express'); // Web Framework
 var app = express();
 var mysql = require('mysql');
+var bodyParser = require('body-parser');
 
 // Connection string parameters.
 var con = mysql.createConnection({
@@ -17,32 +18,32 @@ var server = app.listen(8081, function () {
  console.log("app listening at http://", host, port)
 });
 
+app.use(bodyParser.json()); // support json encoded bodies
 
-app.get('/:site/:table/:filtre/:condition/', function (req, res) {
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + " = '" + req.params.condition + " '";
+app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {;
+    var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
     con.query(sql, function (err, result) {
       if (err) throw err;
       //console.log("Result: ", result);
       res.json(result);
       //res.json("58"+ req.path +"25")
     });
-  });
 });
 
-app.post('/:site/:table/:filtre/:condition/', function (req, res){
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql ="INSERT INTO " + req.params.table + " (nom, prix, quantite) VALUES (edouart, 20, 10)";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("Result: ", result);
-      res.json(result);
-    });
-  });
+
+
+app.post('/:site/:table/:filtre/:signe/:condition/', function (req, res){
+
+    console.log(req);
+    res.send("hello");
+ // support encoded bodies
+    // var sql ="INSERT INTO " + req.params.table + " ("req.parser.", prix, quantite) VALUES (edouart, 20, 10)";
+    // con.query(sql, function (err, result) {
+    //   if (err) throw err;
+    //   //console.log("Result: ", result);
+    //   res.json(result);
+    //});
+  //});
 });
 
 app.put('/:site/:table/:filtre/:condition/', function (req, res){
