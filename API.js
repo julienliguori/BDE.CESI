@@ -15,7 +15,6 @@ var sqlConfig = {
     server: 'localhost',
     database: 'bde_cesi'
 }
-
 // Nous créons un objet de type Express. 
 var app = express();
 //Afin de faciliter le routage (les URL que nous souhaitons prendre en charge dans notre API), nous créons un objet Router.
