@@ -10,7 +10,8 @@ CREATE TABLE article(
         taille    Varchar (50) NOT NULL ,
         couleur   Varchar (50) NOT NULL ,
         type      Varchar (50) NOT NULL ,
-        photo     Varchar (50) NOT NULL
+        photo     Varchar (50) NOT NULL,
+        description Varchar (255) NOT NULL
 	,CONSTRAINT article_PK PRIMARY KEY (idArticle)
 )ENGINE=InnoDB;
 
