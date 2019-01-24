@@ -1,42 +1,30 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="iso-8859-1" />
 
 <title>Barre de recherche</title>
-
-<!-- inclusion du style CSS de base -->
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css" />
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/jquery.ui.autocomplete.html.js"></script>
+
 </head>
 
 <body>
-<form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
-    <button class="btn btn-outline-warning my-2 my-sm-0 " id="recherche" type="submit">Search</button>
 
-    
+<form action="" method="post">
+    <input type="text" placeholder="Name" id="ProduitAutocomplete" class="ui-autocomplete-input" autocomplete="off" />
+</form>
 
-    <?php 
-    
-    var liste = [
-        "Draggable",
-        "Droppable",
-        "Resizable",
-        "Selectable",
-        "Sortable"
-    ];
-    
-    $('#recherche').autocomplete({ source : liste}); 
-    
-    ?>
-    
-    
+<script language="JavaScript" type="text/javascript">
 
-  </form>
-
-<!-- inclusion des libraries jQuery et jQuery UI (fichier principal et plugins) -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+$(document).ready(function($){
+    $('#ProduitAutocomplete').autocomplete({
+	source:'produit.php', 
+	minLength:2
+    });
+});
 
 </body>
 </html>
