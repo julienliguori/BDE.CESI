@@ -40,22 +40,30 @@ app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
 
 
 
-app.post('/:site/:table/:filtre/:signe/:condition/', function (req, res){
+app.post('/:site/:table/', function (req, res){
 
 
 
 console.log(req.body);
-console.log(req.body.prix)
+var dataKeys = Object.keys(req.body);
+var dataValues = Object.values(req.body);
+
+/* var sqlData = Object.keys(req.body);
+console.log(Object.keys(req.body));
+console.log(req.body.prix); */
+
+console.log(dataKeys.toString());
+console.log(dataValues.toString());
 
 //concatent
 
-    var sql ="INSERT INTO " + req.params.table + " (" + colonne +"  VALUES ("+ valeur +")";
-  //   con.query(sql, function (err, result) {
-  //   //   if (err) throw err;
-  //   //   //console.log("Result: ", result);
-  //     res.send("Executer");
-  //   // });
-  // });
+var sql = "INSERT INTO " + req.params.table + " (" + dataKeys.toString() + ") VALUES ("+ dataValues.toString() +")";
+
+/*   con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: ", result);
+    res.send("Executer");
+  }); */
 });
 
 app.put('/:site/:table/:filtre/:condition/', function (req, res){
