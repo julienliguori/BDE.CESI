@@ -2,13 +2,12 @@
 <html>
 <head>
 
-    <?php include("../head.php"); ?>
-    <link rel="stylesheet" type="text/css" href="../arc.css">
+    <?php include("../../source/site/dependances.php"); ?>
     <title>BDE.CESI</title>
 </head>
 <body>
-        <head><?php include("../header.php"); ?> </head>
+        <head><?php include("../../source/site/header_interface.php"); ?> </head>
         <main></main>
-        <footer><?php include("../footer.php");?></footer>
+        <footer><?php include("../../source/site/footer_interface.php"); ?></footer>
 </body>
 </html>

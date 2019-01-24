@@ -1,4 +1,7 @@
-<script src="../source/assets/vendors/jquery/jquery-3.3.1.min.js"></script>
-<script src="../source/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<div class="container fixed-bottom" style="background-color:#000000; color:#ffffff;" >
+    <br/>
+    <p class="float-right">
+      <a href="#"><i class="fas fa-arrow-circle-up" style="font-size: 3em; color:#f4ab25;"></i></a>
+    </p>
+    <p class="entre"><a id="liens" href="./CGU.php" >CGU</a> - <a id="liens" href="./mentionslegales.php">Mentions Légales</a> - <a id="liens" href="./credit.php">Credit</a></p>
+</div>

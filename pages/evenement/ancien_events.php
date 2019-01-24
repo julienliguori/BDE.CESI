@@ -6,11 +6,10 @@
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
     ?>
-    <title>Proposition d'idée</title>
+    <title>Événements passés</title>
 </head>
 <body>
     <header><?php include('../../source/site/header_interface.php'); ?></header>
-    <main><?php include('../../source/site/main_interface.php'); ?></main>
     <footer><?php include('../../source/site/footer_interface.php');?></footer>
 </body>
 </html>

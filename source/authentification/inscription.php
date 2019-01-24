@@ -74,12 +74,11 @@ if(isset($_POST['forminscription'])) {
    <body>
       <header>
          <?php include('.././site/header_interface.php'); ?>
-         <?php include('.././site/main_interface.php'); ?>
       </header>
 
       <main>
          <div align="center" style="margin-left:50% text-align:center;">
-            <h2>Inscription</h2>
+            <h2 style="paddin-top: 10px; margin-bottom: -90px">Inscription</h2>
             <br /><br />
             <form method="POST" action="">
                <table>

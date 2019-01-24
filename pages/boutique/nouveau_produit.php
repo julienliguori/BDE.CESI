@@ -3,7 +3,6 @@ $bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
 
 if(isset($_POST['newproduct'])) {
 
-
    $nom = htmlspecialchars($_POST['nom']);
    $prix = htmlspecialchars($_POST['prix']);
    $quantite = htmlspecialchars($_POST['quantite']);
@@ -11,7 +10,6 @@ if(isset($_POST['newproduct'])) {
    $description = htmlspecialchars($_POST['description']);
    $type = htmlspecialchars($_POST['type']);
    $photo = htmlspecialchars($_POST['photo']);
-
 
    $array = array(
       'nom' => $nom,
@@ -22,7 +20,6 @@ if(isset($_POST['newproduct'])) {
       'type' => $type,
       'photo' => $photo,
   );
-
 
   $arrayJSON = json_encode($array);
   $options = array(
@@ -41,9 +38,6 @@ if(isset($_POST['newproduct'])) {
  fclose($fp); */
   echo ($arrayJSON);
   //echo "chups);
-
-
-
 
     // if(!empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['quantite']) AND !empty($_POST['description']) AND !empty($_POST['couleur']) AND !empty($_POST['mdp2']) AND !empty($_POST['type']) AND !empty($_POST['photo'])) {
     //  $pseudolength = strlen($nom);
@@ -88,16 +82,12 @@ if(isset($_POST['newproduct'])) {
    </head>
    <body>
       <header>
-         <?php //include('../../source/site/header_interface.php'); ?>
-         <?php //include('../../source/site/main_interface.php'); ?> 
-         <?php
-        //  echo ($arrayJSON);
-         ?>
+         <?php include('../../source/site/header_interface.php'); ?>
       </header>
 
       <main>
          <div align="center" style="margin-left:50% text-align:center;">
-            <h2>Ajouter Article</h2>
+            <h2 style="padding-top: 20px; margin-bottom:-30px">Ajouter un article</h2>
             <br /><br />
             <form method="POST" action="">
                <table>
