@@ -18,7 +18,7 @@ if(isset($_POST['newproduct'])) {
       'prix' => $prix,
       'quantite' =>  $quantite,
       'couleur' =>  $couleur,
-      'desciption' =>  $description,
+      'description' =>  $description,
       'type' => $type,
       'photo' => $photo,
   );
@@ -28,15 +28,13 @@ if(isset($_POST['newproduct'])) {
   $options = array(
       'http'=> array(
           'method' => 'POST',
-          'content' => $arrayJSON,
-          'header' =>   'Content-Type : application/json\r\n'.
-          'Accept: application/json\r\n'
-
+          'header'=> "Content-Type: application/json",
+          'content' => $arrayJSON
       )
   );
   $context = stream_context_create($options);
   
-  return file_getb_contents('http://localhost:8081/boutique/article/', false, $context);
+  return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
   
 /*  $fp = fopen('http://localhost:8081/boutique/article/', 'r', false, $context);
  fpassthru($fp);
