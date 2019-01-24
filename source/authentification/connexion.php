@@ -43,7 +43,7 @@ if(isset($_POST['formconnexion'])) {
    </head>
 
    <body>
-      <header><?php include('.././site/header_interface.php'); ?><?php include('.././site/main_interface.php'); ?></header>
+      <header><?php include('.././site/header_interface.php'); ?></header>
 
       <main>
          <div style="position:absolute; top:25%; left:48%">

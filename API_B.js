@@ -9,14 +9,14 @@
       user: "root",
       password: "",
       database: "bde_cesi"
-    });
+  });
 
   var server = app.listen(8081, function () {
       var host = server.address().address
       var port = server.address().port
 
   console.log("app listening at http://", host, port)
-  });
+});
 
   app.use(bodyParser.json()); // support json encoded bodies
 

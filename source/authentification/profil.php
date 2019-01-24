@@ -16,7 +16,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
    <body>
       <header>
          <?php include('.././site/header_interface.php'); ?>
-         <?php include('.././site/main_interface.php'); ?>
       </header>
 
       <div class="center">

@@ -10,7 +10,6 @@
 </head>
 <body>
     <header><?php include('../../source/site/header_interface.php'); ?></header>
-    <main><?php include('../../source/site/main_interface.php'); ?></main>
     <footer><?php include('../../source/site/footer_interface.php');?></footer>
 </body>
 </html>
