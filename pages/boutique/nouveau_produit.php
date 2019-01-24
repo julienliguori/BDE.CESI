@@ -65,7 +65,7 @@ if(isset($_POST['newproduct'])) {
          <div align="center" style="margin-left:50% text-align:center;">
             <h2 style="padding-top: 20px; margin-bottom:-30px">Ajouter un article</h2>
             <br /><br />
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                <table>
                   <tr>
                      <td align="right">
@@ -88,7 +88,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="quantite">Quantité :</label>
                      </td>
                      <td>
-                        <input type="quantite" class="form-control" placeholder="quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
+                        <input type="text" class="form-control" placeholder="quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
                      </td>
                   </tr>
                   <tr>
@@ -129,7 +129,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="photo">Image de l'article :</label>
                      </td>
                      <td>
-                        <input type="photo" class="form-control" placeholder="Image de l'article" id="photo" name="photo" />
+                        <input type="file" class="form-control" placeholder="Image de l'article" id="photo" name="photo" />
                      </td>
                   </tr>
                   <tr>
