@@ -51,8 +51,9 @@ session_start();
 </div>
 <div class="events-top-fill-rectangle"><p style = "margin-left: 240px; color: white">Tkt y'aura plein d'events ici :3</p>&nbsp;</div>
 <div class="black-rotated-fill-rectangle">&nbsp;</div>
+<div class="black-left-fill-rectangle">&nbsp;</div>
 
 <!--<a href="../../pages/home.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
 -->
 
-<a href="../../pages/home.php"><img src="../../source/img/logo/rectangle_blanc.png" alt="Logo BDE" style="float: left; position:absolute; width: 158px; height: 81px; margin: -81px 0px 0px 0px"></a>
+<a href="../../pages/home.php"><img src="../../source/img/logo/rectangle_blanc.png" alt="Logo BDE" style="float: left; position:absolute; width: 158px; height: 81px; margin: -115px 0px 0px 0px"></a>
