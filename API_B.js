@@ -1,84 +1,88 @@
-var express = require('express'); // Web Framework
-var app = express();
-var mysql = require('mysql');
-var bodyParser = require('body-parser');
-var colonne;
-var valeur;
+  var express = require('express'); // Web Framework
+  var app = express();
+  var mysql = require('mysql');
+  var bodyParser = require('body-parser');
 
+  // Connection string parameters.
+  var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "bde_cesi"
+    });
 
+  var server = app.listen(8081, function () {
+      var host = server.address().address
+      var port = server.address().port
 
-
-// Connection string parameters.
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "bde_cesi"
+  console.log("app listening at http://", host, port)
   });
 
-var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
+  app.use(bodyParser.json()); // support json encoded bodies
 
- console.log("app listening at http://", host, port)
-});
+  app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
 
-app.use(bodyParser.json()); // support json encoded bodies
+      var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        //console.log("Result: ", result);
+        res.json(result);
+        //res.json("58"+ req.path +"25")
+      });
+  });
 
-app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
+  app.post('/:site/:table/', function (req, res){
 
+  /* console.log(req.body); */
+  var dataKeys = Object.keys(req.body).toString();
+  var dataValues = Object.values(req.body).toString();
 
+  /* var sqlData = Object.keys(req.body);
+  console.log(Object.keys(req.body));
+  console.log(req.body.prix); */
 
-    var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      //console.log("Result: ", result);
-      res.json(result);
-      //res.json("58"+ req.path +"25")
-    });
-});
+  /* console.log(dataKeys.toString());
+  console.log(dataValues.toString()); */
 
+  var i;
+  strLength = dataValues.length;
 
+  console.log(dataValues);
 
-app.post('/:site/:table/', function (req, res){
+  for(i = 0; i < strLength; i++) {
+  dataValues = dataValues.replace(",", "' '");
+  }
 
+  for(i = 0; i < strLength; i++) {
+  dataValues = dataValues.replace(" ", ",");
+  }
 
+  dataValues = "'" + dataValues + "'";
+  console.log(dataValues);
 
-console.log(req.body);
-var dataKeys = Object.keys(req.body);
-var dataValues = Object.values(req.body);
+  //concatent
 
-/* var sqlData = Object.keys(req.body);
-console.log(Object.keys(req.body));
-console.log(req.body.prix); */
+  var sql = "INSERT INTO " + req.params.table + " (" + dataKeys + ") VALUES ("+ dataValues +")";
 
-console.log(dataKeys.toString());
-console.log(dataValues.toString());
-
-//concatent
-
-var sql = "INSERT INTO " + req.params.table + " (" + dataKeys.toString() + ") VALUES ("+ dataValues.toString() +")";
-
-/*   con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Result: ", result);
-    res.send("Executer");
-  }); */
-});
-
-app.put('/:site/:table/:filtre/:condition/', function (req, res){
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  var sql ="UPDATE " + req.params.table + " SET " +  + "WHERE" +  req.params.filtre + " = '" + req.params.condition + " '";
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Result: ", result);
-    res.json(result);
+    res.send("Executé");
+    });  
+  });
+
+  app.put('/:site/:table/:filtre/:condition/', function (req, res){
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var sql ="UPDATE " + req.params.table + " SET " +  + "WHERE" +  req.params.filtre + " = '" + req.params.condition + " '";
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Result: ", result);
+      res.json(result);
+    });
   });
 });
-});
-
 
   // app.get('/boutique', function (req, res) {
   //       con.connect(sqlConfig, function() {
@@ -89,7 +93,6 @@ con.connect(function(err) {
   //           });
   //       });
   //   })
-
 
   // var sql = "INSERT INTO articles (nom,prix) VALUES ?";
   // var values = [
@@ -109,25 +112,6 @@ con.connect(function(err) {
   //   ['Viola', '1633']
   // ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // Start server and listen on http://localhost:8081/
 // var server = app.listen(8081, function () {
 //     var host = server.address().address
@@ -136,18 +120,9 @@ con.connect(function(err) {
 //     console.log("app listening at http://%s:%s", host, port)
 // });
 
-
 // app.get()
 
 // app.post()
-
-
-
-
-
-
-
-
 
     // app.get('/boutique', function (req, res) {
     //     sql.connect(sqlConfig, function() {
