@@ -30,48 +30,24 @@ if(isset($_POST['newproduct'])) {
       )
   );
   $context = stream_context_create($options);
-  
-  return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
+
+   if(!empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['quantite']) AND !empty($_POST['description']) AND !empty($_POST['couleur']) AND !empty($_POST['type']) AND !empty($_POST['photo'])){
+      header('Location: http://bde.cesi/pages/home.php');
+      return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
+   }
+   else {
+      $erreur = "Tous les champs doivent être complétés !";
+   }
+}
   
 /*  $fp = fopen('http://localhost:8081/boutique/article/', 'r', false, $context);
  fpassthru($fp);
  fclose($fp); */
-  echo ($arrayJSON);
+  //echo ($arrayJSON);
   //echo "chups);
 
-    // if(!empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['quantite']) AND !empty($_POST['description']) AND !empty($_POST['couleur']) AND !empty($_POST['mdp2']) AND !empty($_POST['type']) AND !empty($_POST['photo'])) {
-    //  $pseudolength = strlen($nom);
-    //     if($pseudolength <= 255) {
-    //         if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-    //             $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
-    //             $reqmail->execute(array($mail));
-    //             $mailexist = $reqmail->rowCount();
-    //             if($mailexist == 0) {
-    //                 if($mdp == $mdp2) {
-    //                     $insertmbr = $bdd->prepare("INSERT INTO membres(Nom, Prenom, Mail, MDP, Centre, Status) VALUES(?, ?, ?, ?, ?, ?)");                                 $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $centre, $status));
-    //                     $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
-    //                     header('Location: connexion.php');
-    //                     } else {
-    //                         $erreur = "Vos mots de passes ne correspondent pas !";
-    //                       }
-    //                 } else {
-    //                     $erreur = "Adresse mail déjà utilisée !";
-    //                     }
-                        
-    //         } else {
-    //              $erreur = "Votre adresse mail n'est pas valide !";
-    //             }
-              
-    //         }
-    //      } else {
-    //         $erreur = "Votre nom ne doit pas dépasser 255 caractères !";
-    //      } 
-    // }else {
-    //     $erreur = "Tous les champs doivent être complétés !";
-    // }
 
-}
-?>
+   ?>
 
 <html>
    <head>

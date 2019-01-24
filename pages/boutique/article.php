@@ -14,9 +14,9 @@
     $element = 'prix';
     $url = "http://localhost:8081/boutique/article/$element/%3C=/5";
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
-    echo($json);
+    //echo($json);
     $parsed_json = json_decode($json,true);
-    var_dump($parsed_json);
+    //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
             ?>
             <div class="container">
