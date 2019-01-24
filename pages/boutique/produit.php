@@ -32,4 +32,8 @@ echo json_encode($a_json);
 flush();
 
 $mysqli->close();
+
+http://localhost:8081/boutique/article/nom/=/
+
+
 ?>
