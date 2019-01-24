@@ -24,7 +24,7 @@
         </div>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
+        <a class="nav-link" href="./boutique/boutique.php">Boutique</a>
       </li>
       </ul>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
