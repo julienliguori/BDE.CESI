@@ -55,4 +55,4 @@ session_start();
 <!--<a href="../../pages/home.php"><img src="../../source/img/logo/bde.png" alt="Logo BDE" height="128" width="128" style="float: left; position:absolute; margin: -70px 0px 0px -237px"></a>
 -->
 
-<a href="../../pages/home.php"><img src="../../source/img/logo/rectangle_blanc.png" alt="Logo BDE" style="float: left; position:absolute; margin: -81px 0px 0px -245px"></a>
+<a href="../../pages/home.php"><img src="../../source/img/logo/rectangle_blanc.png" alt="Logo BDE" style="float: left; position:absolute; width: 158px; height: 81px; margin: -81px 0px 0px 0px"></a>
