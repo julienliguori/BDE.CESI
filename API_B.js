@@ -21,7 +21,6 @@
   app.use(bodyParser.json()); // support json encoded bodies
 
   app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
-
       var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
       con.query(sql, function (err, result) {
         if (err) throw err;
@@ -33,56 +32,61 @@
 
   app.post('/:site/:table/', function (req, res){
 
-  /* console.log(req.body); */
-  var dataKeys = Object.keys(req.body).toString();
-  var dataValues = Object.values(req.body).toString();
+    var dataKeys = Object.keys(req.body).toString();
+    var dataValues = Object.values(req.body).toString();
 
-  /* var sqlData = Object.keys(req.body);
-  console.log(Object.keys(req.body));
-  console.log(req.body.prix); */
+    var i;
+    strLength = dataValues.length;
 
-  /* console.log(dataKeys.toString());
-  console.log(dataValues.toString()); */
+    for(i = 0; i < strLength; i++) {
+    dataValues = dataValues.replace(",", "' '");
+    }
 
-  var i;
-  strLength = dataValues.length;
+    for(i = 0; i < strLength; i++) {
+    dataValues = dataValues.replace(" ", ",");
+    }
 
-  console.log(dataValues);
+    dataValues = "'" + dataValues + "'";
 
-  for(i = 0; i < strLength; i++) {
-  dataValues = dataValues.replace(",", "' '");
-  }
+    //concatent
 
-  for(i = 0; i < strLength; i++) {
-  dataValues = dataValues.replace(" ", ",");
-  }
+    var sql = "INSERT INTO " + req.params.table + " (" + dataKeys + ") VALUES ("+ dataValues +")";
 
-  dataValues = "'" + dataValues + "'";
-  console.log(dataValues);
-
-  //concatent
-
-  var sql = "INSERT INTO " + req.params.table + " (" + dataKeys + ") VALUES ("+ dataValues +")";
-
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Result: ", result);
-    res.send("Executé");
-    });  
-  });
-
-  app.put('/:site/:table/:filtre/:condition/', function (req, res){
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql ="UPDATE " + req.params.table + " SET " +  + "WHERE" +  req.params.filtre + " = '" + req.params.condition + " '";
     con.query(sql, function (err, result) {
       if (err) throw err;
       console.log("Result: ", result);
-      res.json(result);
-    });
+      res.send("Executé");
+      });  
   });
-});
+
+  app.put('/:site/:table/:filtre/:signe/:condition/', function (req, res){
+    var dataKeys = Object.keys(req.body).toString();
+    var dataValues = Object.values(req.body).toString();
+
+    var i;
+    strLength = dataValues.length;
+
+    for(i = 0; i < strLength; i++) {
+    dataValues = dataValues.replace(",", "' '");
+    }
+
+    for(i = 0; i < strLength; i++) {
+    dataValues = dataValues.replace(" ", ",");
+    }
+
+    dataValues = "'" + dataValues + "'";
+
+    //concatent
+
+    var sql ="UPDATE " + req.params.table + " SET " + dataKeys + " = " + dataValues + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
+
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+      console.log("Result: ", result);
+      res.send("Éxécuté");
+      });  
+
+  });
 
   // app.get('/boutique', function (req, res) {
   //       con.connect(sqlConfig, function() {
