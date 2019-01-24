@@ -46,9 +46,9 @@ if(isset($_POST['forminscription'])) {
                               $erreur = "Adresse mail déjà utilisée !";
                            }
                         } else {
-                           $erreur = "Votre adresse mail n'est pas valide !";
+                           $erreur = "Votre adresse mail n'est pas sous un bon format !";
                         }
-               } else { $erreur = "Votre adresse mail n'est pas valide 2 !";}
+               } else { $erreur = "Votre adresse mail n'est pas valide !";}
             } else {
                $erreur = "Vos adresses mail ne correspondent pas !";
             }
