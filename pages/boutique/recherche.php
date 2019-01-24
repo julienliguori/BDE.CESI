@@ -1,9 +1,23 @@
 <?php
 
-    $recherche = "pou";
+    $term = trim(strip_tags($_GET['term']));
 
-    $url = "http://localhost:8081/boutique/article/nom/LIKE/$recherche";
-    $json = '{"data": ' . file_get_contents($url) . ' }'; 
-    echo($json);
+    /*echo $term;*/
 
+    $url = "http://localhost:8081/boutique/article/nom/like/$term";
+    $json = file_get_contents($url); 
+    
+    $d_json=json_decode($json);
+
+    $d_json = $d_json[0]->{'nom'};
+
+    $json_s="{'nom':'" . $d_json . "'}";
+    
+    //echo $d_json;
+
+    foreach()
+
+    echo $json_s;
+
+    flush();
 ?>
