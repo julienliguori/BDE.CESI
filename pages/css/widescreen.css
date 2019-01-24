@@ -16,12 +16,12 @@ html{
 
 }
 
-.black-top-fill-rectangle{
+/*.black-top-fill-rectangle{
   min-width: 100vh;
   height: 55px;
   background:black;
 
-}
+}*/
 
 .events-top-fill-rectangle{
   min-width: 100vh;
@@ -31,7 +31,7 @@ html{
   
 }
 
-/*.black-left-fill-rectangle{
+.black-left-fill-rectangle{
   width:144px;
   min-height: 100vh;
   margin-top: -45px;
@@ -39,21 +39,37 @@ html{
   float: left;
   background:black;
 
-}*/
+}
 
 .black-rotated-fill-rectangle{
   transform: rotate(140deg);
   float: left;
-  margin-top: -40px;
-  margin-left: -75px;
-  width: 320px;
+  margin-top: -120px;
+  margin-left: 125px;
+  width: 100px;
   height: 70px;
   background:black;
   
 }
 
 
-
 /*-------------------------Caroussel------------------------*/
 
+div.container{
+padding:0;
+width: 100%;
+
+}
+.imgCarousel
+{
+  width: 100%;
+
+}
+
+.carousel-inner
+{
+  width:100%;
+  height: 100%;
+
+}
 /*--------------Fin Caroussel --------------------*/

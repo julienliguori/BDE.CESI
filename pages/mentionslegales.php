@@ -3,11 +3,22 @@
 <head>
 
     <?php include("./head.php"); ?>
-    <title>Accueil du Bde Cesi!</title>
+    <title>BDE.CESI</title>
 </head>
 <body>
         <head><?php include("./header.php"); ?> </head>
-        <main><?php include("./main.php"); ?></main>
+        <main>
+
+        <section>
+            <article>
+            
+        
+        
+        
+        
+            </article>
+        </section>
+        </main>
         <footer><?php include("./footer.php");?></footer>
 </body>
 </html>

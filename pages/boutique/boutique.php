@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <?php   
-        include_once('../../source/authentification/connexioncookie.php');
-        include('../../source/site/dependances.php'); 
-    ?>
-    <title>Boutique</title>
+
+    <?php include("../head.php"); ?>
+    <link rel="stylesheet" type="text/css" href="../arc.css">
+    <title>BDE.CESI</title>
 </head>
 <body>
-    <header><?php include('../../source/site/header_interface.php'); ?></header>
-    <main><?php include('../../source/site/main_interface.php'); ?></main>
+        <head><?php include("../header.php"); ?> </head>
+        <main></main>
+        <footer><?php include("../footer.php");?></footer>
 </body>
 </html>

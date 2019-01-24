@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="./index.php"><img src="/source/img/logo/bde.png" width="30" height="30" alt=""> BDE.CESI</a>
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand" href="./home.php"><img src="/source/img/logo/bde.png" width="30" height="30" alt=""> BDE.CESI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -24,7 +24,7 @@
         </div>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="../../pages/boutique/boutique.php">Boutique</a>
+        <a class="nav-link" href="./boutique/boutique.php">Boutique</a>
       </li>
       </ul>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
