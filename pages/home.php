@@ -3,7 +3,7 @@
 <head>
 
     <?php include("./head.php"); ?>
-    <title>Accueil du Bde Cesi!</title>
+    <title>BDE.CESI</title>
 </head>
 <body>
         <head><?php include("./header.php"); ?> </head>
