@@ -21,26 +21,29 @@
   app.use(bodyParser.json()); // support json encoded bodies
 
   app.get('/:site/:table/:filtre/:signe/:condition/', function (req, res) {
+
+    if(req.params.signe == "like"){
+      var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + " like '" + req.params.condition + "%'";
+      console.log(sql);
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("like");
+        res.json(result);
+        //res.json("58"+ req.path +"25")
+      });
+
+    }else{
       var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + " " + req.params.signe + " '" + req.params.condition + "'";
       console.log(sql);
       con.query(sql, function (err, result) {
         if (err) throw err;
-        //console.log("Result: ", result);
+        console.log("autre");
         res.json(result);
         //res.json("58"+ req.path +"25")
-      });
+      });}
   });
 
-  app.get('/:site/:table/:filtre/like/:condition/', function (req, res) {
-    var sql ="SELECT * FROM " + req.params.table + " WHERE " +  req.params.filtre + " like '%" + req.params.condition + "%'";
-    console.log(sql);
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      //console.log("Result: ", result);
-      res.json(result);
-      //res.json("58"+ req.path +"25")
-    });
-  });
+
   app.post('/:site/:table/', function (req, res){
 
     var dataKeys = Object.keys(req.body).toString();
