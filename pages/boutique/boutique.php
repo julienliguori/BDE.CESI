@@ -16,7 +16,8 @@
     <?php
     $element = 1;
     $condition = 1;
-    $url = "http://localhost:8081/boutique/article/$element/%3E=/$condition";
+    $signe = '%3E=';
+    $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
     $parsed_json = json_decode($json,true);
