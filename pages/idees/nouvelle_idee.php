@@ -1,18 +1,17 @@
 <?php
-$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
 
 if(isset($_POST['newproduct'])) {
 
    $lieu = htmlspecialchars($_POST['lieux']);
    $date = htmlspecialchars($_POST['date']);
    $description = htmlspecialchars($_POST['description']);
-   $idClient = htmlspecialchars($_POST['idClient']);
+   $nomClient = htmlspecialchars($_POST['nomClient']);
 
    $array = array(
     'lieux' => $lieux,
     'date' => $date,
     'description' => $description,
-    'idClient' => $idClient
+    'nomClient' => $nomClient
   );
 
   $arrayJSON = json_encode($array);
@@ -25,9 +24,9 @@ if(isset($_POST['newproduct'])) {
   );
   $context = stream_context_create($options);
 
-   if(!empty($_POST['lieu']) AND !empty($_POST['date']) AND !empty($_POST['description'])){
+   if(!empty($_POST['lieux']) AND !empty($_POST['date']) AND !empty($_POST['description']) AND !empty($_POST['nomClient'])){
       header('Location: http://bde.cesi/pages/home.php');
-      return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
+      return file_get_contents('http://localhost:8081/idees/boiteidee/', false, $context);
    }
    else {
       $erreur = "Tous les champs doivent être complétés !";
@@ -48,7 +47,7 @@ if(isset($_POST['newproduct'])) {
    <head>
       <?php include('../../source/site/dependances.php'); ?>
 
-      <title>AjoutProduit</title>
+      <title>Nouvelle idée</title>
    </head>
    <body>
       <header>
@@ -87,6 +86,22 @@ if(isset($_POST['newproduct'])) {
                             </td>
                             <td>
                                 <input type="text" class="form-control" placeholder="Description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style = "text-align:right">
+                                <label for="nom">Nom de l'organisateur :</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Organisateur" id="nomClient" name="nomClient" value="<?php if(isset($nomClient)) { echo $nomClient; } ?>" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style = "text-align:right">
+                            <br />
+                                <input type="submit" class="btn btn-primary" name="newproduct" value="Ajoutez!" />
                             </td>
                         </tr>
                     </table>
