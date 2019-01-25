@@ -17,7 +17,7 @@
 
     // foreach()
 
-    echo('{"nom": "poulet"}');
+    //echo('{"nom": "poulet"}');
 
     
     //echo $json_s;
