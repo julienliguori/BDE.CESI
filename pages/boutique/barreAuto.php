@@ -16,9 +16,11 @@
  
 <script>
 $( "#autocomplete" ).autocomplete({
-  source: 'recherche.php',
-  //source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+  source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
 });
+
+
+
 </script>
 
 
