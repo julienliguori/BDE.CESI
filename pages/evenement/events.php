@@ -25,10 +25,11 @@
   </thead>
   <tbody>
   <?php
-    $increment = 0;
-    $element = 1;
-    $condition = 1;
-    $url = "http://localhost:8081/evenement/evenement/$element/=/$condition";
+     $increment = 0;
+     $element = 'date';
+     $condition = date("Y-m-j");
+     echo ($condition);
+     $url = "http://localhost:8081/evenement/evenement/$element/>=/$condition";
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
     $parsed_json = json_decode($json,true);
