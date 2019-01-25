@@ -28,6 +28,7 @@
         Boutique
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="../../pages/boutique/vitrine_boutique.php">Vitrine boutique</a>
           <a class="dropdown-item" href="../../pages/boutique/boutique.php">Consulter la boutique</a>
           <a class="dropdown-item" href="../../pages/boutique/nouveau_produit.php">Ajouter un article</a>
         </div>
