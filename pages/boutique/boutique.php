@@ -10,6 +10,7 @@
     <title>Boutique</title>
 </head>
 <body>
+    <?php include('../../source/site/sidebar_boutique_interface.php'); ?>
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
