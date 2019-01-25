@@ -3,6 +3,13 @@
 <head>
     
     <?php 
+        if(($_SERVER["REQUEST_URI"] == '/pages/boutique/panier.php')){
+            if (isset($_COOKIE['article'])){
+                $article = $_COOKIE['article'];
+            }else{
+                setcookie('article',0,time()+$time_c,null,null,false,true);
+            }
+        }else{
             $time_c=365*24*3600;
             $id = trim(strip_tags($_GET['condition']));
             $article = '';
@@ -12,6 +19,8 @@
             }
             $addArticle = $article . $id . ',';
             setcookie('article',$addArticle,time()+$time_c,null,null,false,true);
+            header('Location:/pages/boutique/panier.php');
+        }
 
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
@@ -20,13 +29,24 @@
     <title>Panier</title>
 </head>
 <body>
-    <?php include('../../source/site/sidebar_boutique_interface.php'); ?>
+
     <div class="container" style="padding-top:50px">
     <div class="row">
+    <table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Taille</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Suprimer</th>
+    </tr>
+  </thead>
+  <tbody>
     <?php
     $articless = substr($article, 0, -1);
     $articles = explode(",",$articless);
-    
 
     foreach ($articles as $fin) {
         $element = 'idArticle';
@@ -42,26 +62,21 @@
                 ?>
     
                     <?php echo '
-                    <div class="col-md-4" style="padding-bottom:80px">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" alt="">
-                            <div class="card-body">
-                            <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button>
-                                </div>
-                                <small class="text-muted">' . $data["prix"] ."€". '</small>
-                            </div>
-                            </div>
-                        </div>
-                    </div>' 
-                    ?>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>' . $data["photo"] .' </td>
+                            <td>' . $data["nom"] .'</td>
+                            <td>' . $data["taille"] .'</td>
+                            <td>' . $data["prix"] .'</td>
+                            <td><button href="#" type="button" class="btn btn-warning">Supprimer</button></td>
+                          </tr>' ?>
+
     
              <?php }
              } ?>   
-    </div>
+   </tbody>
+</table>
+</div>
 </div>
 <footer><?php include("../../source/site/footer_interface.php");?></footer>
 </body>
