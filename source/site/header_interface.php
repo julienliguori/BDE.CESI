@@ -11,7 +11,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="../../pages/evenement/events.php">Consulter les événements</a>
-          <a class="dropdown-item" href="../../pages/evenement/ancien_events.php">Évévements passés</a>
+          <a class="dropdown-item" href="../../pages/evenement/ancien_events.php">Événements passés</a>
+          <a class="dropdown-item" href="../../pages/evenement/nouvel_evenement.php">Ajouter un événement</a>
         </div>
       </li>
       <li class="nav-item dropdown">
