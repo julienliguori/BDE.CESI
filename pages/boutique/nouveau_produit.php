@@ -11,6 +11,31 @@ if(isset($_POST['newproduct'])) {
    $couleur = htmlspecialchars($_POST['couleur']);
    $description = htmlspecialchars($_POST['description']);
    $type = htmlspecialchars($_POST['type']);
+
+   if(isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])) {
+      $tailleMax = 2097152;
+      $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+      if($_FILES['photo']['size'] <= $tailleMax) {
+         $extensionUpload = strtolower(substr(strrchr($_FILES['photo']['name'], '.'), 1));
+         if(in_array($extensionUpload, $extensionsValides)) {
+            $chemin = "../../source/img/boutique/".$nom.".".$extensionUpload;
+            $resultat = move_uploaded_file($_FILES['photo']['tmp_name'], $chemin);
+            if($resultat) {
+                  $_POST['photo']= $nom.".".$extensionUpload;
+                  //'id' => $_SESSION['id']
+                  
+              // header('Location: profil.php?id='.$_SESSION['id']);
+            } else {
+               $msg = "Erreur durant l'importation de votre image";
+            }
+         } else {
+            $msg = "Votre image doit être au format jpg, jpeg, gif ou png";
+         }
+      } else {
+         $msg = "Votre image ne doit pas dépasser 2Mo";
+      }
+   }
+
    $photo = htmlspecialchars($_POST['photo']);
 
    //var in array for json
@@ -23,8 +48,11 @@ if(isset($_POST['newproduct'])) {
       'type' => $type,
       'photo' => $photo
   );
+                                                                       // vardump($array);
 //Encode array 
   $arrayJSON = json_encode($array);
+
+                                                                             //  vardump($arrayJSON);
   //params convertion
   $options = array(
       'http'=> array(
@@ -52,31 +80,6 @@ if(isset($_POST['newproduct'])) {
   //echo ($arrayJSON);
   //echo "chups);
 
-
-  //Ajouter un fichier
-  if(isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])) {
-   $tailleMax = 2097152;
-   $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
-   if($_FILES['photo']['size'] <= $tailleMax) {
-      $extensionUpload = strtolower(substr(strrchr($_FILES['photo']['name'], '.'), 1));
-      if(in_array($extensionUpload, $extensionsValides)) {
-         $chemin = "../../source/img/boutique/".$nom.".".$extensionUpload;
-         $resultat = move_uploaded_file($_FILES['photo']['tmp_name'], $chemin);
-         if($resultat) {
-               $photo= $nom.".".$extensionUpload;
-               //'id' => $_SESSION['id']
-               
-           // header('Location: profil.php?id='.$_SESSION['id']);
-         } else {
-            $msg = "Erreur durant l'importation de votre image";
-         }
-      } else {
-         $msg = "Votre image doit être au format jpg, jpeg, gif ou png";
-      }
-   } else {
-      $msg = "Votre image ne doit pas dépasser 2Mo";
-   }
-}
 
 
    ?>
