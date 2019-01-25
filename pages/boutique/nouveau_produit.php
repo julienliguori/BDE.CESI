@@ -49,12 +49,12 @@ if(isset($_POST['newproduct'])) {
 
    ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="fr">
    <head>
       <?php include('../../source/site/dependances.php'); ?>
 
       <title>AjoutProduit</title>
-      <meta charset="utf-8">
    </head>
    <body>
       <header>
@@ -62,53 +62,54 @@ if(isset($_POST['newproduct'])) {
       </header>
 
       <main>
-         <div align="center" style="margin-left:50% text-align:center;">
+         <div style = "text-align:center" style="margin-left:50% text-align:center;">
             <h2 style="padding-top: 20px; margin-bottom:-30px">Ajouter un article</h2>
             <br /><br />
+            <div class="container" style="width: 420px;margin: 0 auto;">
             <form method="POST" action="">
                <table>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="nom">Nom :</label>
                      </td>
                      <td>
-                        <input type="text" class="form-control" placeholder="Nom Article" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
+                        <input type="text" class="form-control" placeholder="Nom article" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>" />
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="prix">Prix :</label>
                      </td>
                      <td>
-                        <input type="text" class="form-control" placeholder="prix" id="prix" name="prix" value="<?php if(isset($prix)) { echo $prix; } ?>" />
+                        <input type="text" class="form-control" placeholder="Prix" id="prix" name="prix" value="<?php if(isset($prix)) { echo $prix; } ?>" />
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="quantite">Quantité :</label>
                      </td>
                      <td>
-                        <input type="quantite" class="form-control" placeholder="quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
+                        <input type="quantite" class="form-control" placeholder="Quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="description">Description :</label>
                      </td>
                      <td>
-                        <input type="description" class="form-control" placeholder="description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
+                        <input type="description" class="form-control" placeholder="Description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="mdp">Colorie :</label>
                      </td>
                      <td>
-                        <input type="couleur" class="form-control" placeholder="couleur" id="couleur" name="couleur" />
+                        <input type="couleur" class="form-control" placeholder="Couleur" id="couleur" name="couleur" />
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="type">Catégorie :</label>
                      </td>
                      <td  type="type" placeholder="type" id="type" name="Catégorie">
@@ -125,7 +126,7 @@ if(isset($_POST['newproduct'])) {
                      </td>
                   </tr>
                   <tr>
-                     <td align="right">
+                     <td style = "text-align:right">
                         <label for="photo">Image de l'article :</label>
                      </td>
                      <td>
@@ -133,13 +134,14 @@ if(isset($_POST['newproduct'])) {
                      </td>
                   </tr>
                   <tr>
-                     <td>
+                     <td style = "text-align:right">
                      <br />
                         <input type="submit" class="btn btn-primary" name="newproduct" value="Ajoutez!" />
                      </td>
                   </tr>
                </table>
             </form>
+            </div>
             <?php
             if(isset($erreur)) {
                echo '<font color="red">'.$erreur."</font>";

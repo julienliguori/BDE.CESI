@@ -63,7 +63,8 @@ if(isset($_SESSION['id'])) {
       }
    }
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
    <head>
       <?php include('.././site/dependances.php'); ?>
       <title>Edition du profil</title>
