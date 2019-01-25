@@ -220,8 +220,7 @@ CREATE TABLE Signaler(
         description  varchar (250),
         publicateur varchar(50)
 
-	,CONSTRAINT Signaler_PK PRIMARY KEY (id
-        Signaler)
+	,CONSTRAINT Signaler_PK PRIMARY KEY (idSignaler)
 )ENGINE=InnoDB;
 
 
