@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "body-parser": "^1.18.3",
+        "easy-autocomplete": "^1.3.5",
         "express": "^4.16.4",
         "jquery.js": "0.0.2-security",
         "mssql": "^3.3.0",
