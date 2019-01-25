@@ -1,58 +1,56 @@
 <?php
-$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
 
-if(isset($_POST['newproduct'])) {
+if (isset($_POST['newproduct'])) {
 
-   $lieu = htmlspecialchars($_POST['lieux']);
-   $date = htmlspecialchars($_POST['date']);
-   $description = htmlspecialchars($_POST['description']);
-   $idClient = htmlspecialchars($_POST['idClient']);
+    $lieu = htmlspecialchars($_POST['lieux']);
+    $date = htmlspecialchars($_POST['date']);
+    $description = htmlspecialchars($_POST['description']);
+    $nomClient = htmlspecialchars($_POST['nomClient']);
 
-   $array = array(
-    'lieux' => $lieux,
-    'date' => $date,
-    'description' => $description,
-    'idClient' => $idClient
-  );
+    $array = array(
+        'lieux' => $lieux,
+        'date' => $date,
+        'description' => $description,
+        'nomClient' => $nomClient,
+    );
 
-  $arrayJSON = json_encode($array);
-  $options = array(
-      'http'=> array(
-          'method' => 'POST',
-          'header'=> "Content-Type: application/json",
-          'content' => $arrayJSON
-      )
-  );
-  $context = stream_context_create($options);
+    $arrayJSON = json_encode($array);
+    $options = array(
+        'http' => array(
+            'method' => 'POST',
+            'header' => "Content-Type: application/json",
+            'content' => $arrayJSON,
+        ),
+    );
+    $context = stream_context_create($options);
 
-   if(!empty($_POST['lieu']) AND !empty($_POST['date']) AND !empty($_POST['description'])){
-      header('Location: http://bde.cesi/pages/home.php');
-      return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
-   }
-   else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
+    if (!empty($_POST['lieux']) and !empty($_POST['date']) and !empty($_POST['description']) and !empty($_POST['nomClient'])) {
+
+        header('Location: http://bde.cesi/pages/home.php');
+        return file_get_contents('http://localhost:8081/idees/boiteidee/', false, $context);
+    } else {
+        $erreur = "Tous les champs doivent être complétés !";
+    }
 }
-  
+
 /*  $fp = fopen('http://localhost:8081/boutique/article/', 'r', false, $context);
- fpassthru($fp);
- fclose($fp); */
-  //echo ($arrayJSON);
-  //echo "chups);
+fpassthru($fp);
+fclose($fp); */
+//echo ($arrayJSON);
+//echo "chups);
 
-
-   ?>
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include('../../source/site/dependances.php'); ?>
+      <?php include '../../source/site/dependances.php';?>
 
-      <title>AjoutProduit</title>
+      <title>Nouvelle idée</title>
    </head>
    <body>
       <header>
-         <?php include('../../source/site/header_interface.php'); ?>
+         <?php include '../../source/site/header_interface.php';?>
       </header>
 
       <main>
@@ -68,7 +66,7 @@ if(isset($_POST['newproduct'])) {
                                 <label for="nom">Lieux :</label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" placeholder="Lieux" id="lieux" name="lieux" value="<?php if(isset($lieux)) { echo $lieux; } ?>" />
+                                <input type="text" class="form-control" placeholder="Lieux" id="lieux" name="lieux" value="<?php if (isset($lieux)) {echo $lieux;}?>" />
                             </td>
                         </tr>
 
@@ -77,7 +75,7 @@ if(isset($_POST['newproduct'])) {
                                 <label for="nom">Date :</label>
                             </td>
                             <td>
-                                <input type="date" class="form-control" placeholder="Date" id="date" name="date" value="<?php if(isset($date)) { echo $date; } ?>" />
+                                <input type="date" class="form-control" placeholder="Date" id="date" name="date" value="<?php if (isset($date)) {echo $date;}?>" />
                             </td>
                         </tr>
 
@@ -86,7 +84,23 @@ if(isset($_POST['newproduct'])) {
                                 <label for="nom">Description :</label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" placeholder="Description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
+                                <input type="text" class="form-control" placeholder="Description" id="description" name="description" value="<?php if (isset($description)) {echo $description;}?>" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style = "text-align:right">
+                                <label for="nom">Nom de l'organisateur :</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Organisateur" id="nomClient" name="nomClient" value="<?php if (isset($nomClient)) {echo $nomClient;}?>" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style = "text-align:right">
+                            <br />
+                                <input type="submit" class="btn btn-primary" name="newproduct" value="Ajoutez!" />
                             </td>
                         </tr>
                     </table>
@@ -94,9 +108,9 @@ if(isset($_POST['newproduct'])) {
             </div>
 
             <?php
-            if(isset($erreur)) {
-               echo '<font color="red">'.$erreur."</font>";
-            }
+                if (isset($erreur)) {
+                    echo '<font color="red">' . $erreur . "</font>";
+                }
             ?>
 
          </div>
