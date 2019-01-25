@@ -24,9 +24,12 @@ $condition = trim(strip_tags($_GET['condition']));
     <div class="row">
     <?php
     $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
-    echo $url;
+    //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
+    if ($json == '{"data": [] }'){
+        echo'Aucun article ne corespond à votre recherche';
+    }
     $parsed_json = json_decode($json,true);
     //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
