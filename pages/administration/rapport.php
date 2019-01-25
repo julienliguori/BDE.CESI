@@ -4,6 +4,7 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -13,16 +14,14 @@
 
 if (isset($_POST['newproduct'])) {
 
-    $lieu = htmlspecialchars($_POST['lieux']);
-    $date = htmlspecialchars($_POST['date']);
+    $nom = htmlspecialchars($_POST['nom']);
     $description = htmlspecialchars($_POST['description']);
-    $nomClient = htmlspecialchars($_POST['nomClient']);
+    $pub = $_SESSION['nom'] + $_SESSION['prenom'];
 
     $array = array(
-        'lieux' => $lieux,
-        'date' => $date,
+        'nom' => $nom,
         'description' => $description,
-        'nomClient' => $nomClient,
+        'publicateur' => $pub,
     );
 
     $arrayJSON = json_encode($array);
@@ -35,20 +34,14 @@ if (isset($_POST['newproduct'])) {
     );
     $context = stream_context_create($options);
 
-    if (!empty($_POST['lieux']) and !empty($_POST['date']) and !empty($_POST['description']) and !empty($_POST['nomClient'])) {
+    if (!empty($_POST['description']) and !empty($_POST['nom'])) {
 
         header('Location: http://bde.cesi/pages/home.php');
-        return file_get_contents('http://localhost:8081/idees/boiteidee/', false, $context);
+        return file_get_contents('http://localhost:8081/evenement/signaler/', false, $context);
     } else {
         $erreur = "Tous les champs doivent être complétés !";
     }
-}
-
-/*  $fp = fopen('http://localhost:8081/boutique/article/', 'r', false, $context);
-fpassthru($fp);
-fclose($fp); */
-//echo ($arrayJSON);
-//echo "chups);
+}   
 
 ?>
 
@@ -60,7 +53,7 @@ fclose($fp); */
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nouveau Signalement</h5>
+        <h4 class="modal-title" id="exampleModalLabel">Nouveau Signalement</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -69,17 +62,17 @@ fclose($fp); */
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Problème: </label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" name="nom">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Description: </label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" id="message-text" name="description"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Envoi</button>
+        <button type="button" type="submit" name="newproduct" class="btn btn-primary">Envoi</button>
       </div>
     </div>
   </div>
