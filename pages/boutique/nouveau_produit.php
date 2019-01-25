@@ -66,7 +66,7 @@ if(isset($_POST['newproduct'])) {
             <h2 style="padding-top: 20px; margin-bottom:-30px">Ajouter un article</h2>
             <br /><br />
             <div class="container" style="width: 420px;margin: 0 auto;">
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                <table>
                   <tr>
                      <td style = "text-align:right">
@@ -89,7 +89,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="quantite">Quantité :</label>
                      </td>
                      <td>
-                        <input type="quantite" class="form-control" placeholder="Quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
+                        <input type="text" class="form-control" placeholder="Quantite" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>" />
                      </td>
                   </tr>
                   <tr>
@@ -97,7 +97,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="description">Description :</label>
                      </td>
                      <td>
-                        <input type="description" class="form-control" placeholder="Description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
+                        <input type="text" class="form-control" placeholder="Description" id="description" name="description" value="<?php if(isset($description)) { echo $description; } ?>" />
                      </td>
                   </tr>
                   <tr>
@@ -105,7 +105,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="mdp">Colorie :</label>
                      </td>
                      <td>
-                        <input type="couleur" class="form-control" placeholder="Couleur" id="couleur" name="couleur" />
+                        <input type="text" class="form-control" placeholder="Couleur" id="couleur" name="couleur" />
                      </td>
                   </tr>
                   <tr>
@@ -130,7 +130,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="photo">Image de l'article :</label>
                      </td>
                      <td>
-                        <input type="photo" class="form-control" placeholder="Image de l'article" id="photo" name="photo" />
+                        <input type="file" class="form-control" placeholder="Image de l'article" id="photo" name="photo" />
                      </td>
                   </tr>
                   <tr>
