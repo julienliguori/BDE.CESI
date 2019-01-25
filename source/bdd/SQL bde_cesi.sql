@@ -7,7 +7,7 @@ CREATE TABLE article(
         nom       Varchar (50) NOT NULL ,
         prix      Int NOT NULL ,
         quantite  Int NOT NULL ,
-        taille    Varchar (50) NOT NULL ,
+        taille    Varchar (50) DEFAULT NULL,
         couleur   Varchar (50) NOT NULL ,
         type      Varchar (50) NOT NULL ,
         photo     Varchar (50) NOT NULL,
@@ -27,24 +27,6 @@ CREATE TABLE Membre_BDE(
 
 
 #------------------------------------------------------------
-# Table: client
-#------------------------------------------------------------
-
-CREATE TABLE client(
-        idClient   Int  Auto_increment  NOT NULL ,
-        nom        Varchar (50) NOT NULL ,
-        email      Varchar (50) NOT NULL ,
-        motDepasse Varchar (50) NOT NULL ,
-        centre     Varchar (50) NOT NULL ,
-        photo      Varchar (50) NOT NULL ,
-        idMembre   Int NOT NULL
-	,CONSTRAINT client_PK PRIMARY KEY (idClient)
-
-	,CONSTRAINT client_Membre_BDE_FK FOREIGN KEY (idMembre) REFERENCES Membre_BDE(idMembre)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
 # Table: panier
 #------------------------------------------------------------
 
@@ -53,10 +35,9 @@ CREATE TABLE panier(
         valider      Bool NOT NULL ,
         facture      Varchar (50) NOT NULL ,
         date_facture Date NOT NULL ,
-        idClient     Int NOT NULL
+        nomClient     Int NOT NULL
 	,CONSTRAINT panier_PK PRIMARY KEY (idPanier)
 
-	,CONSTRAINT panier_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 )ENGINE=InnoDB;
 
 
@@ -69,10 +50,9 @@ CREATE TABLE boiteIdee(
         Lieux       Varchar (50) NOT NULL ,
         Date        Date NOT NULL ,
         Description Longtext NOT NULL ,
-        idClient    Int NOT NULL
+        nomClient    Int NOT NULL
 	,CONSTRAINT boiteIdee_PK PRIMARY KEY (idBoiteIdee)
 
-	,CONSTRAINT boiteIdee_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 )ENGINE=InnoDB;
 
 
@@ -83,10 +63,9 @@ CREATE TABLE boiteIdee(
 CREATE TABLE likes(
         idLikes       Int  Auto_increment  NOT NULL ,
         Actif    Bool NOT NULL ,
-        idClient Int NOT NULL
+        nomClient Int NOT NULL
 	,CONSTRAINT likes_PK PRIMARY KEY (idLikes)
 
-	,CONSTRAINT likes_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 )ENGINE=InnoDB;
 
 
@@ -97,10 +76,9 @@ CREATE TABLE likes(
 CREATE TABLE commentairePhoto(
         idCommentairePhoto          Int  Auto_increment  NOT NULL ,
         Description                 Longtext NOT NULL ,
-        idClient                    Int NOT NULL
+        nomClient                    Int NOT NULL
 	,CONSTRAINT commentairePhoto_PK PRIMARY KEY (idCommentairePhoto)
 
-	,CONSTRAINT commentairePhoto_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 )ENGINE=InnoDB;
 
 
@@ -123,11 +101,10 @@ CREATE TABLE Comporter(
 #------------------------------------------------------------
 
 CREATE TABLE Ajouter_au_panier(
-        idClient  Int NOT NULL ,
+        nomClient  Int NOT NULL ,
         idArticle Int NOT NULL
-	,CONSTRAINT Ajouter_au_panier_PK PRIMARY KEY (idClient,idArticle)
+	,CONSTRAINT Ajouter_au_panier_PK PRIMARY KEY (nomClient,idArticle)
 
-	,CONSTRAINT Ajouter_au_panier_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 	,CONSTRAINT Ajouter_au_panier_article0_FK FOREIGN KEY (idArticle) REFERENCES article(idArticle)
 )ENGINE=InnoDB;
 
@@ -156,7 +133,9 @@ CREATE TABLE evenement(
         Lieux       Varchar (50) NOT NULL ,
         URLImage    Varchar (50) NOT NULL ,
         Description Longtext NOT NULL ,
-        idMembre    Int NOT NULL
+        nbParticipant   Int NOT NULL DEFAULT 0,
+        nbPlace         Int NOT NULL,
+        idMembre        Int NOT NULL
 	,CONSTRAINT evenement_PK PRIMARY KEY (idEvenement)
 
 	,CONSTRAINT evenement_Membre_BDE_FK FOREIGN KEY (idMembre) REFERENCES Membre_BDE(idMembre)
@@ -170,11 +149,10 @@ CREATE TABLE evenement(
 CREATE TABLE photo(
         idPhoto     Int  Auto_increment  NOT NULL ,
         URLImage    Varchar (50) NOT NULL ,
-        idClient    Int NOT NULL ,
+        nomClient    Int NOT NULL ,
         idEvenement Int NOT NULL
 	,CONSTRAINT photo_PK PRIMARY KEY (idPhoto)
 
-	,CONSTRAINT photo_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 	,CONSTRAINT photo_evenement0_FK FOREIGN KEY (idEvenement) REFERENCES evenement(idEvenement)
 )ENGINE=InnoDB;
 
@@ -186,11 +164,10 @@ CREATE TABLE photo(
 CREATE TABLE commentaireEvent(
         idCommentaireEvent Int  Auto_increment  NOT NULL ,
         description        Longtext NOT NULL ,
-        idClient           Int NOT NULL ,
+        nomClient           Int NOT NULL ,
         idEvenement        Int NOT NULL
 	,CONSTRAINT commentaireEvent_PK PRIMARY KEY (idCommentaireEvent)
 
-	,CONSTRAINT commentaireEvent_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 	,CONSTRAINT commentaireEvent_evenement0_FK FOREIGN KEY (idEvenement) REFERENCES evenement(idEvenement)
 )ENGINE=InnoDB;
 
@@ -214,11 +191,10 @@ CREATE TABLE Devenir(
 #------------------------------------------------------------
 
 CREATE TABLE Participer(
-        idClient    Int NOT NULL ,
+        nomClient    Int NOT NULL ,
         idEvenement Int NOT NULL
-	,CONSTRAINT Participer_PK PRIMARY KEY (idClient,idEvenement)
+	,CONSTRAINT Participer_PK PRIMARY KEY (nomClient,idEvenement)
 
-	,CONSTRAINT Participer_client_FK FOREIGN KEY (idClient) REFERENCES client(idClient)
 	,CONSTRAINT Participer_evenement0_FK FOREIGN KEY (idEvenement) REFERENCES evenement(idEvenement)
 )ENGINE=InnoDB;
 
