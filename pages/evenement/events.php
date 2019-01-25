@@ -25,6 +25,7 @@
   </thead>
   <tbody>
   <?php
+    $increment = 0;
     $element = 1;
     $condition = 1;
     $url = "http://localhost:8081/evenement/evenement/$element/=/$condition";
@@ -34,16 +35,18 @@
     //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
             ?>
-        <?php echo '
-    <tr>
-      <th scope="row">1</th>
-      <td>' . $data["Nom"] .' </td>
-      <td>' . $data["Description"] .'</td>
-      <td>' . $data["Date"] .'</td>
-      <td>' . $data["Lieux"] .'</td>
-      <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
-    </tr>'
-    ?>
+        <?php 
+            $increment++; 
+            echo 
+            '<tr>
+            <th scope="row">' . $increment . '</th>
+            <td>' . $data["nom"] .' </td>
+            <td>' . $data["description"] .'</td>
+            <td>' . substr($data["date"], 0, 10) .'</td>
+            <td>' . $data["lieux"] .'</td>
+            <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
+            </tr>'
+        ?>
     <?php } ?>
     </tbody>
 </table>

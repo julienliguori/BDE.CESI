@@ -12,7 +12,19 @@
 <body>
     <div class="container" style="padding-top:50px">
     <div class="row">
+    <table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Dates</th>
+        <th scope="col">Lieux</th>
+        <th scope="col">Réactions</th>
+        </tr>
+    </thead>
+  <tbody>
     <?php
+    $increment = 0;
     $element = 1;
     $condition = 1;
     $url = "http://localhost:8081/idees/boiteidee/$element/%3E=/$condition";
@@ -23,20 +35,17 @@
         foreach ($parsed_json['data'] as $data) {
             ?>
 
-        <?php echo '
-                <div class="col-md-4" style="padding-bottom:80px">
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body">
-                            <p class="card-text">' . $data["lieux"] . " Date : " . $data["date"] . '</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a href="../../pages/boutique/produit.php?id=' . $data['idBoiteIdee'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>' 
-                ?>
+        <?php 
+            $increment++; 
+            echo 
+            '<tr>
+            <th scope="row">' . $increment . '</th>
+            <td>' . $data["description"] .'</td>
+            <td>' . substr($data["date"], 0, 10) .'</td>
+            <td>' . $data["lieux"] .'</td>
+            <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
+            </tr>'
+        ?>
 
          <?php } ?>
 

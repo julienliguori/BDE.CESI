@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_POST['newproduct'])) {
+if (isset($_POST['new_idea'])) {
 
-    $lieu = htmlspecialchars($_POST['lieux']);
+    $lieux = htmlspecialchars($_POST['lieux']);
     $date = htmlspecialchars($_POST['date']);
     $description = htmlspecialchars($_POST['description']);
     $nomClient = htmlspecialchars($_POST['nomClient']);
@@ -46,7 +46,7 @@ fclose($fp); */
    <head>
       <?php include '../../source/site/dependances.php';?>
 
-      <title>Nouvelle idée</title>
+      <title>Ajout ~ Idée</title>
    </head>
    <body>
       <header>
@@ -63,7 +63,7 @@ fclose($fp); */
                     <table>
                         <tr>
                             <td style = "text-align:right">
-                                <label for="nom">Lieux :</label>
+                                <label for="lieux">Lieux :</label>
                             </td>
                             <td>
                                 <input type="text" class="form-control" placeholder="Lieux" id="lieux" name="lieux" value="<?php if (isset($lieux)) {echo $lieux;}?>" />
@@ -72,7 +72,7 @@ fclose($fp); */
 
                         <tr>
                             <td style = "text-align:right">
-                                <label for="nom">Date :</label>
+                                <label for="date">Date :</label>
                             </td>
                             <td>
                                 <input type="date" class="form-control" placeholder="Date" id="date" name="date" value="<?php if (isset($date)) {echo $date;}?>" />
@@ -81,7 +81,7 @@ fclose($fp); */
 
                         <tr>
                             <td style = "text-align:right">
-                                <label for="nom">Description :</label>
+                                <label for="description">Description :</label>
                             </td>
                             <td>
                                 <input type="text" class="form-control" placeholder="Description" id="description" name="description" value="<?php if (isset($description)) {echo $description;}?>" />
@@ -90,7 +90,7 @@ fclose($fp); */
 
                         <tr>
                             <td style = "text-align:right">
-                                <label for="nom">Nom de l'organisateur :</label>
+                                <label for="nomClient">Nom de l'organisateur :</label>
                             </td>
                             <td>
                                 <input type="text" class="form-control" placeholder="Organisateur" id="nomClient" name="nomClient" value="<?php if (isset($nomClient)) {echo $nomClient;}?>" />
@@ -100,7 +100,7 @@ fclose($fp); */
                         <tr>
                             <td style = "text-align:right">
                             <br />
-                                <input type="submit" class="btn btn-primary" name="newproduct" value="Ajoutez!" />
+                                <input type="submit" class="btn btn-primary" name="new_idea" value="Ajoutez!" />
                             </td>
                         </tr>
                     </table>
@@ -115,5 +115,6 @@ fclose($fp); */
 
          </div>
       </main>
+      <footer><?php include("../../source/site/footer_interface.php");?></footer>
    </body>
 </html>
