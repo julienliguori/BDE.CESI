@@ -7,7 +7,7 @@ CREATE TABLE article(
         nom       Varchar (50) NOT NULL ,
         prix      Int NOT NULL ,
         quantite  Int NOT NULL ,
-        taille    Varchar (50) NOT NULL ,
+        taille    Varchar (50) DEFAULT NULL,
         couleur   Varchar (50) NOT NULL ,
         type      Varchar (50) NOT NULL ,
         photo     Varchar (50) NOT NULL,
@@ -156,7 +156,9 @@ CREATE TABLE evenement(
         Lieux       Varchar (50) NOT NULL ,
         URLImage    Varchar (50) NOT NULL ,
         Description Longtext NOT NULL ,
-        idMembre    Int NOT NULL
+        nbParticipant   Int NOT NULL DEFAULT 0,
+        nbPlace         Int NOT NULL,
+        idMembre        Int NOT NULL
 	,CONSTRAINT evenement_PK PRIMARY KEY (idEvenement)
 
 	,CONSTRAINT evenement_Membre_BDE_FK FOREIGN KEY (idMembre) REFERENCES Membre_BDE(idMembre)
