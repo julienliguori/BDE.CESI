@@ -70,7 +70,7 @@
                             <td><img src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" width=50px></img></td>
                             <td>' . $data["nom"] .'</td>
                             <td>' . $data["taille"] .'</td>
-                            <td>' . $data["prix"] .'</td>
+                            <td>' . $data["prix"] . ' €</td>
                             <td><button href="#" type="button" class="btn btn-warning">Supprimer</button></td>
                           </tr>' ?>
 
