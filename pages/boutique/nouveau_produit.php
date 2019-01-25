@@ -70,7 +70,7 @@ if(isset($_POST['newproduct'])) {
       return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
    }
    else {
-      $erreur = "Tous les champs doivent être complétés !";
+      $erreur = "Tout les champs doivent être complétés !";
    }
 }
   

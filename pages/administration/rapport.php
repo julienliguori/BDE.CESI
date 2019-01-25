@@ -16,7 +16,7 @@ if (isset($_POST['newproduct'])) {
 
     $nom = htmlspecialchars($_POST['nom']);
     $description = htmlspecialchars($_POST['description']);
-    $pub = $_SESSION['nom'] + $_SESSION['prenom'];
+    $pub = ($_SESSION['prenom'] . " " . $_SESSION['nom']);
 
     $array = array(
         'nom' => $nom,
@@ -72,7 +72,7 @@ if (isset($_POST['newproduct'])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-        <button type="button" type="submit" name="newproduct" class="btn btn-primary">Envoi</button>
+        <button type="submit" name="newproduct" class="btn btn-primary">Envoi</button>
       </div>
     </div>
   </div>

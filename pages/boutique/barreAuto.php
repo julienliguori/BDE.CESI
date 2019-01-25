@@ -16,8 +16,10 @@
  
 <script>
 $( "#autocomplete" ).autocomplete({
-  source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+  source: [ "pull", "polo", "T-shirt", "briquet", "Casquette", "peluche", "billet", "mug" ]
+
 });
+
 
 
 
