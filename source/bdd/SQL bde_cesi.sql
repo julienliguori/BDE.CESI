@@ -218,9 +218,10 @@ CREATE TABLE Signaler(
         idSignaler Int  Auto_increment NOT NULL ,
         nom varchar (100) NOT NULL,
         description  varchar (250),
-        publicateur varchar(50),
+        publicateur varchar(50)
 
-	,CONSTRAINT Signaler_PK PRIMARY KEY (idSignaler)
+	,CONSTRAINT Signaler_PK PRIMARY KEY (id
+        Signaler)
 )ENGINE=InnoDB;
 
 
