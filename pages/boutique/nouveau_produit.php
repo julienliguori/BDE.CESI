@@ -18,7 +18,7 @@ if(isset($_POST['newproduct'])) {
       if($_FILES['photo']['size'] <= $tailleMax) {
          $extensionUpload = strtolower(substr(strrchr($_FILES['photo']['name'], '.'), 1));
          if(in_array($extensionUpload, $extensionsValides)) {
-            $chemin = "../../source/img/boutique/".$nom.".".$extensionUpload;
+            $chemin = "../../source/img/boutique/ImgMemeFormat/".$nom.".".$extensionUpload;
             $resultat = move_uploaded_file($_FILES['photo']['tmp_name'], $chemin);
             if($resultat) {
                   $_POST['photo']= $nom.".".$extensionUpload;
