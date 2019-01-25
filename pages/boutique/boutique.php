@@ -32,7 +32,7 @@
                         <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
+                            <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button>
                             </div>
                             <small class="text-muted">' . $data["prix"] ."€". '</small>
