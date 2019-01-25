@@ -32,8 +32,8 @@
                         <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Voir</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button>
+                            <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
+                            <a href="../../pages/boutique/panier.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button></a>
                             </div>
                             <small class="text-muted">' . $data["prix"] ."€". '</small>
                         </div>
