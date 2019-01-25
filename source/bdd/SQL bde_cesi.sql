@@ -215,11 +215,12 @@ CREATE TABLE salarier(
 #------------------------------------------------------------
 
 CREATE TABLE Signaler(
-        idPhoto    Int NOT NULL ,
-        idSalarier Int NOT NULL
-	,CONSTRAINT Signaler_PK PRIMARY KEY (idPhoto,idSalarier)
+        idSignaler Int  Auto_increment NOT NULL ,
+        nom varchar (100) NOT NULL,
+        description  varchar (250),
+        publicateur varchar(50),
 
-	,CONSTRAINT Signaler_photo_FK FOREIGN KEY (idPhoto) REFERENCES photo(idPhoto)
-	,CONSTRAINT Signaler_salarier0_FK FOREIGN KEY (idSalarier) REFERENCES salarier(idSalarier)
+	,CONSTRAINT Signaler_PK PRIMARY KEY (idSignaler)
 )ENGINE=InnoDB;
+
 
