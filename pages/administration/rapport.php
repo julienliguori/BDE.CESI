@@ -1,9 +1,3 @@
-<?php session_start(); 
-
-Var_dump($_SESSION);
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
