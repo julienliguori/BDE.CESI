@@ -8,7 +8,9 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $requser->execute(array($getid));
    $userinfo = $requser->fetch();
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="fr">
    <head>
    <?php include('.././site/dependances.php'); ?>
       <title><?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']); ?> - Profil</title>
@@ -18,7 +20,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          <?php include('.././site/header_interface.php'); ?>
       </header>
 
-      <div class="center">
+      <div class="container" style="text-align: center; padding-top:25px">
          <h2>Profil de <?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']);?></h2>
          <br /><br />
          <?php 
@@ -40,13 +42,13 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          if(isset($_SESSION['id']) AND $userinfo['ID'] == $_SESSION['id']) {
          ?>
          <br />
-         <a href="editionprofil.php">Editer mon profil</a>
+         <a href="editionprofil.php">Éditer mon profil</a>
          <a href="deconnexion.php">Se déconnecter</a>
          <?php
          }
          ?>
       </div>
-      <footer><?php include('../../source/site/footer_interface.php');?></footer>
+      <footer><?php include('.././site/footer_interface.php');?></footer>
    </body>
 </html>
 <?php   
