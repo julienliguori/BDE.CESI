@@ -17,7 +17,7 @@
 <script>
 $( "#autocomplete" ).autocomplete({
   source: [ "pull", "polo", "T-shirt", "briquet", "Casquette", "peluche", "billet", "mug" ]
-  
+
 });
 
 
