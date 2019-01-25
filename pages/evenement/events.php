@@ -7,7 +7,7 @@
         include('../../source/site/dependances.php'); 
         include("../../source/site/header_interface.php");
     ?>
-    <title>Boutique</title>
+    <title>Événements</title>
 </head>
 <body>
     <div class="container" style="padding-top:50px">

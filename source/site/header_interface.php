@@ -19,8 +19,8 @@
         Boite à idée
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Consulter la boîte à idée</a>
-          <a class="dropdown-item" href="#">Ajouter une idée</a>
+          <a class="dropdown-item" href="../../pages/idees/idees.php">Consulter la boîte à idée</a>
+          <a class="dropdown-item" href="../../pages/idees/nouvelle_idee.php">Ajouter une idée</a>
         </div>
       </li> 
       <li class="nav-item dropdown">
