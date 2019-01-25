@@ -14,10 +14,22 @@
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
-    $element = 1;
-    $condition = 1;
-    $url = "http://localhost:8081/boutique/article/$element/%3E=/$condition";
-    $json = '{"data": ' . file_get_contents($url) . ' }'; 
+    if(($_SERVER["REQUEST_URI"] == '/pages/boutique/boutique.php')){
+        $url = "http://localhost:8081/boutique/article/1/=/1";
+        //echo $url;
+        $json = '{"data": ' . file_get_contents($url) . ' }'; 
+    }else{
+        $element = trim(strip_tags($_GET['element']));
+        $signe = trim(strip_tags($_GET['signe']));
+        $condition = trim(strip_tags($_GET['condition']));
+        $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
+        //echo $url;
+        $json = '{"data": ' . file_get_contents($url) . ' }'; 
+        //echo($json);
+        if ($json == '{"data": [] }'){
+            echo'Aucun article ne corespond à votre recherche';
+        }
+    }
     //echo($json);
     $parsed_json = json_decode($json,true);
     //var_dump($parsed_json);

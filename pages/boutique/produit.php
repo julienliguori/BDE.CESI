@@ -2,7 +2,9 @@
 
 
 /* retrieve the search term that autocomplete sends */
-$id = trim(strip_tags($_GET['id']));
+$element = trim(strip_tags($_GET['element']));
+$signe = trim(strip_tags($_GET['signe']));
+$condition = trim(strip_tags($_GET['condition']));
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +23,13 @@ $id = trim(strip_tags($_GET['id']));
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
-    $url = "http://localhost:8081/boutique/article/idArticle/%3E=/$id";
+    $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
+    //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
+    if ($json == '{"data": [] }'){
+        echo'Aucun article ne corespond à votre recherche';
+    }
     $parsed_json = json_decode($json,true);
     //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
