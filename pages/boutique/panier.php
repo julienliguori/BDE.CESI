@@ -2,8 +2,17 @@
 <html lang="fr">
 <head>
     
-    <?php  
-        $time_c=365*24*3600;
+    <?php 
+            $time_c=365*24*3600;
+            $id = trim(strip_tags($_GET['condition']));
+            $article = '';
+            if (isset($_COOKIE['article'])){ 
+                $article = $_COOKIE['article'];
+            }else{
+            }
+            $addArticle = $article . $id . ',';
+            setcookie('article',$addArticle,time()+$time_c,null,null,false,true);
+
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
         include("../../source/site/header_interface.php");
@@ -15,20 +24,15 @@
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
-    if (empty($addArticle)){
-        $addArticle = '';
-        $article = '';
-    }
-    $id = trim(strip_tags($_GET['id']));
-    $addArticle .= $id . ';';
-    setcookie('article',$addArticle,time()+$time_c,null,null,false,true);
-    $articles = $_COOKIE['article'];
-    $article = explode(";",$articles);
+    $articless = substr($article, 0, -1);
+    $articles = explode(",",$articless);
     
-    foreach ($article as $fin) {
-        $element = 'id';
+
+    foreach ($articles as $fin) {
+        $element = 'idArticle';
+        $signe = '=';
         $condition = $fin;
-        $url = "http://localhost:8081/boutique/article/$element/%3E=/$condition";
+        $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
         $json = '{"data": ' . file_get_contents($url) . ' }';
     
         //echo($json);

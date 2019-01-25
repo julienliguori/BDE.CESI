@@ -1,12 +1,3 @@
-<?php
-
-
-/* retrieve the search term that autocomplete sends */
-$element = trim(strip_tags($_GET['element']));
-$signe = trim(strip_tags($_GET['signe']));
-$condition = trim(strip_tags($_GET['condition']));
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,6 +14,9 @@ $condition = trim(strip_tags($_GET['condition']));
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
+    $element = trim(strip_tags($_GET['element']));
+    $signe = trim(strip_tags($_GET['signe']));
+    $condition = trim(strip_tags($_GET['condition']));
     $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
     //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
@@ -43,8 +37,7 @@ $condition = trim(strip_tags($_GET['condition']));
                         <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button>
+                            <a href="../../pages/boutique/panier.php?element=idArticle&signe=%3D&condition=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button></a>
                             </div>
                             <small class="text-muted">' . $data["prix"] ."€". '</small>
                         </div>
