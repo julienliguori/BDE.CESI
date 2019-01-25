@@ -35,7 +35,7 @@ CREATE TABLE panier(
         valider      Bool NOT NULL ,
         facture      Varchar (50) NOT NULL ,
         date_facture Date NOT NULL ,
-        nomClient     Int NOT NULL
+        nomClient Varchar(50) NOT NULL
 	,CONSTRAINT panier_PK PRIMARY KEY (idPanier)
 
 )ENGINE=InnoDB;
@@ -47,10 +47,10 @@ CREATE TABLE panier(
 
 CREATE TABLE boiteIdee(
         idBoiteIdee Int  Auto_increment  NOT NULL ,
-        Lieux       Varchar (50) NOT NULL ,
-        Date        Date NOT NULL ,
-        Description Longtext NOT NULL ,
-        nomClient    Int NOT NULL
+        lieux       Varchar (50) NOT NULL ,
+        date        Date NOT NULL ,
+        description Longtext NOT NULL ,
+        nomClient Varchar(50) NOT NULL
 	,CONSTRAINT boiteIdee_PK PRIMARY KEY (idBoiteIdee)
 
 )ENGINE=InnoDB;
@@ -63,7 +63,7 @@ CREATE TABLE boiteIdee(
 CREATE TABLE likes(
         idLikes       Int  Auto_increment  NOT NULL ,
         Actif    Bool NOT NULL ,
-        nomClient Int NOT NULL
+        nomClient Varchar(50) NOT NULL
 	,CONSTRAINT likes_PK PRIMARY KEY (idLikes)
 
 )ENGINE=InnoDB;
@@ -75,8 +75,8 @@ CREATE TABLE likes(
 
 CREATE TABLE commentairePhoto(
         idCommentairePhoto          Int  Auto_increment  NOT NULL ,
-        Description                 Longtext NOT NULL ,
-        nomClient                    Int NOT NULL
+        description                 Longtext NOT NULL ,
+        nomClient Varchar(50) NOT NULL
 	,CONSTRAINT commentairePhoto_PK PRIMARY KEY (idCommentairePhoto)
 
 )ENGINE=InnoDB;
@@ -101,7 +101,7 @@ CREATE TABLE Comporter(
 #------------------------------------------------------------
 
 CREATE TABLE Ajouter_au_panier(
-        nomClient  Int NOT NULL ,
+        nomClient Varchar(50) NOT NULL ,
         idArticle Int NOT NULL
 	,CONSTRAINT Ajouter_au_panier_PK PRIMARY KEY (nomClient,idArticle)
 
@@ -129,10 +129,10 @@ CREATE TABLE Ajouter_a_la_liste(
 
 CREATE TABLE evenement(
         idEvenement Int  Auto_increment  NOT NULL ,
-        Date        Date NOT NULL ,
-        Lieux       Varchar (50) NOT NULL ,
-        URLImage    Varchar (50) NOT NULL ,
-        Description Longtext NOT NULL ,
+        date        Date NOT NULL ,
+        lieux       Varchar (50) NOT NULL ,
+        urlImage    Varchar (50) NOT NULL ,
+        description Longtext NOT NULL ,
         nbParticipant   Int NOT NULL DEFAULT 0,
         nbPlace         Int NOT NULL,
         idMembre        Int NOT NULL
@@ -148,8 +148,8 @@ CREATE TABLE evenement(
 
 CREATE TABLE photo(
         idPhoto     Int  Auto_increment  NOT NULL ,
-        URLImage    Varchar (50) NOT NULL ,
-        nomClient    Int NOT NULL ,
+        urlImage    Varchar (50) NOT NULL ,
+        nomClient Varchar(50) NOT NULL ,
         idEvenement Int NOT NULL
 	,CONSTRAINT photo_PK PRIMARY KEY (idPhoto)
 
@@ -164,7 +164,7 @@ CREATE TABLE photo(
 CREATE TABLE commentaireEvent(
         idCommentaireEvent Int  Auto_increment  NOT NULL ,
         description        Longtext NOT NULL ,
-        nomClient           Int NOT NULL ,
+        nomClient Varchar(50) NOT NULL ,
         idEvenement        Int NOT NULL
 	,CONSTRAINT commentaireEvent_PK PRIMARY KEY (idCommentaireEvent)
 
@@ -191,7 +191,7 @@ CREATE TABLE Devenir(
 #------------------------------------------------------------
 
 CREATE TABLE Participer(
-        nomClient    Int NOT NULL ,
+        nomClient Varchar(50) NOT NULL ,
         idEvenement Int NOT NULL
 	,CONSTRAINT Participer_PK PRIMARY KEY (nomClient,idEvenement)
 

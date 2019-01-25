@@ -1,8 +1,10 @@
 <?php
-$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
+//$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
 
-if(isset($_POST['newproduct'])) {
+//If newproduct is open
+if(isset($_POST['newproduct'])) { 
 
+   //Creation var
    $nom = htmlspecialchars($_POST['nom']);
    $prix = htmlspecialchars($_POST['prix']);
    $quantite = htmlspecialchars($_POST['quantite']);
@@ -11,6 +13,7 @@ if(isset($_POST['newproduct'])) {
    $type = htmlspecialchars($_POST['type']);
    $photo = htmlspecialchars($_POST['photo']);
 
+   //var in array for json
    $array = array(
       'nom' => $nom,
       'prix' => $prix,
@@ -18,10 +21,11 @@ if(isset($_POST['newproduct'])) {
       'couleur' =>  $couleur,
       'description' =>  $description,
       'type' => $type,
-      'photo' => $photo,
+      'photo' => $photo
   );
-
+//Encode array 
   $arrayJSON = json_encode($array);
+  //params convertion
   $options = array(
       'http'=> array(
           'method' => 'POST',
@@ -29,8 +33,10 @@ if(isset($_POST['newproduct'])) {
           'content' => $arrayJSON
       )
   );
+
   $context = stream_context_create($options);
 
+  //Redirection
    if(!empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['quantite']) AND !empty($_POST['description']) AND !empty($_POST['couleur']) AND !empty($_POST['type']) AND !empty($_POST['photo'])){
       header('Location: http://bde.cesi/pages/home.php');
       return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
@@ -45,6 +51,32 @@ if(isset($_POST['newproduct'])) {
  fclose($fp); */
   //echo ($arrayJSON);
   //echo "chups);
+
+
+  //Ajouter un fichier
+  if(isset($_FILES['photo']) AND !empty($_FILES['photo']['name'])) {
+   $tailleMax = 2097152;
+   $extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
+   if($_FILES['photo']['size'] <= $tailleMax) {
+      $extensionUpload = strtolower(substr(strrchr($_FILES['photo']['name'], '.'), 1));
+      if(in_array($extensionUpload, $extensionsValides)) {
+         $chemin = "../../source/img/boutique/".$nom.".".$extensionUpload;
+         $resultat = move_uploaded_file($_FILES['photo']['tmp_name'], $chemin);
+         if($resultat) {
+               $photo= $nom.".".$extensionUpload;
+               //'id' => $_SESSION['id']
+               
+           // header('Location: profil.php?id='.$_SESSION['id']);
+         } else {
+            $msg = "Erreur durant l'importation de votre image";
+         }
+      } else {
+         $msg = "Votre image doit être au format jpg, jpeg, gif ou png";
+      }
+   } else {
+      $msg = "Votre image ne doit pas dépasser 2Mo";
+   }
+}
 
 
    ?>
@@ -130,7 +162,7 @@ if(isset($_POST['newproduct'])) {
                         <label for="photo">Image de l'article :</label>
                      </td>
                      <td>
-                        <input type="file" class="form-control" placeholder="Image de l'article" id="photo" name="photo" />
+                        <input type="file"   id="photo" name="photo" />
                      </td>
                   </tr>
                   <tr>
