@@ -53,11 +53,11 @@
     strLength = dataValues.length;
 
     for(i = 0; i < strLength; i++) {
-    dataValues = dataValues.replace(",", "' '");
+    dataValues = dataValues.replace(",", "'µ'");
     }
 
     for(i = 0; i < strLength; i++) {
-    dataValues = dataValues.replace(" ", ",");
+    dataValues = dataValues.replace("µ", ",");
     }
 
     dataValues = "'" + dataValues + "'";
