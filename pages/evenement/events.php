@@ -45,7 +45,7 @@
             <td>' . $data["description"] .'</td>
             <td>' . substr($data["date"], 0, 10) .'</td>
             <td>' . $data["lieux"] .'</td>
-            <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
+            <td><button href="#" type="button" class="btn btn-warning">Participer</button></td>
             </tr>'
         ?>
     <?php } ?>

@@ -36,6 +36,9 @@
       </li>
       </ul>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+      <li class="nav-item">
+      <a class="nav-link" href="../../pages/boutique/panier.php"><i class="fas fa-shopping-cart"></i></a></i>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-user"></i>
