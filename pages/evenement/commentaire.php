@@ -1,10 +1,7 @@
-<?php session_start(); ?>
-
 <h2>Commentaires</h2>
 <?php
 
 $idE = $_GET['id'];
-
 if(isset($_GET['id']) AND !empty($_GET['id'])){ 
 if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION['prenom']) AND !empty($_SESSION['nom'])){
     if($_SESSION['status'] == "Salarier" OR $_SESSION['status'] == "Etudiant" OR $_SESSION['status'] == "Membre BDE"){
@@ -32,7 +29,7 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
                 
                     if (!empty($_POST['description']) and !empty($pub) and !empty($idE)) {
                 
-                        //header('Location: http://bde.cesi/pages/home.php');
+                        header('Location: #');
                         return file_get_contents('http://localhost:8081/evenement/commentaireevent/', false, $context);
                         $valider = "Votre commentaire a bien été posté !"; 
 

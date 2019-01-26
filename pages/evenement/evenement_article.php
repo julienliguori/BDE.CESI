@@ -13,10 +13,10 @@
     <div class="container" style="padding-top:50px">
     <div class="d-flex justify-content-around">
     <?php
-    $element = trim(strip_tags($_GET['element']));
-    $signe = trim(strip_tags($_GET['signe']));
-    $condition = trim(strip_tags($_GET['condition']));
-    $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
+    // $element = trim(strip_tags($_GET['element']));
+    // $signe = trim(strip_tags($_GET['signe']));
+    $condition = trim(strip_tags($_GET['id']));
+    $url = "http://localhost:8081/evenement/evenement/idEvenement/=/$condition";
     //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
@@ -31,25 +31,34 @@
                 <?php echo '
                 <div class="col-md-5" style="padding-bottom:80px">
                     <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top" src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" alt="">
+                        <img class="card-img-top" src="/source/img/evenement/' . $data['urlImage'] . '" alt="">
                         <div class="card-body">
-                        <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
+                            <p class="font-weight-bolder">' . $data["nom"] . '</p>
                             <div class="btn-group">
-                            <a href="../../pages/boutique/panier.php?element=idArticle&signe=%3D&condition=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-warning">Acheter</button></a>
+                            <a href="#"><button type="button" class="btn btn-sm btn-outline-warning">Participer</button></a>
                             </div>
-                            <p class="font-weight-bolder">' . $data["prix"] ."€". '</p>
                         </div>
-                            <p>Description : ' . $data["description"] . '</p>
-                            <p> Il en reste : ' . $data["quantite"] . '</p>
-                            <p>Couleur : ' . $data["couleur"] . '</p>
-                            <p>Catégorie : ' . $data["type"] . '</p>
+                            <p> Nombre de participant : ' . $data["nbParticipant"] . '/' . $data['nbPlace'] .'</p>
+                            <p> Description : <br/>' . $data["description"] . '</p>
+                            <p> Le : ' . substr($data["date"], 0, 10) .'</p>
+                            <p> Lieux : ' . $data["lieux"] . '</p>
                         </div>
                     </div>
                 </div>' 
                 ?>
 
          <?php } ?>
+    </div>
+    <div>
+        <?php 
+            $dateE = substr($data["date"], 0, 10);
+            $auj = date("Y-m-j");
+            if($dateE < $auj){
+
+                include("../../pages/evenement/commentaire.php");
+            }
+        ?>
     </div>
 </div>
 <footer><?php include("../../source/site/footer_interface.php");?></footer>
