@@ -57,7 +57,7 @@ if (isset($_POST['new_event'])) {
 
     if (!empty($_POST['date']) and !empty($_POST['lieux']) and !empty($_POST['urlImage']) and !empty($_POST['description']) and !empty($_POST['nbPlace'])){
         header('Location: http://bde.cesi/pages/home.php');
-        return file_get_contents('http://localhost:8081/idees/evenement/', false, $context);
+        return file_get_contents('http://localhost:8081/evenement/evenement/', false, $context);
     } else {
         $erreur = "Tous les champs doivent être complétés !";
     }

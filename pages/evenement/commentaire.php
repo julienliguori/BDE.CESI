@@ -61,7 +61,7 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
 <form method="POST">
     <label>Nouveau Commentaire</label><br/>
     <textarea class="form-control" id="message-text" name="description"></textarea><br/>
-    <input type="submit" valuer"Poster" name="submit_commentaire"/>
+    <input type="submit" class="btn btn-primary" valeur="Poster" name="submit_commentaire"/>
 </form>
 <?php
         if(isset($erreur)) {
@@ -71,6 +71,7 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
             echo '<font color="green">'.$valider."</font>";
          }
          ?>
+    <br/>
 <?php 
     foreach ($parsed_json['data'] as $data) {
     ?>
