@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
   <a class="navbar-brand" href="http://bde.cesi/pages/home.php"><img src="/source/img/logo/bde.png" width="30" height="30" alt=""> BDE.CESI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <span class="navbar-toggler-icon-2"><i class="fas fa-bars"></i></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">

@@ -59,6 +59,28 @@
   .navbar .navbar-toggle:focus {
     background-color: #ffffff;
   }
+
+  i.fa.fas {
+    font-weight: 900;
+    color: black;
+}
+
+span.navbar-toggler-icon-2 {
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      vertical-align: middle;
+      content: "";
+      background: no-repeat center center;
+      border: solid;
+      border-radius: .25em;
+      border-width: 5px;
+      border-color: white;
+      background-size: 100% 100%;
+      background-color: white;
+  }
+  }
+
   .navbar .navbar-toggle .navbar-toggler-icon {
     color: #ffffff;
     /* background-image:url("data:source/img/svg+xml,%3csvg viewBox='0 0 30 30'"); */
