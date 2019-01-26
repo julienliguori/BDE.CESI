@@ -7,7 +7,7 @@
         include('../../source/site/dependances.php'); 
         include("../../source/site/header_interface.php");
     ?>
-    <title>Boutique</title>
+    <title>Événements</title>
 </head>
 <body>
     <div class="container" style="padding-top:50px">
@@ -19,6 +19,7 @@
     $url = "http://localhost:8081/evenement/evenement/idEvenement/=/$condition";
     //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
+    $auj = date("Y-m-j");
     //echo($json);
     if ($json == '{"data": [] }'){
         echo'Aucun article ne corespond à votre recherche';
@@ -28,16 +29,21 @@
         foreach ($parsed_json['data'] as $data) {
             ?>
 
-                <?php echo '
+                <?php 
+                
+                $dateE = substr($data["date"], 0, 10);
+                echo '
                 <div class="col-md-5" style="padding-bottom:80px">
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-top" src="/source/img/evenement/' . $data['urlImage'] . '" alt="">
                         <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="font-weight-bolder">' . $data["nom"] . '</p>
-                            <div class="btn-group">
-                            <a href="#"><button type="button" class="btn btn-sm btn-outline-warning">Participer</button></a>
-                            </div>
+                            <div class="btn-group">';
+                            if($dateE >= $auj){
+                            echo '<a href="#"><button type="button" class="btn btn-sm btn-outline-warning">Participer</button></a>';
+                            }
+                    echo'</div>
                         </div>
                             <p> Nombre de participant : ' . $data["nbParticipant"] . '/' . $data['nbPlace'] .'</p>
                             <p> Description : <br/>' . $data["description"] . '</p>
@@ -45,15 +51,14 @@
                             <p> Lieux : ' . $data["lieux"] . '</p>
                         </div>
                     </div>
-                </div>' 
+                </div>' ;
                 ?>
 
          <?php } ?>
     </div>
     <div>
         <?php 
-            $dateE = substr($data["date"], 0, 10);
-            $auj = date("Y-m-j");
+
             if($dateE < $auj){
 
                 include("../../pages/evenement/commentaire.php");
