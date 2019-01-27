@@ -12,10 +12,15 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="../../pages/evenement/events.php">Consulter les événements</a>
           <a class="dropdown-item" href="../../pages/evenement/ancien_events.php">Événements passés</a>
-          <a class="dropdown-item" href="../../pages/evenement/nouvel_evenement.php">Ajouter un événement</a>
+          <?php if(isset($_SESSION['status'])){
+              if($_SESSION['status'] == 'Membre BDE'){
+          echo'<a class="dropdown-item" href="../../pages/evenement/nouvel_evenement.php">Ajouter un événement</a>';
+          } }?>
         </div>
       </li>
-      <li class="nav-item dropdown">
+
+      <?php if(isset($_SESSION['id'])){
+  echo'<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Boite à idée
         </a>
@@ -23,7 +28,7 @@
           <a class="dropdown-item" href="../../pages/idees/idees.php">Consulter la boîte à idée</a>
           <a class="dropdown-item" href="../../pages/idees/nouvelle_idee.php">Ajouter une idée</a>
         </div>
-      </li> 
+      </li>';}?>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Boutique
@@ -31,7 +36,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="../../pages/boutique/vitrine_boutique.php">Vitrine boutique</a>
           <a class="dropdown-item" href="../../pages/boutique/boutique.php">Consulter la boutique</a>
-          <a class="dropdown-item" href="../../pages/boutique/nouveau_produit.php">Ajouter un article</a>
+          <?php if(isset($_SESSION['status'])){
+              if($_SESSION['status'] == 'Membre BDE'){
+    echo'<a class="dropdown-item" href="../../pages/boutique/nouveau_produit.php">Ajouter un article</a>';}}?>
         </div>
       </li>
       </ul>
