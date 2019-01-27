@@ -59,9 +59,23 @@
     <div>
         <?php 
 
-            if($dateE < $auj){
+            if($dateE < $auj){ 
+                echo'
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link '; if($_GET['A'] == '0'){echo "active";} echo'" href="http://bde.cesi/pages/evenement/evenement_article.php?id=1&A=0">Commentaire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link '; if($_GET['A'] == '1'){echo "active";} echo'" href="http://bde.cesi/pages/evenement/evenement_article.php?id=1&A=1">Photo</a>
+                    </li>
+                 </ul>';
+                 //echo '<br/> <br/>';
+                if($_GET['A'] == '0'){
+                    include("../../pages/evenement/commentaire.php");
+                }elseif($_GET['A'] == '1'){
+                    include("../../pages/evenement/photocommentaire.php");
+                }
 
-                include("../../pages/evenement/commentaire.php");
             }
         ?>
     </div>
