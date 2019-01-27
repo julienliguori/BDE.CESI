@@ -3,6 +3,9 @@
 <head>
     
     <?php 
+var_dump($_SESSION);
+    if(isset($_SESSION['id']) == TRUE AND !empty($_SESSION['id']) AND !empty($_SESSION['status'])){
+        var_dump($_SESSION);
         $time_c=365*24*3600;
         if(($_SERVER["REQUEST_URI"] == '/pages/boutique/panier.php')){
             if (isset($_COOKIE['article'])){
@@ -106,3 +109,9 @@
 <footer><?php include("../../source/site/footer_interface.php");?></footer>
 </body>
 </html>
+
+<?php } else {  
+           //header('Location: /source/authentification/connexion.php');
+           echo "helo";
+    }
+  ?>

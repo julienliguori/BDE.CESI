@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(!isset($_SESSION['id']) AND isset($_COOKIE['email'],$_COOKIE['password']) AND !empty($_COOKIE['email']) AND !empty($_COOKIE['password'])) {
    $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND MDP = ?");
    $requser->execute(array($_COOKIE['email'], $_COOKIE['password']));
@@ -11,6 +12,8 @@ if(!isset($_SESSION['id']) AND isset($_COOKIE['email'],$_COOKIE['password']) AND
       $_SESSION['prenom'] = $userinfo['Prenom'];
       $_SESSION['mail'] = $userinfo['Mail'];
       $_SESSION['status'] = $userinfo['Status'];
+
+      header('Location: /pages/home.php');
    }
 }
 ?>
