@@ -1,5 +1,8 @@
 <?php
-
+ if(isset($_SESSION['status'])){
+    if($_SESSION['status'] != 'Membre BDE'){
+    header('Location: /../pages/home.php');
+    }else{
 if (isset($_POST['new_event'])) {
 
     $nom = htmlspecialchars($_POST['nom']);
@@ -69,12 +72,15 @@ fclose($fp); */
 //echo ($arrayJSON);
 //echo "chups);
 
-?>
+}
+} header('Location: /../pages/home.php'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include '../../source/site/dependances.php';?>
+      <?php include '../../source/site/dependances.php';
+        include_once('../../source/authentification/connexioncookie.php');
+        ?>
 
       <title>Ajout ~ Événement</title>
    </head>

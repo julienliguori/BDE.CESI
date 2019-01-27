@@ -3,8 +3,8 @@
 <head>
 
     <?php   
-        include_once('../../source/authentification/connexioncookie.php');
-        include('../../source/site/dependances.php'); 
+        include('../../source/site/dependances.php');
+        include_once('../../source/authentification/connexioncookie.php'); 
     ?>
     <title>Boutique ~ Vitrine</title>
 </head>

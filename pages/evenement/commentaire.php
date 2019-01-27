@@ -29,7 +29,7 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
                 
                     if (!empty($_POST['description']) and !empty($pub) and !empty($idE)) {
                 
-                        header('Location: #');
+                        //header('Location: #');
                         return file_get_contents('http://localhost:8081/evenement/commentaireevent/', false, $context);
                         $valider = "Votre commentaire a bien été posté !"; 
 
@@ -78,5 +78,10 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
         <b><?php echo $data["nomClient"]; ?> :</b> <?php echo $data['description']; ?><br/>
     <?php } ?>
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
 

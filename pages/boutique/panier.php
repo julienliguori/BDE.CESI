@@ -3,6 +3,12 @@
 <head>
     
     <?php 
+
+        include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
+        include("../../source/site/header_interface.php");
+    
+    if(isset($_SESSION['id']) == TRUE AND !empty($_SESSION['id']) AND !empty($_SESSION['status'])){
         $time_c=365*24*3600;
         if(($_SERVER["REQUEST_URI"] == '/pages/boutique/panier.php')){
             if (isset($_COOKIE['article'])){
@@ -22,11 +28,9 @@
             setcookie('article',$addArticle,time()+$time_c,null,null,false,true);
             header('Location:/pages/boutique/panier.php');
         }
-
-        include_once('../../source/authentification/connexioncookie.php');
-        include('../../source/site/dependances.php'); 
-        include("../../source/site/header_interface.php");
-    ?>
+   
+   
+   ?>
     <title>Panier</title>
 </head>
 <body>
@@ -81,28 +85,35 @@
                             <?php $total = $total + $data['prix'];}
                             }
                             } ?>   
-                </tbody>
+                    </tbody>
             </table>
         </div>
-        <div class="d-inline-flex">
-            <table class="table table-striped table-hover table-bordered ">
-                <tr>
-                <td>Prix total</td>
-                <td><?php echo $total ?> €</td>
-                </tr>
-            </table>
-        </div>
-        <div class="d-flex justify-content-between">
-            <a class="nav-link" href="../../pages/boutique/boutique.php">
-                <i class="far fa-times-circle feather feather-layers width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></i>
-                Retouner à la boutique
-            </a>
-            <a href="/pages/boutique/payement.php">
-                <button type="button"  class="btn btn-warning">Payer</button>
-            </a>
-        </div>
+                    <div class="d-inline-flex">
+                        <table class="table table-striped table-hover table-bordered ">
+                            <tr>
+                            <td>Prix total</td>
+                            <td><?php echo $total ?> €</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a class="nav-link" href="../../pages/boutique/boutique.php">
+                            <i class="far fa-times-circle feather feather-layers width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></i>
+                            Retouner à la boutique
+                        </a>
+                        <a href="/pages/boutique/payement.php">
+                            <button type="button"  class="btn btn-warning">Payer</button>
+                        </a>
+                    </div>
 
-</div>
+                    </div>
+<?php } else {  
+           //header('Location: /source/authentification/connexion.php');
+           echo '<h1 style="text-align:center">Vous devez étre connecté !</h1>';
+    }
+  ?>
+
+
 <footer><?php include("../../source/site/footer_interface.php");?></footer>
 </body>
 </html>

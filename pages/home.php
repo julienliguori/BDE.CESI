@@ -2,11 +2,15 @@
 <html>
 <head>
 
-    <?php include("../source/site/dependances.php"); ?>
+    <?php 
+        include("../source/site/dependances.php");
+        include_once('../source/authentification/connexioncookie.php');
+        include("../source/site/header_interface.php");
+    
+    ?>
     <title>BDE.CESI</title>
 </head>
 <body>
-        <head><?php include("../source/site/header_interface.php"); ?> </head>
         <main>
         
         <div class="container">

@@ -1,5 +1,9 @@
 <?php
 //$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
+ if(isset($_SESSION['status'])){
+   if($_SESSION['status'] != 'Membre BDE'){
+   header('Location: /../pages/home.php');
+   }else{
 
 //If newproduct is open
 if(isset($_POST['newproduct'])) { 
@@ -81,13 +85,15 @@ if(isset($_POST['newproduct'])) {
   //echo "chups);
 
 
-
-   ?>
+ }
+  } header('Location: /../pages/home.php'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include('../../source/site/dependances.php'); ?>
+      <?php include('../../source/site/dependances.php'); 
+      include_once('../../source/authentification/connexioncookie.php');
+      ?>
 
       <title>AjoutProduit</title>
    </head>

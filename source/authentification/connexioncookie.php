@@ -11,6 +11,8 @@ if(!isset($_SESSION['id']) AND isset($_COOKIE['email'],$_COOKIE['password']) AND
       $_SESSION['prenom'] = $userinfo['Prenom'];
       $_SESSION['mail'] = $userinfo['Mail'];
       $_SESSION['status'] = $userinfo['Status'];
+
+      //header('Location: /pages/home.php');
    }
 }
 ?>

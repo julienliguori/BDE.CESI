@@ -3,8 +3,8 @@
 <head>
     
     <?php  
-        include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     ?>
     <title>Événements</title>
@@ -45,7 +45,7 @@
             <td>' . $data["description"] .'</td>
             <td>' . substr($data["date"], 0, 10) .'</td>
             <td>' . $data["lieux"] .'</td>
-            <td><a href="/pages/evenement/evenement_article.php?id='. $data['idEvenement'] . '" ><button  type="button" class="btn btn-warning">Participer</button></a></td>
+            <td><a href="/pages/evenement/evenement_article.php?id='. $data['idEvenement'] . '&A=0" ><button  type="button" class="btn btn-warning">Participer</button></a></td>
             </tr>'
         ?>
     <?php } ?>
