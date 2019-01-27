@@ -45,13 +45,13 @@
                     <th scope="col">Nom</th>
                     <th scope="col">Taille</th>
                     <th scope="col">Prix</th>
-                    <th scope="col">Suprimer</th>
+                    <th scope="col">Supprimer</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     if ($article == ''){
-                        echo "tu n'a pas d'article";
+                        echo "Vous n'avez pas d'article.";
                     }else{
                     $articless = substr($article, 0, -1);
                     $articles = explode(",",$articless);
@@ -99,7 +99,7 @@
                     <div class="d-flex justify-content-between">
                         <a class="nav-link" href="../../pages/boutique/boutique.php">
                             <i class="far fa-times-circle feather feather-layers width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></i>
-                            Retouner à la boutique
+                            Retourner à la boutique...
                         </a>
                         <a href="/pages/boutique/payement.php">
                             <button type="button"  class="btn btn-warning">Payer</button>
@@ -109,7 +109,7 @@
                     </div>
 <?php } else {  
            //header('Location: /source/authentification/connexion.php');
-           echo '<h1 style="text-align:center">Vous devez étre connecté !</h1>';
+           echo '<h1 style="text-align:center">Vous devez être connecté.</h1>';
     }
   ?>
 
