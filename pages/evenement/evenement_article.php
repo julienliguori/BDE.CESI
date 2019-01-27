@@ -72,9 +72,11 @@
                  //echo '<br/> <br/>';
                 if($_GET['A'] == '0'){
                     include("../../pages/evenement/commentaire.php");
-                }elseif($_GET['A'] == '1'){
+                }else{
+                    if($_GET['A'] == '1'){
                     include("../../pages/evenement/photocommentaire.php");
                 }
+            }
 
             }
         ?>

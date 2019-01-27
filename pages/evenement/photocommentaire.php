@@ -103,10 +103,8 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
                         }
                      echo'</div>
                     </div>';
-
+                    }
         ?>
-    <?php } ?>
-
     <br/>
     <br/>
     <br/>
