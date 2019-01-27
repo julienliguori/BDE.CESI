@@ -66,7 +66,13 @@
     </ul>
   </div>
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+    <input class="form-control mr-sm-2" type="search" placeholder="Recherche" id="autocomplete" aria-label="Search">
     <button class="btn btn-outline-warning my-2 my-sm-0 " type="submit">Search</button>
   </form>   
+  <script>
+    $( "#autocomplete" ).autocomplete({
+      source: [ "pull", "polo", "T-shirt", "briquet", "Casquette", "peluche", "billet", "mug" ]
+
+    });
+  </script>
 </nav>

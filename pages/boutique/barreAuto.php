@@ -1,8 +1,4 @@
-<!doctype html>
-<html>
-<head>
 
-<title>Barre de recherche</title>
 <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css" />
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -19,12 +15,4 @@ $( "#autocomplete" ).autocomplete({
   source: [ "pull", "polo", "T-shirt", "briquet", "Casquette", "peluche", "billet", "mug" ]
 
 });
-
-
-
-
 </script>
-
-
-</body>
-</html>
