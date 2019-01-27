@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    
-    <?php 
-
-        include('../../source/site/dependances.php'); 
-        include_once('../../source/authentification/connexioncookie.php');
-        include("../../source/site/header_interface.php");
+<?php
+session_start();
     
     if(isset($_SESSION['id']) == TRUE AND !empty($_SESSION['id']) AND !empty($_SESSION['status'])){
         $time_c=365*24*3600;
@@ -28,9 +21,23 @@
             setcookie('article',$addArticle,time()+$time_c,null,null,false,true);
             header('Location:/pages/boutique/panier.php');
         }
-   
+} else {  
+            //header('Location: /source/authentification/connexion.php');
+            echo '<h1 style="text-align:center">Vous devez étre connecté !</h1>';
+     }
+
    
    ?>
+
+   <!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <?php 
+
+        include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
+        include("../../source/site/header_interface.php"); ?>
     <title>Panier</title>
 </head>
 <body>
@@ -107,11 +114,7 @@
                     </div>
 
                     </div>
-<?php } else {  
-           //header('Location: /source/authentification/connexion.php');
-           echo '<h1 style="text-align:center">Vous devez étre connecté !</h1>';
-    }
-  ?>
+
 
 
 <footer><?php include("../../source/site/footer_interface.php");?></footer>

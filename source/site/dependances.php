@@ -1,7 +1,3 @@
-<?php 
-session_start();
-//include_once('../../source/authentification/connexioncookie.php');
-?>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="icon" href="/source/img/logo/bde.png" />

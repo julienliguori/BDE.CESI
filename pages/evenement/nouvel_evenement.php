@@ -1,4 +1,6 @@
 <?php
+session_start(); ?>
+<?php
  if(isset($_SESSION['status'])){
     if($_SESSION['status'] != 'Membre BDE'){
     header('Location: /../pages/home.php');

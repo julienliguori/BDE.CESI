@@ -1,4 +1,6 @@
 <?php
+session_start(); ?>
+<?php
 //$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
  if(isset($_SESSION['status'])){
    if($_SESSION['status'] != 'Membre BDE'){
