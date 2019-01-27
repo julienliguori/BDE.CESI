@@ -74,7 +74,9 @@ fclose($fp); */
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include '../../source/site/dependances.php';?>
+      <?php include '../../source/site/dependances.php';
+        include_once('../../source/authentification/connexioncookie.php');
+        ?>
 
       <title>Ajout ~ Événement</title>
    </head>

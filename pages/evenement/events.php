@@ -3,8 +3,8 @@
 <head>
     
     <?php  
-        include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     ?>
     <title>Événements</title>

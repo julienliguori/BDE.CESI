@@ -5,6 +5,7 @@
     <?php 
 
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     
     if(isset($_SESSION['id']) == TRUE AND !empty($_SESSION['id']) AND !empty($_SESSION['status'])){
