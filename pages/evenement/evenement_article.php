@@ -54,8 +54,8 @@ session_start(); ?>
                             <p class="font-weight-bolder">' . $data["nom"] . '</p>
                             <div class="btn-group">';
                             if($dateE >= $auj){
-                            echo '<a href="#"><button type="button" class="btn btn-sm btn-outline-warning">Participer</button></a>';
-                            }
+                            echo '<a href="../../pages/evenement/action.php?nbParti=' . $data['nbParticipant'] . '&id='.$data['idEvenement'].'"><button type="button" class="btn btn-sm btn-outline-warning">Participer</button></a>';   
+                        }
                     echo'</div>
                         </div>
                             <p> Nombre de participant : ' . $data["nbParticipant"] . '/' . $data['nbPlace'] .'</p>
