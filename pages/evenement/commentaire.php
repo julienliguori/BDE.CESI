@@ -19,12 +19,14 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
                 
                     $arrayJSON = json_encode($array);
                     $options = array(
-                        'http' => array(
+                        'http'=> array(
                             'method' => 'POST',
-                            'header' => "Content-Type: application/json",
-                            'content' => $arrayJSON,
-                        ),
+                            'header'=> "Content-Type: application/json\r\n" .
+                                       "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g\r\n",
+                            'content' => $arrayJSON
+                        )
                     );
+                
                     $context = stream_context_create($options);
                 
                     if (!empty($_POST['description']) and !empty($pub) and !empty($idE)) {
@@ -52,10 +54,18 @@ if(!empty($_SESSION['id']) AND !empty($_SESSION['status']) AND !empty($_SESSION[
 } else {
     $erreur = "Vous ne pouvez pas poster de commentaire ici :) !";
 }
-
+    $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                    "Content-Type: application/json",
+        )
+    );
+    
+    $context = stream_context_create($options);
                         
     $url = "http://localhost:8081/evenement/commentaireevent/idEvenement/=/$idE";
-    $json = '{"data": ' . file_get_contents($url) . ' }';
+    $json = '{"data": ' . file_get_contents($url, false, $context) . ' }';
     $parsed_json = json_decode($json,true);
 ?>
 <form method="POST">

@@ -1,4 +1,3 @@
-<h2>Photo</h2>
 <?php
     $auj = date("Y-m-j");
     $nomi = $_SESSION['nom'];
@@ -47,12 +46,14 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
                 $arrayJSON = json_encode($array);
                 $options = array(
-                    'http' => array(
+                    'http'=> array(
                         'method' => 'POST',
-                        'header' => "Content-Type: application/json",
+                        'header'=> "Content-Type: application/json\r\n" .
+                                   "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g\r\n",
                         'content' => $arrayJSON
-                    ),
+                    )
                 );
+              
                 $context = stream_context_create($options);
 
                 if (!empty($_POST['urlImage']) and !empty($_POST['new_description']) and !empty($nom)){
@@ -66,11 +67,21 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
             }
         }
     }
+
+    $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                       "Content-Type: application/json",
+        )
+    );
+    $context = stream_context_create($options);
     $url = "http://localhost:8081/evenement/commentairephoto/idEvenement/=/$idE";
-    $json = '{"data": ' . file_get_contents($url) . ' }';
+    $json = '{"data": ' . file_get_contents($url, false, $context) . ' }';
     $parsed_json = json_decode($json,true);
 }
 ?>
+<h2>Photo</h2>
     <form method="POST" action="" enctype="multipart/form-data">
 
                 <label>Nouvelle photo</label><br/>

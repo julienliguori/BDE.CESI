@@ -5,13 +5,18 @@ if(isset($_POST['forminscription'])) {
 
 // var_dump($_POST);
 // die();
+   $optionsmdp = [
+      'cost' => 12,
+   ];
 
    $nom = htmlspecialchars($_POST['nom']);
    $prenom = htmlspecialchars($_POST['prenom']);
    $mail = htmlspecialchars($_POST['mail']);
    $mail2 = htmlspecialchars($_POST['mail2']);
-   $mdp = sha1($_POST['mdp']);
-   $mdp2 = sha1($_POST['mdp2']);
+   $nhmdp = $_POST['mdp'];
+   $nhmdp2= $_POST['mdp2'];
+   $mdp = password_hash($nhmdp, PASSWORD_BCRYPT, $optionsmdp);
+   $mdp2 = password_hash($nhmdp2, PASSWORD_BCRYPT, $optionsmdp);
    $centre = htmlspecialchars($_POST['centre']);
 
 
@@ -19,7 +24,7 @@ if(isset($_POST['forminscription'])) {
       if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']) AND !empty($_POST['centre'])) {
          $pseudolength = strlen($nom);
          if($pseudolength <= 255) {
-            if($mail == $mail2) {
+            if(password_verify($nhmdp, $mdp)) {
                $mailAuth = explode('@', $mail);
                      if ($mailAuth[1] == "viacesi.fr" || $mailAuth[1] == "cesi.fr") {
                         $status = "Etudiant";
@@ -34,7 +39,7 @@ if(isset($_POST['forminscription'])) {
                            $reqmail->execute(array($mail));
                            $mailexist = $reqmail->rowCount();
                            if($mailexist == 0) {
-                              if($mdp == $mdp2) {
+                              if(password_verify($nhmdp, $mdp)) {
                                  $insertmbr = $bdd->prepare("INSERT INTO membres(Nom, Prenom, Mail, MDP, Centre, Status) VALUES(?, ?, ?, ?, ?, ?)");
                                  $insertmbr->execute(array($nom, $prenom, $mail, $mdp, $centre, $status));
                                  $erreur = "Votre compte a bien été créé ! <a href=\"connexion.php\">Me connecter</a>";
@@ -63,7 +68,7 @@ if(isset($_POST['forminscription'])) {
    }
 }
 ?>
-
+<!DOCTYPE html>
 <html>
    <head>
       <?php include('.././site/dependances.php'); ?>

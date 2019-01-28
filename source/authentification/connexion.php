@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="fr">
    <head>
@@ -7,16 +6,24 @@
       <?php
 $time_c=365*24*3600;
 
+$optionsmdp = [
+   'cost' => 12,
+];
+
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 if(!isset($_SESSION['id']) AND empty($_SESSION['id']) AND empty($_SESSION['status'])){
 if(isset($_POST['formconnexion'])) {
    include_once('./connexioncookie.php');
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
-   $mdpconnect = sha1($_POST['mdpconnect']);
+   $mdpconnect = password_hash($_POST['mdpconnect'], PASSWORD_BCRYPT, $optionsmdp);
+
+   //var_dump($reqmdp);
    if(!empty($mailconnect) AND !empty($mdpconnect)) {
-      $requser = $bdd->prepare("SELECT * FROM membres WHERE mail = ? AND MDP = ?");
-      $requser->execute(array($mailconnect, $mdpconnect));
-      $userexist = $requser->rowCount();
+      if($reqmdp == true){
+      $reqmdp = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
+      $reqmdp->execute([$mailconnect]);
+      $result = $reqmdp->fetch();
+      $userexist = $reqmdp->rowCount();
       if($userexist == 1) {
          $userinfo = $requser->fetch();
          // var_dump($userinfo);
@@ -33,8 +40,8 @@ if(isset($_POST['formconnexion'])) {
          // die();
          header("Location: profil.php?id=".$_SESSION['id']);
       } else {
-         $erreur = "Mauvais mail ou mot de passe !";
-      }
+             $erreur = "Mauvais mail ou mot de passe !";
+        }  }
    } else {
       $erreur = "Tous les champs doivent être complétés !";
    }
