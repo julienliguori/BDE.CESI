@@ -54,15 +54,15 @@ if (isset($_POST['new_event'])) {
     $options = array(
         'http' => array(
             'method' => 'POST',
-            'header' => "Content-Type: application/json",
-                        "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g",
+            'header' => "Content-Type: application/json\r\n" .
+                        "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g\r\n",
             'content' => $arrayJSON
         ),
     );
     $context = stream_context_create($options);
 
     if (!empty($_POST['date']) and !empty($_POST['lieux']) and !empty($_POST['urlImage']) and !empty($_POST['description']) and !empty($_POST['nbPlace'])){
-        header('Location: http://bde.cesi/pages/home.php');
+        header('Location: http://bde.cesi/pages/evenement/events.php');
         return file_get_contents('http://localhost:8081/evenement/evenement/', false, $context);
     } else {
         $erreur = "Tous les champs doivent être complétés !";

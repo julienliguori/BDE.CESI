@@ -8,25 +8,18 @@ if(isset($_POST["valider"]))
     {
         $mail=htmlspecialchars($_POST["emailV"]);
 
-        echo $mail;
-
         $compare=explode("@",$mail);
 
-        //echo $compare;
 
-        //echo $compare[1];
-
-        if($compare == "viacesi.fr" || $compare == "cesi.fr")
+        if($compare[1] == "viacesi.fr" || $compare[1] == "cesi.fr")
         {
-            //echo "ne marche pas";
-
-            //header('Location: http://bde.cesi/pages/home.php');
+            header('Location: http://bde.cesi/pages/home.php');
         }
-        else
+        else if($compare[1] =! "viacesi.fr" || $compare[1] =! "cesi.fr")
           {
-            //echo "ne marche pas";
-             //$erreur="Email non valide";
+            $erreur="Email non valide";
           }
+        
     }
     
 
@@ -50,6 +43,11 @@ if(isset($erreur)) {
 
    <body>
 
+       <header>
+         <?php include('.././site/header_interface.php'); ?>
+       </header>
+
+
     <main>
 
 
@@ -63,6 +61,7 @@ if(isset($erreur)) {
 
     </main>
      
+    <footer><?php include('.././site/footer_interface.php');?></footer>
 
    </body>
 
