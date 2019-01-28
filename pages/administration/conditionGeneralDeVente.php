@@ -182,10 +182,11 @@
                 LAJAH décline aussi toute responsabilité pour toutes les informations contenues sur des sites tiers où figurent des liens renvoyant au site de de LAJAH.
             </p>
     </div>
-
+    <br>
 </body>
 <footer>
     <a>Version à jour au 21 Janvier 2019 - Annule et remplace toutes versions antérieures</a>
+    <br><br><br><br><br>
     <?php include("../../source/site/footer_interface.php");?>
 </footer>
 </html>
