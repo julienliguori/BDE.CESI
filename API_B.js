@@ -165,6 +165,10 @@ function verifyToken(req, res, next){
 
 }
 
+// con.on('error', function(err) {
+//   console.log("[mysql error]",err);
+// });
+
 // const express = require('express');
 // const jwt = require('jsonwebtoken');
 
