@@ -35,34 +35,50 @@ if(isset($erreur)) {
 <html lang="fr">
    <head>
 
-      <?php include('.././site/dependances.php');?>
       <title>Connexion</title>
       <meta charset="utf-8">
+
+      <style type="text/css">
+
+      #portail
+      {
+        position:absolute;
+        top:40%;
+        margin-left:40%;
+      }
+
+      </style>
 
    </head>
 
    <body>
 
-       <header>
-         <?php include('.././site/header_interface.php'); ?>
-       </header>
+        <form method="POST" action="" class="center" id="portail">
 
+        <input class="form-control" type="email" name="emailV" placeholder="Mail" id="email_valide" required/>
+        <span id="missEmail"></span>
+        <input class="btn btn-primary" type="submit" name="valider" value="Valider" id="bouton_valide" />
+        </form>
 
-    <main>
+        <script>
 
+        var formValid = document.getElementById('bouton_valide');
+        var emailValid = document.getElementById('email_valide');
+        var missEmail = document.getElementById('missEmail');
 
-    <form method="POST" action="" class="center" style="float:left;">
+        formValid.addEventListener('click', validation);
 
-    <input class="form-control" type="email" name="emailV" placeholder="Mail" />
-    <input class="btn btn-primary" type="submit" name="valider" value="Valider" />
+        function validation(event)
+        {
+            if(emailValid.validity.valueMissing)
+            {
+                event.preventDefault();
+                missEmail.textContent = "Email manquant";
+                missEmail.style.color = "red";
+            }
+        }
 
-    </form>
-
-
-    </main>
-     
-    <footer><?php include('.././site/footer_interface.php');?></footer>
-
+        </script>
    </body>
 
 </html>
