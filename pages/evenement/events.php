@@ -30,41 +30,23 @@ session_start(); ?>
      $increment = 0;
      $element = 'date';
      $condition = date("Y-m-j");
+     $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                       "Content-Type: application/json",
+        )
+    );
+
+    $context = stream_context_create($options);
     //  echo ($condition);
-    //  $url = "http://localhost:8081/evenement/evenement/$element/>=/$condition";
-    // $json = '{"data": ' . file_get_contents($url) . ' }'; 
-    // //echo($json);
-    // $parsed_json = json_decode($json,true);
-    // //var_dump($parsed_json);
-    //HELLO
+     $url = "http://localhost:8081/evenement/evenement/$element/>=/$condition";
+    $json = '{"data": ' . file_get_contents($url, false, $context) . ' }'; 
+    //echo($json);
+    $parsed_json = json_decode($json,true);
+    //var_dump($parsed_json);
 
 
-
-
-            $url = "http://localhost:8081/evenement/evenement/date/>=/$condition";
-
-            $opts = array('http' =>
-                array(
-                    'method' => 'GET',
-                    'header' => 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g',
-                    'max_redirects' => '0',
-                    'ignore_errors' => '1'
-                )
-            );
-
-            $context = stream_context_create($opts);
-            $stream = fopen($url, 'r', false, $context);
-
-            // informations sur les en-têtes et métadonnées du flux
-            //var_dump(stream_get_meta_data($stream));
-
-            // données actuelles de $url
-            //var_dump(stream_get_contents($stream));
-            $p_json = '{"data":' . stream_get_contents($stream) .' }';
-            
-            fclose($stream);
-            var_dump($p_json);
-            $parsed_json = json_decode($p_json,true);
 
 
 
