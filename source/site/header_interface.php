@@ -36,11 +36,28 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="../../pages/boutique/vitrine_boutique.php">Vitrine boutique</a>
           <a class="dropdown-item" href="../../pages/boutique/boutique.php">Consulter la boutique</a>
-          <?php if(isset($_SESSION['status'])){
+          <?php 
+          if(isset($_SESSION['id'])){
+            if(isset($_SESSION['status'])){
               if($_SESSION['status'] == 'Membre BDE'){
-    echo'<a class="dropdown-item" href="../../pages/boutique/nouveau_produit.php">Ajouter un article</a>';}}?>
+              echo'<a class="dropdown-item" href="../../pages/boutique/nouveau_produit.php">Ajouter un article</a>';}
+              }
+            }
+              ?>
         </div>
       </li>
+      <?php 
+      
+      if(isset($_SESSION['id'])){
+        if($_SESSION['status'] == 'Salarier'){
+        echo'<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Administration
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="../../pages/administration/images_events.php">Photos des événements</a>
+              </div>
+            </li>';}}?>
       </ul>
       <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
       <li class="nav-item">

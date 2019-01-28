@@ -20,7 +20,7 @@ if (isset($_POST['new_event'])) {
         if($_FILES['urlImage']['size'] <= $tailleMax) {
            $extensionUpload = strtolower(substr(strrchr($_FILES['urlImage']['name'], '.'), 1));
            if(in_array($extensionUpload, $extensionsValides)) {
-              $chemin = "../../source/img/boutique/ImgMemeFormat/".$nom.".".$extensionUpload;
+              $chemin = "../../source/img/events/".$nom.".".$extensionUpload;
               $resultat = move_uploaded_file($_FILES['urlImage']['tmp_name'], $chemin);
               if($resultat) {
                     $_POST['urlImage']= $nom.".".$extensionUpload;
@@ -76,6 +76,8 @@ fclose($fp); */
 //echo "chups);
 
 }
+}else{
+    header('Location: /../pages/home.php');
 } ?>
 
 <!DOCTYPE html>

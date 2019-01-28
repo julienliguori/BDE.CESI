@@ -1,23 +1,12 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
-<!-- saved from url=(0052)https://getbootstrap.com/docs/4.0/examples/checkout/ -->
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="fr"><head>
     <?php  
-    include_once('../../source/authentification/connexioncookie.php');////
-    include('../../source/site/dependances.php'); //////
-    include("../../source/site/header_interface.php");////
-?>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
-
-    <title>Paiement</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="./Payement_Bootstrap_files/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./Payement_Bootstrap_files/form-validation.css" rel="stylesheet">
+      include_once('../../source/authentification/connexioncookie.php');////
+      include('../../source/site/dependances.php'); //////
+      include("../../source/site/header_interface.php");////
+    ?>   
+  <title>Paiement</title>
   </head>
 
   <body class="bg-light">

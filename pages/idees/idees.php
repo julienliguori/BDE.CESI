@@ -21,7 +21,6 @@
         <th scope="col">Description</th>
         <th scope="col">Dates</th>
         <th scope="col">Lieux</th>
-        <th scope="col">Réactions</th>
         </tr>
     </thead>
   <tbody>
@@ -56,7 +55,6 @@
             <td>' . $data["description"] .'</td>
             <td>' . substr($data["date"], 0, 10) .'</td>
             <td>' . $data["lieux"] .'</td>
-            <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
             </tr>'
         ?>
 

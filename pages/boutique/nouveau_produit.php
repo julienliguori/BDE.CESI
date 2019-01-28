@@ -89,6 +89,8 @@ if(isset($_POST['newproduct'])) {
 
 
  }
+  }else{
+   header('Location: /../pages/home.php');
   } ?>
 
 <!DOCTYPE html>

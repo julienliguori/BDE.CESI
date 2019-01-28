@@ -13,7 +13,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
 <html lang="fr">
    <head>
    <?php include('.././site/dependances.php'); ?>
-      <title><?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']); ?> - Profil</title>
+      <title><?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom'] . ' ' . $userinfo['Status']); ?> - Profil</title>
    </head>
    <body>
       <header>
@@ -21,7 +21,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
       </header>
 
       <div class="container" style="text-align: center; padding-top:25px">
-         <h2>Profil de <?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom']);?></h2>
+         <h2>Profil de <?php echo ($userinfo['Nom'] . ' ' . $userinfo['Prenom'] . ' ' . $userinfo['Status']);?></h2>
          <br /><br />
          <?php 
          if(!empty($userinfo['avatar']))
@@ -37,6 +37,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          Prenom : <?php echo $userinfo['Prenom']; ?>
          <br />
          Mail : <?php echo $userinfo['Mail']; ?>
+         <br />
+         Statut : <?php echo $userinfo['Status']; ?>
          <br />
          <?php
          if(isset($_SESSION['id']) AND $userinfo['ID'] == $_SESSION['id']) {
