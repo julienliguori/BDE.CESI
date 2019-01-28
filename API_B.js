@@ -102,12 +102,9 @@
         //concatent
 
         var sql = "INSERT INTO " + req.params.table + " (" + dataKeys + ") VALUES ("+ dataValues +")";
-
+        console.log(sql);
         con.query(sql, function (err, result) {
-          if (err) {
-          console.log(sql);
-          throw err;
-          }
+          if (err) throw err;
           console.log("Result: ", result);
           res.send("Executé");
           });  
@@ -140,7 +137,7 @@
       //concatent
 
       var sql ="UPDATE " + req.params.table + " SET " + dataKeys + " = " + dataValues + " WHERE " +  req.params.filtre + req.params.signe + " '" + req.params.condition + " '";
-
+      console.log(sql);
       con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("Result: ", result);
