@@ -18,7 +18,7 @@ if (isset($_POST['new_idea'])) {
     $options = array(
         'http' => array(
             'method' => 'POST',
-            'header' => "Content-Type: application/json",
+            'header' => "Content-Type: application/json\r\n" .
                         "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g",
             'content' => $arrayJSON,
         ),
@@ -27,7 +27,7 @@ if (isset($_POST['new_idea'])) {
 
     if (!empty($_POST['lieux']) and !empty($_POST['date']) and !empty($_POST['description']) and !empty($_POST['nomClient'])) {
 
-        header('Location: http://bde.cesi/pages/home.php');
+        header('Location: http://bde.cesi/pages/idees/idees.php');
         return file_get_contents('http://localhost:8081/idees/boiteidee/', false, $context);
     } else {
         $erreur = "Tous les champs doivent être complétés !";
