@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
@@ -32,11 +32,11 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          }
          ?>
          <br /><br />
-         Nom = <?php echo $userinfo['Nom']; ?>
+         Nom : <?php echo $userinfo['Nom']; ?>
          <br />
-         Prenom = <?php echo $userinfo['Prenom']; ?>
+         Prenom : <?php echo $userinfo['Prenom']; ?>
          <br />
-         Mail = <?php echo $userinfo['Mail']; ?>
+         Mail : <?php echo $userinfo['Mail']; ?>
          <br />
          <?php
          if(isset($_SESSION['id']) AND $userinfo['ID'] == $_SESSION['id']) {

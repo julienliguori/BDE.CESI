@@ -1,11 +1,10 @@
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
    <head>
       <?php include('.././site/dependances.php');?>
       <?php
-// session_start();
 $time_c=365*24*3600;
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');

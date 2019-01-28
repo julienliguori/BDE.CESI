@@ -19,6 +19,7 @@ if (isset($_POST['new_idea'])) {
         'http' => array(
             'method' => 'POST',
             'header' => "Content-Type: application/json",
+                        "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g",
             'content' => $arrayJSON,
         ),
     );
