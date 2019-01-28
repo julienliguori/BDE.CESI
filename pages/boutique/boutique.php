@@ -29,7 +29,7 @@ session_start(); ?>
         $json = '{"data": ' . file_get_contents($url) . ' }'; 
         //echo($json);
         if ($json == '{"data": [] }'){
-            echo'Aucun article ne corespond à votre recherche';
+            echo'Aucun article ne correspond à votre recherche.';
         }
     }
     //echo($json);
