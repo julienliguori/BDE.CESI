@@ -1,28 +1,23 @@
 <?php
-
-
-/* retrieve the search term that autocomplete sends */
-$element = trim(strip_tags($_GET['element']));
-$signe = trim(strip_tags($_GET['signe']));
-$condition = trim(strip_tags($_GET['condition']));
-?>
-
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     
     <?php  
-        include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     ?>
     <title>Boutique</title>
 </head>
 <body>
-    <?php include('../../source/site/sidebar_boutique_interface.php'); ?>
     <div class="container" style="padding-top:50px">
-    <div class="row">
+    <div class="d-flex justify-content-around">
     <?php
+    $element = trim(strip_tags($_GET['element']));
+    $signe = trim(strip_tags($_GET['signe']));
+    $condition = trim(strip_tags($_GET['condition']));
     $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
     //echo $url;
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
@@ -36,29 +31,27 @@ $condition = trim(strip_tags($_GET['condition']));
             ?>
 
                 <?php echo '
-                <div class="col-md-4" style="padding-bottom:80px">
+                <div class="col-md-5" style="padding-bottom:80px">
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-top" src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" alt="">
                         <div class="card-body">
                         <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button>
+                            <a href="../../pages/boutique/panier.php?element=idArticle&signe=%3D&condition=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-warning">Acheter</button></a>
                             </div>
-                            <small class="text-muted">' . $data["prix"] ."€". '</small>
+                            <p class="font-weight-bolder">' . $data["prix"] ."€". '</p>
                         </div>
-                            <p class="text-muted">Desciprtion : ' . $data["description"] . '</p>
-                            <p class="text-muted"> Il en reste : ' . $data["quantite"] . '</p>
-                            <p class="text-muted">Couleur : ' . $data["couleur"] . '</p>
-                            <p class="text-muted">Catégorie : ' . $data["type"] . '</p>
+                            <p>Description : ' . $data["description"] . '</p>
+                            <p> Il en reste : ' . $data["quantite"] . '</p>
+                            <p>Couleur : ' . $data["couleur"] . '</p>
+                            <p>Catégorie : ' . $data["type"] . '</p>
                         </div>
                     </div>
                 </div>' 
                 ?>
 
          <?php } ?>
-
     </div>
 </div>
 <footer><?php include("../../source/site/footer_interface.php");?></footer>

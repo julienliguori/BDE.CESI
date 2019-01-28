@@ -1,10 +1,15 @@
-<?php
+<?php session_start(); ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+      <?php include('.././site/dependances.php');?>
+      <?php
 $time_c=365*24*3600;
 
 $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-
+if(!isset($_SESSION['id']) AND empty($_SESSION['id']) AND empty($_SESSION['status'])){
 if(isset($_POST['formconnexion'])) {
-   session_start();
    include_once('./connexioncookie.php');
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
    $mdpconnect = sha1($_POST['mdpconnect']);
@@ -34,12 +39,10 @@ if(isset($_POST['formconnexion'])) {
       $erreur = "Tous les champs doivent être complétés !";
    }
 }
+} else{
+   header('Location: /pages/home.php');
+}
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-   <head>
-      <?php include('.././site/dependances.php');?>
       <title>Connexion</title>
       <meta charset="utf-8">
    </head>

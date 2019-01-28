@@ -1,5 +1,11 @@
 <?php
+session_start(); ?>
+<?php
 //$bdd = new PDO('mysql:host=;dbname=bde_cesi', 'root', '');
+ if(isset($_SESSION['status'])){
+   if($_SESSION['status'] != 'Membre BDE'){
+   header('Location: /../pages/home.php');
+   }else{
 
 //If newproduct is open
 if(isset($_POST['newproduct'])) { 
@@ -26,13 +32,13 @@ if(isset($_POST['newproduct'])) {
                   
               // header('Location: profil.php?id='.$_SESSION['id']);
             } else {
-               $msg = "Erreur durant l'importation de votre image";
+               $msg = "Erreur durant l'importation de votre image.";
             }
          } else {
-            $msg = "Votre image doit être au format jpg, jpeg, gif ou png";
+            $msg = "Votre image doit être au format jpg, jpeg, gif ou png.";
          }
       } else {
-         $msg = "Votre image ne doit pas dépasser 2Mo";
+         $msg = "Votre image ne doit pas dépasser 2Mo.";
       }
    }
 
@@ -58,6 +64,7 @@ if(isset($_POST['newproduct'])) {
       'http'=> array(
           'method' => 'POST',
           'header'=> "Content-Type: application/json",
+                     "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g",
           'content' => $arrayJSON
       )
   );
@@ -70,7 +77,7 @@ if(isset($_POST['newproduct'])) {
       return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
    }
    else {
-      $erreur = "Tout les champs doivent être complétés !";
+      $erreur = "Tous les champs doivent être complétés !";
    }
 }
   
@@ -81,15 +88,17 @@ if(isset($_POST['newproduct'])) {
   //echo "chups);
 
 
-
-   ?>
+ }
+  } header('Location: /../pages/home.php'); ?>
 
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include('../../source/site/dependances.php'); ?>
+      <?php include('../../source/site/dependances.php'); 
+      include_once('../../source/authentification/connexioncookie.php');
+      ?>
 
-      <title>AjoutProduit</title>
+      <title>Ajout d'un produit</title>
    </head>
    <body>
       <header>

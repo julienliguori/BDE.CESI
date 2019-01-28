@@ -66,9 +66,20 @@ if(isset($_SESSION['id'])) {
 <!DOCTYPE html>
 <html lang="fr">
    <head>
-      <?php include('.././site/dependances.php'); ?>
+      <?php //include('.././site/dependances.php'); 
+            include("../../source/site/header_interface.php");
+      ?>
       <title>Edition du profil</title>
-  
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="icon" href="/source/img/logo/bde.png" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="http://bde.cesi/pages/css/style.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        
    </head>
    <body>
       <div align="center">
@@ -77,10 +88,10 @@ if(isset($_SESSION['id'])) {
                 <table>
                     <tr>
                         <td align="right">
-                           <label class="custom-file-label">Avatar :</label>
+                           <label >Avatar :</label>
                         </td>
                         <td> 
-                           <input type="file" name="avatar" class="custom-file-input"/>
+                           <input type="file" name="avatar"/>
                         </td>
                     </tr>
                     <tr>
@@ -132,6 +143,7 @@ if(isset($_SESSION['id'])) {
             </form>
             <?php if(isset($msg)) { echo $msg; } ?>
       </div>
+      <?php include("../../source/site/footer_interface.php");?>
    </body>
 </html>
 <?php   

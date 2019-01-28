@@ -129,16 +129,15 @@ CREATE TABLE Ajouter_a_la_liste(
 
 CREATE TABLE evenement(
         idEvenement Int  Auto_increment  NOT NULL ,
+        nom Varchar(50) NOT NULL,
         date        Date NOT NULL ,
         lieux       Varchar (50) NOT NULL ,
         urlImage    Varchar (50) NOT NULL ,
         description Longtext NOT NULL ,
         nbParticipant   Int NOT NULL DEFAULT 0,
         nbPlace         Int NOT NULL,
-        idMembre        Int NOT NULL
-	,CONSTRAINT evenement_PK PRIMARY KEY (idEvenement)
-
-	,CONSTRAINT evenement_Membre_BDE_FK FOREIGN KEY (idMembre) REFERENCES Membre_BDE(idMembre)
+        nomMembre       Varchar(50) NOT NULL,
+	CONSTRAINT evenement_PK PRIMARY KEY (idEvenement)
 )ENGINE=InnoDB;
 
 
@@ -222,5 +221,3 @@ CREATE TABLE Signaler(
 
 	,CONSTRAINT Signaler_PK PRIMARY KEY (idSignaler)
 )ENGINE=InnoDB;
-
-

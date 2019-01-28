@@ -1,10 +1,12 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     
     <?php  
-        include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     ?>
     <title>Événements</title>
@@ -25,25 +27,29 @@
   </thead>
   <tbody>
   <?php
-    $element = 1;
-    $condition = 1;
-    $url = "http://localhost:8081/evenement/evenement/$element/=/$condition";
+     $increment = 0;
+     $element = 'date';
+     $condition = date("Y-m-j");
+     echo ($condition);
+     $url = "http://localhost:8081/evenement/evenement/$element/>=/$condition";
     $json = '{"data": ' . file_get_contents($url) . ' }'; 
     //echo($json);
     $parsed_json = json_decode($json,true);
     //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
             ?>
-        <?php echo '
-    <tr>
-      <th scope="row">1</th>
-      <td>' . $data["Nom"] .' </td>
-      <td>' . $data["Description"] .'</td>
-      <td>' . $data["Date"] .'</td>
-      <td>' . $data["Lieux"] .'</td>
-      <td><button href="#" type="button" class="btn btn-warning">Warning</button></td>
-    </tr>'
-    ?>
+        <?php 
+            $increment++; 
+            echo 
+            '<tr>
+            <th scope="row">' . $increment . '</th>
+            <td>' . $data["nom"] .' </td>
+            <td>' . $data["description"] .'</td>
+            <td>' . substr($data["date"], 0, 10) .'</td>
+            <td>' . $data["lieux"] .'</td>
+            <td><a href="/pages/evenement/evenement_article.php?id='. $data['idEvenement'] . '&A=0" ><button  type="button" class="btn btn-warning">Participer</button></a></td>
+            </tr>'
+        ?>
     <?php } ?>
     </tbody>
 </table>

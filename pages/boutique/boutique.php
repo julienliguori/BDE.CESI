@@ -1,10 +1,12 @@
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     
     <?php  
-        include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
+        include_once('../../source/authentification/connexioncookie.php');
         include("../../source/site/header_interface.php");
     ?>
     <title>Boutique</title>
@@ -27,7 +29,7 @@
         $json = '{"data": ' . file_get_contents($url) . ' }'; 
         //echo($json);
         if ($json == '{"data": [] }'){
-            echo'Aucun article ne corespond à votre recherche';
+            echo'Aucun article ne correspond à votre recherche.';
         }
     }
     //echo($json);
@@ -44,8 +46,8 @@
                         <p class="card-text">' . $data["nom"] . " " . $data["taille"] . '</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <a href="../../pages/boutique/produit.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
-                            <a href="../../pages/boutique/panier.php?id=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button></a>
+                            <a href="../../pages/boutique/produit.php?element=idArticle&signe=%3D&condition=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
+                            <a href="../../pages/boutique/panier.php?element=idArticle&signe=%3D&condition=' . $data['idArticle'] . '"><button type="button" class="btn btn-sm btn-outline-secondary">Acheter</button></a>
                             </div>
                             <small class="text-muted">' . $data["prix"] ."€". '</small>
                         </div>
