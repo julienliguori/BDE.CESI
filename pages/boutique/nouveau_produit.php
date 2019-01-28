@@ -62,10 +62,9 @@ if(isset($_POST['newproduct'])) {
   //params convertion
   $options = array(
       'http'=> array(
-          'method' => 'POST',
-          'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
-                     "Content-Type: application/json",
-          'content' => $arrayJSON
+            'method' => 'POST',
+            'header'=> 'Content-Type:application/json' . 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g',
+            'content' => $arrayJSON
       )
   );
 

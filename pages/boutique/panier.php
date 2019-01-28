@@ -23,7 +23,7 @@ session_start();
         }
 } else {  
             //header('Location: /source/authentification/connexion.php');
-            echo '<h1 style="text-align:center">Vous devez étre connecté !</h1>';
+            echo '<h1 style="text-align:center">Vous devez être connecté !</h1>';
      }
 
    
@@ -57,6 +57,17 @@ session_start();
                 </thead>
                 <tbody>
                     <?php
+
+                    $options = array(
+                        'http'=> array(
+                            'method' => 'GET',
+                            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                                    "Content-Type: application/json",
+                        )
+                    );
+
+                    $context = stream_context_create($options);
+
                     if ($article == ''){
                         echo "Vous n'avez pas d'article.";
                     }else{
@@ -70,7 +81,7 @@ session_start();
                         $signe = '=';
                         $condition = $fin;
                         $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
-                        $json = '{"data": ' . file_get_contents($url) . ' }';
+                        $json = '{"data": ' . file_get_contents($url, false, $context) . ' }';
                         //echo($json);
                         $parsed_json = json_decode($json,true);
                         //var_dump($parsed_json);
@@ -114,11 +125,6 @@ session_start();
                     </div>
 
                     </div>
-<?php } else {  
-           //header('Location: /source/authentification/connexion.php');
-           echo '<h1 style="text-align:center">Vous devez être connecté.</h1>';
-    }
-  ?>
 
 
 <footer><?php include("../../source/site/footer_interface.php");?></footer>

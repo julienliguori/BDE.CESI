@@ -17,10 +17,21 @@ session_start(); ?>
     <?php
     // $element = trim(strip_tags($_GET['element']));
     // $signe = trim(strip_tags($_GET['signe']));
+
+    $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                    "Content-Type: application/json",
+        )
+    );
+
+    $context = stream_context_create($options);
+
     $condition = trim(strip_tags($_GET['id']));
     $url = "http://localhost:8081/evenement/evenement/idEvenement/=/$condition";
     //echo $url;
-    $json = '{"data": ' . file_get_contents($url) . ' }'; 
+    $json = '{"data": ' . file_get_contents($url, false, $context) . ' }'; 
     $auj = date("Y-m-j");
     //echo($json);
     if ($json == '{"data": [] }'){
