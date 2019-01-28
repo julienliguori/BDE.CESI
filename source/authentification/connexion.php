@@ -15,38 +15,46 @@ if(!isset($_SESSION['id']) AND empty($_SESSION['id']) AND empty($_SESSION['statu
 if(isset($_POST['formconnexion'])) {
    include_once('./connexioncookie.php');
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
-   $mdpconnect = password_hash($_POST['mdpconnect'], PASSWORD_BCRYPT, $optionsmdp);
+   $mdpconnect = $_POST['mdpconnect'];
 
    //var_dump($reqmdp);
    if(!empty($mailconnect) AND !empty($mdpconnect)) {
-      if($reqmdp == true){
       $reqmdp = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
       $reqmdp->execute([$mailconnect]);
       $result = $reqmdp->fetch();
-      $userexist = $reqmdp->rowCount();
-      if($userexist == 1) {
-         $userinfo = $requser->fetch();
-         // var_dump($userinfo);
-         if(isset($_POST['rememberme'])) {
-            setcookie('email',$mailconnect,time()+$time_c,null,null,false,true);
-            setcookie('password',$mdpconnect,time()+$time_c,null,null,false,true);
+      if($result == true){
+         $hashmdp = $result['MDP'];
+         var_dump($result);
+         if(password_verify($mdpconnect, $hashmdp)){
+
+            $userexist = $reqmdp->rowCount();
+            if($userexist == 1) {
+               $userinfo = $result;
+               // var_dump($userinfo);
+               if(isset($_POST['rememberme'])) {
+                  setcookie('email',$mailconnect,time()+$time_c,null,null,false,true);
+                  setcookie('password',$mdpconnect,time()+$time_c,null,null,false,true);
+               }
+               $_SESSION['id'] = $userinfo['ID'];
+               $_SESSION['nom'] = $userinfo['Nom'];
+               $_SESSION['prenom'] = $userinfo['Prenom'];
+               $_SESSION['mail'] = $userinfo['Mail'];
+               $_SESSION['status'] = $userinfo['Status'];
+               // var_dump($_SESSION);
+               // die();
+               header("Location: profil.php?id=".$_SESSION['id']);
+               } else {
+                     $erreur = "Mauvais mail ou mot de passe !";
+               }
+            }
          }
-         $_SESSION['id'] = $userinfo['ID'];
-         $_SESSION['nom'] = $userinfo['Nom'];
-         $_SESSION['prenom'] = $userinfo['Prenom'];
-         $_SESSION['mail'] = $userinfo['Mail'];
-         $_SESSION['status'] = $userinfo['Status'];
-         // var_dump($_SESSION);
-         // die();
-         header("Location: profil.php?id=".$_SESSION['id']);
-      } else {
-             $erreur = "Mauvais mail ou mot de passe !";
-        }  }
-   } else {
-      $erreur = "Tous les champs doivent être complétés !";
-   }
-}
-} else{
+
+
+            } else {
+               $erreur = "Tous les champs doivent être complétés !";
+            }
+         }
+     } else{
    header('Location: /pages/home.php');
 }
 ?>

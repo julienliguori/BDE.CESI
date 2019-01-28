@@ -180,14 +180,44 @@ if(isset($_POST['forminscription'])) {
                      </td>
                      <td>
                      <br />
-                        <input type="submit" class="btn btn-primary" name="forminscription" value="Je m'inscris" />
+                        <input id="submit" type="submit" class="btn btn-primary" name="forminscription" value="Je m'inscris" />
                      </td>
                   </tr>
                </table>
             </form>
+            <script>
+
+               // var mdp = document.getElementById('submit');
+               // var motDePasse = document.getElementById('mdp');
+               // var missMotDePasse = document.getElementById('missMotDePasse');
+               // var mdpValid = /^[A-Z]+[A-Za-z].{7,}[0-9].{0,}/;
+
+               // mdp.addEventListener('click', validation);
+
+               // function validation(event)
+               // {
+               //    if(motDePasse.validity.valueMissing)
+               //    {
+               //       event.preventDefault();
+               //       missMotDePasse.textContent = "Veuillez indiquer un mot de passe";
+               //       missMotDePasse.style.color = "red";
+               //    }
+               //    else if (mdpValid.test(motDePasse.value) == false)
+               //    {
+               //       event.preventDefault();
+               //       missMotDePasse.textContent = "Format incorrect";
+               //       missMotDePasse.style.color = "red";
+               //    }
+               //    else
+               //    {
+
+               //    }
+               // }
+
+               </script>
             <?php
             if(isset($erreur)) {
-               echo '<font color="red">'.$erreur."</font>";
+               echo '<font id="missMotDePasse" color="red">'.$erreur."</font>";
             }
             ?>
          </div>
