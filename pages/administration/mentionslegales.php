@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    
-    <?php  
+<meta charset="utf-8" />
+    <?php
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
-        include("../../source/site/header_interface.php");
     ?>
-    <title>Boutique</title>
+    <title>Mentions légales</title>
 </head>
 <body>
-    <div class="container" style="padding-top:50px">
-    <div class="row">
-    <h1>Mentions légals<h1>
-    <h3>Raison sociale : LAJAH SAS</h3>
-    <h3>Forme juridique : SASU Société par actions simplifiée à associé unique</h3>
-    <h3>Siège social : LAJAH SAS, 30 RUE CAMBRONNE 75015 PARIS</h3>
-    <h3>Capital social : 1 100 000,00 €</h3>
-    <h3>Adresse électronique : LAJAH@cesi.fr </h3><br/>
+    <header><?php include('../../source/site/header_interface.php'); ?></header>
+
+    <div class="container" style="margin-top:50px">
+    <p><h1>Mentions légals : </h1></p>
+    <p>Raison sociale : LAJAH SAS</p>
+    <p>Forme juridique : SASU Société par actions simplifiée à associé unique</p>
+    <p>Siège social : LAJAH SAS, 30 RUE CAMBRONNE 75015 PARIS</p>
+    <p>Capital social : 1 100 000,00 €</p>
+    <p>Adresse électronique : LAJAH@cesi.fr</p>
     
-    <h3>Numéro de téléphone :	0666666666</h3>
-    <h3>RCS : 342 707 502 R.C.S. PARIS</h3>
-    <h3>TVA intracommunautaire : FR21342707502</h3>
-    <h3>Directeur de la publication : LIGUORI Julien julien.liguori@viacesi.fr 0262724906</h3>
-    <h3>Hébergeur de site : LE BOENNEC Hugo hugo.leboennec@viacesi.fr   0574865486</h3>
+    <p>Numéro de téléphone :	0666666666</p>
+    <p>RCS : 342 707 502 R.C.S. PARIS</p>
+    <p>TVA intracommunautaire : FR21342707502</p>
+    <p>Directeur de la publication : LIGUORI Julien / julien.liguori@viacesi.fr 0262724906</p>
+    <p>Hébergeur de site : LE BOENNEC Hugo / hugo.leboennec@viacesi.fr   0574865486</p>
 
-
-    </div>
 </div>
 <footer><?php include("../../source/site/footer_interface.php");?></footer>
 </body>
