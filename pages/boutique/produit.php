@@ -15,12 +15,23 @@ session_start(); ?>
     <div class="container" style="padding-top:50px">
     <div class="d-flex justify-content-around">
     <?php
+
+    $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                    "Content-Type: application/json",
+        )
+    );
+
+    $context = stream_context_create($options);
+
     $element = trim(strip_tags($_GET['element']));
     $signe = trim(strip_tags($_GET['signe']));
     $condition = trim(strip_tags($_GET['condition']));
     $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
     //echo $url;
-    $json = '{"data": ' . file_get_contents($url) . ' }'; 
+    $json = '{"data": ' . file_get_contents($url, false, $context) . ' }'; 
     //echo($json);
     if ($json == '{"data": [] }'){
         echo'Aucun article ne corespond à votre recherche';

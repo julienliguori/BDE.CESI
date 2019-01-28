@@ -63,10 +63,10 @@ session_start(); ?>
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-top" src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" alt="">
                         <div class="card-body">
-                        <p class="card-text">Événement</p>
+                        <p class="card-text">Événements</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <a href="../../pages/evenement/event.php"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
+                            <a href="../../pages/evenement/events.php"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>
                             </div>
                         </div>
                         </div>
@@ -89,7 +89,7 @@ session_start(); ?>
                     <div class="card mb-4 shadow-sm">
                         <img class="card-img-top" src="/source/img/boutique/imgmemeformat/' . $data['photo'] . '" alt="">
                         <div class="card-body">
-                        <p class="card-text">Proposer une idée</p>
+                        <p class="card-text">Idées</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                             <a href="../../pages/idees/idees.php"><button type="button" class="btn btn-sm btn-outline-secondary">Voir</button></a>

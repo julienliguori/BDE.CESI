@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_POST['new_idea'])) {
 
     $lieux = htmlspecialchars($_POST['lieux']);
