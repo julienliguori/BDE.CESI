@@ -166,7 +166,7 @@ if(isset($_POST['forminscription'])) {
                         <input type="checkbox" id="scales" name="scales" unchecked></td>
                         </td>
                         <td>
-                        <label for="scales">J'ai lu et j'accepte les <a href="/CGU.html">Conditions Générales d'Utilisation</a> ainsi que la <a href="/PdC"> Politique de confidentialité </a></label>
+                        <label for="scales">J'ai lu et j'accepte les <a href="../../pages/administration/ConditionGeneralDutilisation.php">Conditions Générales d'Utilisation</a></label>
                      </td>
                   </tr>
                <br/>

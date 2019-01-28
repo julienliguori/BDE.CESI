@@ -62,9 +62,10 @@ if(isset($_POST['newproduct'])) {
   //params convertion
   $options = array(
       'http'=> array(
-            'method' => 'POST',
-            'header'=> 'Content-Type:application/json' . 'Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g',
-            'content' => $arrayJSON
+          'method' => 'POST',
+          'header'=> "Content-Type: application/json\r\n" .
+                     "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g\r\n",
+          'content' => $arrayJSON
       )
   );
 
@@ -72,7 +73,7 @@ if(isset($_POST['newproduct'])) {
 
   //Redirection
    if(!empty($_POST['nom']) AND !empty($_POST['prix']) AND !empty($_POST['quantite']) AND !empty($_POST['description']) AND !empty($_POST['couleur']) AND !empty($_POST['type']) AND !empty($_POST['photo'])){
-      header('Location: http://bde.cesi/pages/home.php');
+      header('Location: http://bde.cesi/pages/boutique/boutique.php');
       return file_get_contents('http://localhost:8081/boutique/article/', false, $context);
    }
    else {
