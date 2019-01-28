@@ -79,6 +79,7 @@
   app.post('/:site/:table/', verifyToken, function (req, res) {
     jwt.verify(req.token, 'verysecretkey', function(err, authData){
       if(err){
+        console.log(sql);
         res.sendStatus(403);
       }else{
      
@@ -103,7 +104,10 @@
         var sql = "INSERT INTO " + req.params.table + " (" + dataKeys + ") VALUES ("+ dataValues +")";
 
         con.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) {
+          console.log(sql);
+          throw err;
+          }
           console.log("Result: ", result);
           res.send("Executé");
           });  
