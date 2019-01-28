@@ -6,13 +6,13 @@
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
     ?>
-    <title>Mentions légales</title>
+    <title>Conditions générales d'utilisation</title>
 </head>
 <body>
     <header><?php include('../../source/site/header_interface.php'); ?></header>
 
     <div class="container" style="margin-top:50px">
-    <p><h1>Mentions légals : </h1></p>
+    <p><h1>Conditions générales d'utilisation : </h1></p>
     <p>Raison sociale : LAJAH SAS</p>
     <p>Forme juridique : SASU Société par actions simplifiée à associé unique</p>
     <p>Siège social : LAJAH SAS, 30 RUE CAMBRONNE 75015 PARIS</p>

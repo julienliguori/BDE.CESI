@@ -5,7 +5,7 @@
         include_once('../../source/authentification/connexioncookie.php');
         include('../../source/site/dependances.php'); 
     ?>
-    <title>Admin</title>
+    <title>Credit</title>
 </head>
 <body>
     <header><?php include('../../source/site/header_interface.php'); ?></header>
@@ -62,5 +62,6 @@
     </div>
 
 </body>
+<footer><?php include("../../source/site/footer_interface.php");?></footer>
 </html>
 
