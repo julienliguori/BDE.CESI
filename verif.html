@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+   <head>
+
+      <title>champ de text vérification</title>
+      <meta charset="utf-8">
+
+      <style type="text/css">
+
+      #mdp
+      {
+        position:absolute;
+        top:40%;
+        margin-left:40%;
+      }
+
+      </style>
+
+   </head>
+
+   <body>
+
+        <form method="POST" action="" class="center" id="mdp">
+
+        <input class="form-control" type="password" name="motDePasse" placeholder="Mot de passe..." id="motDePasse" required/>
+        <input class="btn btn-primary" type="submit" name="valider" value="Valider" id="bouton_valide" /><br><br>
+        <span id="missMotDePasse"></span>
+        </form>
+
+        <script>
+
+        var mdp = document.getElementById('bouton_valide');
+        var motDePasse = document.getElementById('motDePasse');
+        var missMotDePasse = document.getElementById('missMotDePasse');
+        var mdpValid = /^[A-Z]+[A-Za-z].{7,}[0-9].{0,}/;
+
+        mdp.addEventListener('click', validation);
+
+        function validation(event)
+        {
+            if(motDePasse.validity.valueMissing)
+            {
+                event.preventDefault();
+                missMotDePasse.textContent = "Veuillez indiquer un mot de passe";
+                missMotDePasse.style.color = "red";
+            }
+            else if (mdpValid.test(motDePasse.value) == false)
+            {
+                event.preventDefault();
+                missMotDePasse.textContent = "Format incorrect";
+                missMotDePasse.style.color = "red";
+             }
+            else
+            {
+
+            }
+        }
+
+        </script>
+   </body>
+
+</html>

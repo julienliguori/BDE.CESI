@@ -56,8 +56,8 @@ if(isset($erreur)) {
         <form method="POST" action="" class="center" id="portail">
 
         <input class="form-control" type="email" name="emailV" placeholder="Mail" id="email_valide" required/>
-        <span id="missEmail"></span>
         <input class="btn btn-primary" type="submit" name="valider" value="Valider" id="bouton_valide" />
+        <span id="missEmail"></span>
         </form>
 
         <script>
