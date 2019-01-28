@@ -75,8 +75,10 @@ CREATE TABLE likes(
 
 CREATE TABLE commentairePhoto(
         idCommentairePhoto          Int  Auto_increment  NOT NULL ,
+        img Varchar(255) NOT NULL,
         description                 Longtext NOT NULL ,
-        nomClient Varchar(50) NOT NULL
+        nomClient Varchar(50) NOT NULL,
+        idEvenement Int(11)
 	,CONSTRAINT commentairePhoto_PK PRIMARY KEY (idCommentairePhoto)
 
 )ENGINE=InnoDB;
