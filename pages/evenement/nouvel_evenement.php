@@ -76,7 +76,7 @@ fclose($fp); */
 //echo "chups);
 
 }
-} header('Location: /../pages/home.php'); ?>
+} ?>
 
 <!DOCTYPE html>
 <html lang="fr">

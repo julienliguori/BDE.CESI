@@ -3,7 +3,6 @@ session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    
     <?php  
         include('../../source/site/dependances.php'); 
         include_once('../../source/authentification/connexioncookie.php');
@@ -16,17 +15,30 @@ session_start(); ?>
     <div class="container" style="padding-top:50px">
     <div class="row">
     <?php
+    
+    $options = array(
+        'http'=> array(
+            'method' => 'GET',
+            'header'=> "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluQm91dGlxdWUifSwiaWF0IjoxNTQ4NjMwMjQyfQ.v6eCHbT4zqZ-Ymv8rBFtncRLjFJZbFcZvHudfoGUM9g", 
+                       "Content-Type: application/json",
+        )
+    );
+
+    $context = stream_context_create($options);
+
     if(($_SERVER["REQUEST_URI"] == '/pages/boutique/boutique.php')){
         $url = "http://localhost:8081/boutique/article/1/=/1";
         //echo $url;
-        $json = '{"data": ' . file_get_contents($url) . ' }'; 
+        $json = '{"data": ' . file_get_contents($url, false, $context) . ' }'; 
     }else{
         $element = trim(strip_tags($_GET['element']));
         $signe = trim(strip_tags($_GET['signe']));
         $condition = trim(strip_tags($_GET['condition']));
         $url = "http://localhost:8081/boutique/article/$element/$signe/$condition";
+
+
         //echo $url;
-        $json = '{"data": ' . file_get_contents($url) . ' }'; 
+        $json = '{"data": ' . file_get_contents($url, false, $context) . ' }'; 
         //echo($json);
         if ($json == '{"data": [] }'){
             echo'Aucun article ne correspond à votre recherche.';
@@ -37,7 +49,6 @@ session_start(); ?>
     //var_dump($parsed_json);
         foreach ($parsed_json['data'] as $data) {
             ?>
-
                 <?php echo '
                 <div class="col-md-4" style="padding-bottom:80px">
                     <div class="card mb-4 shadow-sm">
