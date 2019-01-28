@@ -1,3 +1,7 @@
+<?php
+require('C:\wamp64\www\BDE.CESI\source\authentification/cookie/footer.php');
+?>
+
 <div class="container fixed-bottom" style="background-color:#000000; color:#ffffff;" >
     <br/>
     <p class="float-right">
@@ -10,3 +14,4 @@
      - <a id="liens" href="../../pages/administration/administration.php">Credit</a>
      </p>
 </div>
+
